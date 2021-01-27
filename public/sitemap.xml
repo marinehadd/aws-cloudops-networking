@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/</loc>
+  </url>
+  
+  <url>
+    <loc>/introduction/prereqs.html</loc>
+  </url>
+  
+  <url>
+    <loc>/introduction.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-2-aws-networking/aws-infrastructure.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-1-networking-foundations/network-definition.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-1-networking-foundations/osi-model.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-2-aws-networking/whats-a-vpc.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-1-networking-foundations/network-devices.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-2-aws-networking/privatepublic.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-2-aws-networking/security.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-1-networking-foundations/subnetting.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-2-aws-networking/load-balancing.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-1-networking-foundations/routing.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-1-networking-foundations.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-1-networking-foundations/dnsdhcp.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-2-aws-networking/route53.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-1-networking-foundations/homework.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-2-aws-networking/hybrid-cloud.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-2-aws-networking/advanced-networking.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-2-aws-networking.html</loc>
+  </url>
+  
+  <url>
+    <loc>/categories.html</loc>
+  </url>
+  
+  <url>
+    <loc>/tags.html</loc>
+  </url>
+  
+</urlset>

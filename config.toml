@@ -1,0 +1,54 @@
+languageCode = "en-us"
+ignoreFiles = [ "\\.files/README.md$",  ]
+defaultContentLanguage = "en"
+title = "Amazon CloudOps Networking Workshop"
+theme = "learn"
+uglyurls = true
+sectionPagesMenu = "main"
+relativeURLs = true
+
+[blackfriday]
+hrefTargetBlank = true
+
+[params]
+themeVariant = "mine"
+showVisitedLinks = false
+author = "Marine Haddad"
+description = "Amazon CloudOps Networking Workshop"
+disableSearch = false
+disableAssetsBusting = false
+disableLanguageSwitchingButton = true
+disableShortcutsTitle=false
+disableInlineCopyToClipBoard = true
+editURL = "http://d37ijis7gunnkm.cloudfront.net/" # Add github URL
+baseURL = "http://d37ijis7gunnkm.cloudfront.net/"
+
+#
+
+[menu]
+  [[menu.main]]
+    identifier = "Prerequisites"
+    name = "This is the Mu track"
+    title = "Workshop using Mu"
+    url = "/mu/"
+    weight = -110
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-linkedin fa-lg'></i> Marine Haddad"
+identifier = "li1"
+url = "https://www.linkedin.com/in/marine-haddad-38a542b5/"
+weight = 2
+
+# Deploy to S3 + CloudFront
+[deployment]
+  [[deployment.targets]]
+    name = "S3"
+    URL = "s3://cloudops-s3-website?region=eu-west-1"
+    cloudFrontDistributionID = "E2G13Z9GIV62G1"
+
+[markup.goldmark.renderer]
+unsafe= true
+
+[outputs]
+home = [ "HTML", "JSON"]
+page = [ "HTML" ]

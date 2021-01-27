@@ -1,0 +1,155 @@
+[
+{
+	"uri": "/",
+	"title": "Amazon CloudOps Networking Workshop",
+	"tags": [],
+	"description": "",
+	"content": "Amazon CloudOps Networking Workshop In this workshop, we will walk through the fundamentals of Linux server administration as a part of the AWS Cloud Operations course. By the end of this two-session module, you will be able to perform basic Linux and AWS administration tasks as a preparation for the following AWS Cloud Administrator bootcamp. Depending on your level of experience, you may want to have a look at the Further Reading section to learn more about Linux administration.\n"
+},
+{
+	"uri": "/introduction/prereqs.html",
+	"title": "Prerequisites",
+	"tags": [],
+	"description": "",
+	"content": "You\u0026rsquo;ll need to setup your laptop with various tools in order to complete the labs in this module.\n AWS Account Administrative access to your laptop (macOS or Windows) Amazon Chime client for Windows or macOS PuTTY installed and working (if you use Windows) Your own Github account and a git client Slack  "
+},
+{
+	"uri": "/introduction.html",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": " Add yourself to the class roster and update your progress as you go through the workshop!\n Welcome to the Amazon CloudOps Networking Workshop!\nThis workshop is designed to provide basic training for aspiring cloud operations engineers.\nAs a pre-requisite, you should have:\n Completed the Linux Survival walkthrough Setup your laptop environment Established an AWS Account  This chapter will give you a foundational introduction on Linux and EC2. By the end of this tutorial, you will have accomplished the following:\n Basic knowledge of EC2 - how to launch, terminate, login to an instance Installed software on a Linux instance in AWS Configured a network to allow access to an instance Added storage to an instance Understood the AWS global infrasteructure at a high level - regions and availabililty zones  Please move on to the next section to begin.\n Prerequisites   "
+},
+{
+	"uri": "/day-2-aws-networking/aws-infrastructure.html",
+	"title": "AWS Infrastructure",
+	"tags": [],
+	"description": "",
+	"content": "AWS currently has 24 regions in its global infrastructure. Each of these regions contains at least two Availability Zones. You can think of an Availability Zone as a collection of one or more physical datacenters. There are 77 Availability Zones throughout the world.\nTalk about regions and AZa. Mention Shared responsibility by relating to OSI model too.\n"
+},
+{
+	"uri": "/day-1-networking-foundations/network-definition.html",
+	"title": "What is a network?",
+	"tags": [],
+	"description": "",
+	"content": "How do you define a network? Example of a house network. What\u0026rsquo;s a LAN or a WAN?\n"
+},
+{
+	"uri": "/day-1-networking-foundations/osi-model.html",
+	"title": "OSI Model",
+	"tags": [],
+	"description": "",
+	"content": "Give an example for each layer, and explain how it can be useful for troubleshooting. And what layers are used in which context, and insist on L1,2,3,4,7.\n"
+},
+{
+	"uri": "/day-2-aws-networking/whats-a-vpc.html",
+	"title": "What is a VPC?",
+	"tags": [],
+	"description": "",
+	"content": "What is a virtual private cloud and why? Defined by a CIDR, refer to what we learned in Day 1. Explain the inside of a VPC and similitudes with traditional networking. Route tables. Mention Flow Logs.\n"
+},
+{
+	"uri": "/day-1-networking-foundations/network-devices.html",
+	"title": "Network devices",
+	"tags": [],
+	"description": "",
+	"content": "Talk about differences and examples of routing types with switching and routing.\nExplain the differences between switch and router (or both) and relate to OSI layers.\nAlso refer to AWS where we only care about anything above L3.\n"
+},
+{
+	"uri": "/day-2-aws-networking/privatepublic.html",
+	"title": "Private/Public concepts",
+	"tags": [],
+	"description": "",
+	"content": "Talk about route tables from VPC and how you define a public and a private subnet.\nExplain IGW and NGW.\n"
+},
+{
+	"uri": "/day-2-aws-networking/security.html",
+	"title": "Security in a VPC",
+	"tags": [],
+	"description": "",
+	"content": "ACLs and SGs.\n"
+},
+{
+	"uri": "/day-1-networking-foundations/subnetting.html",
+	"title": "Subnetting",
+	"tags": [],
+	"description": "",
+	"content": "Explain subnetting.\nExample: XXXXX\nTutorial: https://acloud.guru/overview/124ee946-2249-40c2-a664-aa26af523920?_ga=2.78699287.2097752874.1606729826-1802322676.1602598892\n"
+},
+{
+	"uri": "/day-2-aws-networking/load-balancing.html",
+	"title": "Elastic Load Balancing",
+	"tags": [],
+	"description": "",
+	"content": "Explain goal of ELB and explain the 3 different types of ELBs and their main purpose/context.\n"
+},
+{
+	"uri": "/day-1-networking-foundations/routing.html",
+	"title": "Routing",
+	"tags": [],
+	"description": "",
+	"content": "Explain concepts of routing table, refer back to routing devices.\nMention about inter and intra LAN, OSPF and BGP but only high level.\nGive examples of how devices are able to talk to each others thanks to the routing table (picture).\n"
+},
+{
+	"uri": "/day-1-networking-foundations.html",
+	"title": "Day 1 - Networking fundamentals",
+	"tags": [],
+	"description": "",
+	"content": "In this chapter, we will talk about traditional networking in order to understand the foundations before moving to AWS.\n"
+},
+{
+	"uri": "/day-1-networking-foundations/dnsdhcp.html",
+	"title": "DNS/DHCP",
+	"tags": [],
+	"description": "",
+	"content": "What\u0026rsquo;s DNS? Record types. Real life example. Application example.\nWhat;s DHCP? How does it work with DNS? Give example of home network, or VoIP phone.\n"
+},
+{
+	"uri": "/day-2-aws-networking/route53.html",
+	"title": "Route53",
+	"tags": [],
+	"description": "",
+	"content": "Explain what is Route53 and the different routing policies.\n"
+},
+{
+	"uri": "/day-1-networking-foundations/homework.html",
+	"title": "Homework",
+	"tags": [],
+	"description": "",
+	"content": "Link and instructions for a lab. Subnetting exercise.\n"
+},
+{
+	"uri": "/day-2-aws-networking/hybrid-cloud.html",
+	"title": "Hybrid Connectivity",
+	"tags": [],
+	"description": "",
+	"content": "You can connect to Cloud from on premise via either DX or VPN.\nExplain the main differences.\n"
+},
+{
+	"uri": "/day-2-aws-networking/advanced-networking.html",
+	"title": "Advanced Networking",
+	"tags": [],
+	"description": "",
+	"content": "Talk about VPC endpoints, Transit Gateway, DirectConnect Gateway, VPC peering.\n"
+},
+{
+	"uri": "/day-2-aws-networking.html",
+	"title": "Day 2 - Networking in AWS",
+	"tags": [],
+	"description": "",
+	"content": "In this chapter, we will see how networking applies in AWS Cloud.\n"
+},
+{
+	"uri": "/categories.html",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags.html",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

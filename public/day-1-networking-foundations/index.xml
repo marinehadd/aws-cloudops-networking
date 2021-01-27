@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Day 1 - Networking fundamentals on Amazon CloudOps Networking Workshop</title>
+    <link>/day-1-networking-foundations.html</link>
+    <description>Recent content in Day 1 - Networking fundamentals on Amazon CloudOps Networking Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/day-1-networking-foundations/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What is a network?</title>
+      <link>/day-1-networking-foundations/network-definition.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/day-1-networking-foundations/network-definition.html</guid>
+      <description>How do you define a network? Example of a house network. What&amp;rsquo;s a LAN or a WAN?</description>
+    </item>
+    
+    <item>
+      <title>OSI Model</title>
+      <link>/day-1-networking-foundations/osi-model.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/day-1-networking-foundations/osi-model.html</guid>
+      <description>Give an example for each layer, and explain how it can be useful for troubleshooting. And what layers are used in which context, and insist on L1,2,3,4,7.</description>
+    </item>
+    
+    <item>
+      <title>Network devices</title>
+      <link>/day-1-networking-foundations/network-devices.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/day-1-networking-foundations/network-devices.html</guid>
+      <description>Talk about differences and examples of routing types with switching and routing.
+Explain the differences between switch and router (or both) and relate to OSI layers.
+Also refer to AWS where we only care about anything above L3.</description>
+    </item>
+    
+    <item>
+      <title>Subnetting</title>
+      <link>/day-1-networking-foundations/subnetting.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/day-1-networking-foundations/subnetting.html</guid>
+      <description>Explain subnetting.
+Example: XXXXX
+Tutorial: https://acloud.guru/overview/124ee946-2249-40c2-a664-aa26af523920?_ga=2.78699287.2097752874.1606729826-1802322676.1602598892</description>
+    </item>
+    
+    <item>
+      <title>Routing</title>
+      <link>/day-1-networking-foundations/routing.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/day-1-networking-foundations/routing.html</guid>
+      <description>Explain concepts of routing table, refer back to routing devices.
+Mention about inter and intra LAN, OSPF and BGP but only high level.
+Give examples of how devices are able to talk to each others thanks to the routing table (picture).</description>
+    </item>
+    
+    <item>
+      <title>DNS/DHCP</title>
+      <link>/day-1-networking-foundations/dnsdhcp.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/day-1-networking-foundations/dnsdhcp.html</guid>
+      <description>What&amp;rsquo;s DNS? Record types. Real life example. Application example.
+What;s DHCP? How does it work with DNS? Give example of home network, or VoIP phone.</description>
+    </item>
+    
+    <item>
+      <title>Homework</title>
+      <link>/day-1-networking-foundations/homework.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/day-1-networking-foundations/homework.html</guid>
+      <description>Link and instructions for a lab. Subnetting exercise.</description>
+    </item>
+    
+  </channel>
+</rss>
