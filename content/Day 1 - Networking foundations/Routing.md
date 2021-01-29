@@ -6,13 +6,16 @@ pre:
 ---
 
 
+The way machines talk to each others is via routing tables, and that is the router's responsibility.
+
+A routing table is like a map for routers to send traffic to and from. 
+
+Picture with A to B with route table.
+
+Then show OSPF/BGP -> LAN/WAN.
 
 
-Explain concepts of routing table, refer back to routing devices.
-
-Mention about inter and intra LAN, OSPF and BGP but only high level.
-
-Give examples of how devices are able to talk to each others thanks to the routing table (picture).
+Show ping.
 
 
 

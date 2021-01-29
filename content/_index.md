@@ -1,13 +1,18 @@
 ---
-title: "Amazon CloudOps Networking Workshop"
+title: "Welcome to the Amazon CloudOps Networking Workshop!"
 chapter: true
 weight: 1
 ---
 
-## Amazon CloudOps Networking Workshop
+## Welcome to the Amazon CloudOps Networking Workshop!
 
+In this workshop, we will go through the basics of networking in both traditional and cloud context. At the end of it, you should understand all the networking concepts at a high level and be able to deploy a basic VPC infrastructure in AWS console.
 
-In this workshop, we will walk through the fundamentals of Linux server administration as a part of the AWS Cloud Operations course.
-By the end of this two-session module, you will be able to perform basic Linux and AWS administration tasks as a preparation for the
-following AWS Cloud Administrator bootcamp. Depending on your level of experience, you may want to have a look at the [Further Reading](/further_reading.html)
-section to learn more about Linux administration.
+The workshop will consist of the following:
+- 3 x 2h lectures 
+- 3 x 2h office hours (optional)
+
+(Provide dates)
+
+For additional labs and bedtime reading, you can find more material in the [Further Reading](/further_reading.html) section.
+

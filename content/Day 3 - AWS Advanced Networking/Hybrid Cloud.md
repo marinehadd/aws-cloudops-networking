@@ -11,6 +11,8 @@ You can connect to Cloud from on premise via either DX or VPN.
 
 Explain the main differences.
 
+Talk about DX Gateway.
+
 
 
 

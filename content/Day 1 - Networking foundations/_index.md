@@ -4,4 +4,4 @@ chapter: false
 weight: 50
 ---
 
-In this chapter, we will talk about traditional networking in order to understand the foundations before moving to AWS.
+In this chapter, we will talk about traditional networking in order to understand the main concepts before moving to AWS.
