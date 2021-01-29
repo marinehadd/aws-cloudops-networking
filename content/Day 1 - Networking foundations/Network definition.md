@@ -8,11 +8,11 @@ A network can be defined as a group of devices interconnected together via an ed
 
 Let's take an example:
 
-<img src='/images/home_network.png' width='200px'>
+<img src='/images/home_network.png' width='400px'>
 
 There are several types of networks but the most common are LAN (Local Area Network) and WAN (Wide Area Network). As the names indicate, a LAN is defined by a single network (i.e. your house network) while a WAN allows interconnection between different LANs.
 
-<img src='/images/LANWAN.png' width='200px'>
+<img src='/images/LANWAN.png' width='400px'>
 
 
 How does it work?
@@ -23,7 +23,7 @@ In a LAN, a switch allows all devices in its network to connect and communicate.
 
 In a WAN, edge routers of the different LANs connect together to allow their inside LAN to talk to each other. And all of this is done thanks to routing and IP addressing that we will cover in a few sections.
 
-<img src='/images/switch-and-router.png' width='200px'>
+<img src='/images/switch-and-router.png' width='400px'>
 
 
 Now that we have the big picture, let's talk about networking layers.

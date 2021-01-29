@@ -2,83 +2,64 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Day 2 - Networking in AWS on Amazon CloudOps Networking Workshop</title>
-    <link>/day-2-aws-networking.html</link>
+    <link>/day-2-aws-networking-basics.html</link>
     <description>Recent content in Day 2 - Networking in AWS on Amazon CloudOps Networking Workshop</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="/day-2-aws-networking/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="/day-2-aws-networking-basics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWS Infrastructure</title>
-      <link>/day-2-aws-networking/aws-infrastructure.html</link>
+      <link>/day-2-aws-networking-basics/aws-infrastructure.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/day-2-aws-networking/aws-infrastructure.html</guid>
+      <guid>/day-2-aws-networking-basics/aws-infrastructure.html</guid>
       <description>AWS currently has 24 regions in its global infrastructure. Each of these regions contains at least two Availability Zones. You can think of an Availability Zone as a collection of one or more physical datacenters. There are 77 Availability Zones throughout the world.
 Talk about regions and AZa. Mention Shared responsibility by relating to OSI model too.</description>
     </item>
     
     <item>
       <title>What is a VPC?</title>
-      <link>/day-2-aws-networking/whats-a-vpc.html</link>
+      <link>/day-2-aws-networking-basics/whats-a-vpc.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/day-2-aws-networking/whats-a-vpc.html</guid>
+      <guid>/day-2-aws-networking-basics/whats-a-vpc.html</guid>
       <description>What is a virtual private cloud and why? Defined by a CIDR, refer to what we learned in Day 1. Explain the inside of a VPC and similitudes with traditional networking. Route tables. Mention Flow Logs.</description>
     </item>
     
     <item>
       <title>Private/Public concepts</title>
-      <link>/day-2-aws-networking/privatepublic.html</link>
+      <link>/day-2-aws-networking-basics/privatepublic.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/day-2-aws-networking/privatepublic.html</guid>
+      <guid>/day-2-aws-networking-basics/privatepublic.html</guid>
       <description>Talk about route tables from VPC and how you define a public and a private subnet.
 Explain IGW and NGW.</description>
     </item>
     
     <item>
       <title>Security in a VPC</title>
-      <link>/day-2-aws-networking/security.html</link>
+      <link>/day-2-aws-networking-basics/security.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/day-2-aws-networking/security.html</guid>
+      <guid>/day-2-aws-networking-basics/security.html</guid>
       <description>ACLs and SGs.</description>
     </item>
     
     <item>
       <title>Elastic Load Balancing</title>
-      <link>/day-2-aws-networking/load-balancing.html</link>
+      <link>/day-2-aws-networking-basics/load-balancing.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/day-2-aws-networking/load-balancing.html</guid>
+      <guid>/day-2-aws-networking-basics/load-balancing.html</guid>
       <description>Explain goal of ELB and explain the 3 different types of ELBs and their main purpose/context.</description>
     </item>
     
     <item>
       <title>Route53</title>
-      <link>/day-2-aws-networking/route53.html</link>
+      <link>/day-2-aws-networking-basics/route53.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/day-2-aws-networking/route53.html</guid>
+      <guid>/day-2-aws-networking-basics/route53.html</guid>
       <description>Explain what is Route53 and the different routing policies.</description>
-    </item>
-    
-    <item>
-      <title>Hybrid Connectivity</title>
-      <link>/day-2-aws-networking/hybrid-cloud.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/day-2-aws-networking/hybrid-cloud.html</guid>
-      <description>You can connect to Cloud from on premise via either DX or VPN.
-Explain the main differences.</description>
-    </item>
-    
-    <item>
-      <title>Advanced Networking</title>
-      <link>/day-2-aws-networking/advanced-networking.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/day-2-aws-networking/advanced-networking.html</guid>
-      <description>Talk about VPC endpoints, Transit Gateway, DirectConnect Gateway, VPC peering.</description>
     </item>
     
   </channel>

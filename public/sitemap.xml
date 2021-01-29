@@ -7,15 +7,11 @@
   </url>
   
   <url>
-    <loc>/introduction/prereqs.html</loc>
-  </url>
-  
-  <url>
     <loc>/introduction.html</loc>
   </url>
   
   <url>
-    <loc>/day-2-aws-networking/aws-infrastructure.html</loc>
+    <loc>/day-2-aws-networking-basics/aws-infrastructure.html</loc>
   </url>
   
   <url>
@@ -27,19 +23,15 @@
   </url>
   
   <url>
-    <loc>/day-2-aws-networking/whats-a-vpc.html</loc>
+    <loc>/day-2-aws-networking-basics/whats-a-vpc.html</loc>
   </url>
   
   <url>
-    <loc>/day-1-networking-foundations/network-devices.html</loc>
+    <loc>/day-2-aws-networking-basics/privatepublic.html</loc>
   </url>
   
   <url>
-    <loc>/day-2-aws-networking/privatepublic.html</loc>
-  </url>
-  
-  <url>
-    <loc>/day-2-aws-networking/security.html</loc>
+    <loc>/day-2-aws-networking-basics/security.html</loc>
   </url>
   
   <url>
@@ -47,7 +39,7 @@
   </url>
   
   <url>
-    <loc>/day-2-aws-networking/load-balancing.html</loc>
+    <loc>/day-2-aws-networking-basics/load-balancing.html</loc>
   </url>
   
   <url>
@@ -63,7 +55,7 @@
   </url>
   
   <url>
-    <loc>/day-2-aws-networking/route53.html</loc>
+    <loc>/day-2-aws-networking-basics/route53.html</loc>
   </url>
   
   <url>
@@ -71,15 +63,32 @@
   </url>
   
   <url>
-    <loc>/day-2-aws-networking/hybrid-cloud.html</loc>
+    <loc>/day-3-aws-advanced-networking/hybrid-cloud.html</loc>
   </url>
   
   <url>
-    <loc>/day-2-aws-networking/advanced-networking.html</loc>
+    <loc>/day-3-aws-advanced-networking/vpc-peering.html</loc>
   </url>
   
   <url>
-    <loc>/day-2-aws-networking.html</loc>
+    <loc>/day-3-aws-advanced-networking/vpc-endpoints.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-3-aws-advanced-networking.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-3-aws-advanced-networking/transit-gateway.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-2-aws-networking-basics.html</loc>
+  </url>
+  
+  <url>
+    <loc>/further_reading.html</loc>
+    <priority>0</priority>
   </url>
   
   <url>

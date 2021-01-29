@@ -12,7 +12,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-1-networking-foundations/network-definition.html</guid>
-      <description>How do you define a network? Example of a house network. What&amp;rsquo;s a LAN or a WAN?</description>
+      <description>A network can be defined as a group of devices interconnected together via an edge networking component forming a dedicated and private environment.
+Let&amp;rsquo;s take an example:
+There are several types of networks but the most common are LAN (Local Area Network) and WAN (Wide Area Network). As the names indicate, a LAN is defined by a single network (i.e. your house network) while a WAN allows interconnection between different LANs.</description>
     </item>
     
     <item>
@@ -21,18 +23,11 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-1-networking-foundations/osi-model.html</guid>
-      <description>Give an example for each layer, and explain how it can be useful for troubleshooting. And what layers are used in which context, and insist on L1,2,3,4,7.</description>
-    </item>
-    
-    <item>
-      <title>Network devices</title>
-      <link>/day-1-networking-foundations/network-devices.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/day-1-networking-foundations/network-devices.html</guid>
-      <description>Talk about differences and examples of routing types with switching and routing.
-Explain the differences between switch and router (or both) and relate to OSI layers.
-Also refer to AWS where we only care about anything above L3.</description>
+      <description>All networking concepts are based on the OSI model:
+Each layer has a meaning in networking. We will not cover the layers in dept, but you can read more about in the Further Reading section.
+Networking is based on the OSI model, it is a bit like the layers of a cake, often referred as L1, L2, L3, etc..
+Let&amp;rsquo;s pick some real life examples:
+  L1 = your home router, your cables</description>
     </item>
     
     <item>
@@ -41,9 +36,9 @@ Also refer to AWS where we only care about anything above L3.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-1-networking-foundations/subnetting.html</guid>
-      <description>Explain subnetting.
-Example: XXXXX
-Tutorial: https://acloud.guru/overview/124ee946-2249-40c2-a664-aa26af523920?_ga=2.78699287.2097752874.1606729826-1802322676.1602598892</description>
+      <description>A network (or LAN) is defined by a a block of IP addresses called a CIDR block, from which every machine in the network receives an IP address.
+PICTURE
+CIDR have the purpose of sizing and seggregating networks. If you have a small home network, you will only need a few IP adresses, therefore the CIDR should be small, but if you work in a company where plenty of devices need to connect, and therefore require an IP address, then the size needs to be bigger.</description>
     </item>
     
     <item>
@@ -52,9 +47,11 @@ Tutorial: https://acloud.guru/overview/124ee946-2249-40c2-a664-aa26af523920?_ga=
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-1-networking-foundations/routing.html</guid>
-      <description>Explain concepts of routing table, refer back to routing devices.
-Mention about inter and intra LAN, OSPF and BGP but only high level.
-Give examples of how devices are able to talk to each others thanks to the routing table (picture).</description>
+      <description>The way machines talk to each others is via routing tables, and that is the router&amp;rsquo;s responsibility.
+A routing table is like a map for routers to send traffic to and from.
+Picture with A to B with route table.
+Then show OSPF/BGP -&amp;gt; LAN/WAN.
+Show ping.</description>
     </item>
     
     <item>

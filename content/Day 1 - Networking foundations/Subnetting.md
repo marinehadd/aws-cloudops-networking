@@ -18,7 +18,7 @@ the full lenght of an IP address is 32 bits.
 
 IP addresses are written in binaries and translated into numbers called octets, so each number representing 8 bits.
 
-<img src='/images/octet.png' width='200px'>
+<img src='/images/octet.png' width='500px'>
 
 
 This is segmented in 2 parts : the subnet ID (always the left part), and the network ID (always on the right).
@@ -27,7 +27,7 @@ The subnet mask defines the size of your network, the network part defines the n
 
 A subnet is calculated from right to left, as below:
 
-<img src='/images/subnettable.png' width='200px'>
+<img src='/images/subnettable.png' width='1200px'>
 
 
 255 is the maximum number you can have over an octet, therefore the subnet mask covers the full lenght, giving no space for IP address use. As a result, the subnet mask is /32, the maximum size in an IP address.

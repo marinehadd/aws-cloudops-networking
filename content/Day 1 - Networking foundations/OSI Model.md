@@ -7,7 +7,7 @@ pre:
 
 All networking concepts are based on the OSI model:
 
-<img src='/images/osi-model-7-layers.png' width='200px'>
+<img src='/images/osi-model-7-layers.png' width='500px'>
 
 Each layer has a meaning in networking. We will not cover the layers in dept, but you can read more about in the [Further Reading](/further_reading.html) section.
 
