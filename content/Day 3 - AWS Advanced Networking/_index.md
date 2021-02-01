@@ -1,5 +1,5 @@
 ---
-title: "Day 2 - Networking in AWS"
+title: "Day 3 - AWS Advanced Networking"
 chapter: false
 weight: 70
 ---

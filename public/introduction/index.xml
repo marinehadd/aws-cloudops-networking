@@ -6,15 +6,5 @@
     <description>Recent content in Introduction on Amazon CloudOps Networking Workshop</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="/introduction/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Prerequisites</title>
-      <link>/introduction/prereqs.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/introduction/prereqs.html</guid>
-      <description>You&amp;rsquo;ll need to setup your laptop with various tools in order to complete the labs in this module.
- AWS Account Administrative access to your laptop (macOS or Windows) Amazon Chime client for Windows or macOS PuTTY installed and working (if you use Windows) Your own Github account and a git client Slack  </description>
-    </item>
-    
   </channel>
 </rss>

@@ -6,7 +6,7 @@ theme = "learn"
 uglyurls = true
 sectionPagesMenu = "main"
 relativeURLs = true
-
+publishDir= "public/"
 [blackfriday]
 hrefTargetBlank = true
 
@@ -38,6 +38,7 @@ name = "<i class='fab fa-linkedin fa-lg'></i> Marine Haddad"
 identifier = "li1"
 url = "https://www.linkedin.com/in/marine-haddad-38a542b5/"
 weight = 2
+"Email : " = "marinehd@amazon.com"
 
 # Deploy to S3 + CloudFront
 [deployment]
@@ -45,6 +46,7 @@ weight = 2
     name = "S3"
     URL = "s3://cloudops-s3-website?region=eu-west-1"
     cloudFrontDistributionID = "E2G13Z9GIV62G1"
+
 
 [markup.goldmark.renderer]
 unsafe= true

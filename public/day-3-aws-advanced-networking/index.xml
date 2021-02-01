@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Day 2 - Networking in AWS on Amazon CloudOps Networking Workshop</title>
+    <link>/day-3-aws-advanced-networking.html</link>
+    <description>Recent content in Day 2 - Networking in AWS on Amazon CloudOps Networking Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/day-3-aws-advanced-networking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hybrid Connectivity</title>
+      <link>/day-3-aws-advanced-networking/hybrid-cloud.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/day-3-aws-advanced-networking/hybrid-cloud.html</guid>
+      <description>You can connect to Cloud from on premise via either DX or VPN.
+Explain the main differences.
+Talk about DX Gateway.</description>
+    </item>
+    
+    <item>
+      <title>VPC Peering</title>
+      <link>/day-3-aws-advanced-networking/vpc-peering.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/day-3-aws-advanced-networking/vpc-peering.html</guid>
+      <description>Talk about VPC peering (and transit VPC).</description>
+    </item>
+    
+    <item>
+      <title>VPC Endpoints</title>
+      <link>/day-3-aws-advanced-networking/vpc-endpoints.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/day-3-aws-advanced-networking/vpc-endpoints.html</guid>
+      <description>Talk about VPC endpoints.</description>
+    </item>
+    
+    <item>
+      <title>Transit Gateway</title>
+      <link>/day-3-aws-advanced-networking/transit-gateway.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/day-3-aws-advanced-networking/transit-gateway.html</guid>
+      <description>Talk about Transit Gateway.</description>
+    </item>
+    
+  </channel>
+</rss>

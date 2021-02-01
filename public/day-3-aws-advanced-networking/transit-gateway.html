@@ -14,7 +14,7 @@
 
     <link rel="icon" href="../images/favicon.png" type="image/png">
 
-    <title>OSI Model :: Amazon CloudOps Networking Workshop</title>
+    <title>Transit Gateway :: Amazon CloudOps Networking Workshop</title>
 
     
     <link href="../css/nucleus.css?1611949860" rel="stylesheet">
@@ -46,7 +46,7 @@
     </style>
     
   </head>
-  <body class="" data-url="../day-1-networking-foundations/osi-model.html">
+  <body class="" data-url="../day-3-aws-advanced-networking/transit-gateway.html">
     <nav id="sidebar" class="">
 
 
@@ -109,7 +109,7 @@
   
     
     <li data-nav-id="/day-1-networking-foundations.html" title="Day 1 - Networking fundamentals" class="dd-item 
-        parent
+        
         
         
         ">
@@ -152,7 +152,7 @@
  
   
     
-      <li data-nav-id="/day-1-networking-foundations/osi-model.html" title="OSI Model" class="dd-item active">
+      <li data-nav-id="/day-1-networking-foundations/osi-model.html" title="OSI Model" class="dd-item ">
         <a href="../day-1-networking-foundations/osi-model.html">
         OSI Model
         
@@ -255,7 +255,7 @@
   
     
     <li data-nav-id="/day-3-aws-advanced-networking.html" title="Day 2 - Networking in AWS" class="dd-item 
-        
+        parent
         
         
         ">
@@ -336,7 +336,7 @@
  
   
     
-      <li data-nav-id="/day-3-aws-advanced-networking/transit-gateway.html" title="Transit Gateway" class="dd-item ">
+      <li data-nav-id="/day-3-aws-advanced-networking/transit-gateway.html" title="Transit Gateway" class="dd-item active">
         <a href="../day-3-aws-advanced-networking/transit-gateway.html">
         Transit Gateway
         
@@ -550,7 +550,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="http://d37ijis7gunnkm.cloudfront.net/Day%201%20-%20Networking%20foundations/OSI%20Model.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="http://d37ijis7gunnkm.cloudfront.net/Day%203%20-%20AWS%20Advanced%20Networking/Transit%20Gateway.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -579,7 +579,7 @@
             
           
           
-            <a href='../'>Welcome to the Amazon CloudOps Networking Workshop!</a> > <a href='../day-1-networking-foundations.html'>Day 1 - Networking fundamentals</a> > OSI Model
+            <a href='../'>Welcome to the Amazon CloudOps Networking Workshop!</a> > <a href='../day-3-aws-advanced-networking.html'>Day 2 - Networking in AWS</a> > Transit Gateway
           
          
           
@@ -603,49 +603,13 @@
         
         <div id="body-inner">
           
-            <h1>OSI Model</h1>
+            <h1>Transit Gateway</h1>
           
 
         
 
 
-<p>All networking concepts are based on the OSI model:</p>
-<img src='../images/osi-model-7-layers.png' width='500px'>
-<p>Each layer has a meaning in networking. We will not cover the layers in dept, but you can read more about in the <a href="../further_reading.html">Further Reading</a> section.</p>
-<p>Networking is based on the OSI model, it is a bit like the layers of a cake, often referred as L1, L2, L3, etc..</p>
-<p>Let&rsquo;s pick some real life examples:</p>
-<ul>
-<li>
-<p>L1 = your home router, your cables</p>
-</li>
-<li>
-<p>L2 = your home devices interconnecting (find example)</p>
-</li>
-<li>
-<p>L3 = your home laptop/phone getting to the Internet</p>
-</li>
-<li>
-<p>L4 = when you stream an online movie</p>
-</li>
-<li>
-<p>L5 = when you download a file</p>
-</li>
-<li>
-<p>L6 = when you used Putty to login to your EC2 instance during Linux CloudOps workshop</p>
-</li>
-<li>
-<p>L7 = a website</p>
-</li>
-</ul>
-<p>(TO SPEECH)</p>
-<p>L1 corresponds to anything physical, such as a device or a cable. If we go back to our chat about routers and switches, the devices as such will sit in L1 since they are physical.</p>
-<p>However, although they&rsquo;re physical machines, they provide functionalities corresponding to other layers. A switch does not do any routing, meaning it does not know what is an IP address, and only work out connectivity inside a LAN. So a switch, in it is logical way, will sit in L2 Data layer.</p>
-<p>On the other hand, a router allows routing and communication between different networks via IP adressing, so it works at the L3 Network layer.</p>
-<p>L4 corresponds to anything (protocols or devices) related to transport of data across the network.
-(Can be firewall against L4 attacks, or examples of UDP streaming or TCP).</p>
-<p>When we talk about API or establishing an end to end path to send data, we refer to L5 Session layer.</p>
-<p>L6 Presentation layer for example SSH to login to instance, or SSL whe we check this small lock near the HTTP of the website we&rsquo;re on.</p>
-<p>To finish, L7 is the website, the DNS protocol to resolve the webiste, etc.</p>
+<p>Talk about Transit Gateway.</p>
 
 
 <footer class=" footline" >
@@ -732,7 +696,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -748,9 +711,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -880,6 +840,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -898,6 +859,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1015,10 +979,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../day-1-networking-foundations/network-definition.html" title="What is a network?"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../day-3-aws-advanced-networking/vpc-endpoints.html" title="VPC Endpoints"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../day-1-networking-foundations/subnetting.html" title="Subnetting" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../day-2-aws-networking-basics.html" title="Day 2 - Networking in AWS" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

@@ -4,30 +4,26 @@ chapter: false
 weight: 10
 ---
 
-{{% notice warning%}}
-Add yourself to the [class roster](https://docs.google.com/spreadsheets/d/1xxHMJ_m2R-VvTCkJWQvTv6I2geRETGq9m9ezoIEyBxw/edit?usp=sharing) and update your progress as you go through the workshop!
-{{% /notice%}}
 
-Welcome to the Amazon CloudOps Networking Workshop!
-
-This workshop is designed to provide basic training for aspiring cloud operations engineers.
+This workshop is designed to provide fundamental networking knowledge.
 
 As a pre-requisite, you should have:
 
-1. Completed the [Linux Survival walkthrough](https://linuxsurvival.com/linux-tutorial-introduction/)
-2. Setup your laptop environment
-3. Established an AWS Account
-
-This chapter will give you a foundational introduction on Linux and EC2. By the end of this tutorial, you will have accomplished the following:
-
-1. Basic knowledge of EC2 - how to launch, terminate, login to an instance
-2. Installed software on a Linux instance in AWS
-3. Configured a network to allow access to an instance   
-4. Added storage to an instance
-5. Understood the AWS global infrasteructure at a high level - regions and availabililty zones
+1. Completed the CloudOps Linux Workshop
+2. An AWS account with AWS console access
+3. Cloudguru platform access
+4. [Slack](https://www.slack.com)
+5. Amazon Chime client for [Windows](https://clients.chime.aws/win/latest) or [macOS](https://clients.chime.aws/mac/latest)
+6. [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) installed and working (if you use Windows)
 
 
+The agenda will spread over 3 days as below:
 
-Please move on to the next section to begin.
+1. Day 1 will cover traditional networking in which we will talk about all the networking concepts that you should understand before getting into AWS Cloud.
+2. Day 2 will cover AWS Networking basics and provide you the ability to setup your own infrastructure in AWS.
+3. Day 3 will cover Advanced Networking concepts in AWS.
+
+
+
 
 {{% children showhidden="false" %}}
