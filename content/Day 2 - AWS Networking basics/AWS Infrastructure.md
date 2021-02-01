@@ -4,14 +4,10 @@ draft: false
 weight: 20
 ---
 
-
-AWS currently has 24 regions in its [global infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/).
-Each of these regions contains at least two Availability Zones. You can think of an Availability Zone as a collection
-of one or more physical datacenters. There are 77 Availability Zones throughout the world.
+AWS currently has 24 regions in its [global infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/). A region is a physical location around the world where data centers are clustered. These data centers are grouped in Availability Zones. Each of these regions contains at least two Availability Zones. There are 77 Availability Zones. 
 
 <img src='/images/global_footprint.png' width='600px'>
 
+AWS is responsible of protecting this infrastructure according to the _Shared Responsibility Model_:
 
-Talk about regions and AZa.
-Mention Shared responsibility by relating to OSI model too.
-
+<img src='/images/shared_model.jpg' width='600px'>

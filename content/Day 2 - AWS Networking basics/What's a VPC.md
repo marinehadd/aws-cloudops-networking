@@ -5,7 +5,7 @@ weight: 30
 pre: 
 ---
 
-**Amazon Virtual Private Cloud (Amazon VPC)** allows you to provision resources, such as Amazon EC2 instances, into a virtual network. This virtual network is a logically isolated area within the AWS cloud that resembles a traditional network.  
+**Amazon Virtual Private Cloud (Amazon VPC)** allows you to provision resources, such as Amazon EC2 instances, into a virtual network. This virtual network is a logically isolated area within the AWS cloud that resembles a traditional network. Think about it as a private data center in the cloud.
 
 The VPC is highly available as it spans all of the Availability Zones in the Region where you launch it. When you create a VPC, you provide a CIDR block that specifies the range of IP addresses for the VPC. For example, _10.0.0.0/16_.
 
