@@ -5,7 +5,7 @@ weight: 30
 pre: 
 ---
 
-All networking concepts are based on the OSI model:
+Networking is based on the OSI model:
 
 <img src='/images/osi-model-7-layers.png' width='500px'>
 
@@ -17,9 +17,9 @@ Let's pick some real life examples:
 
 - L1 = your home router, your cables
 
-- L2 = your home devices interconnecting (find example)
+- L2 = your home devices interconnecting (find example) (switch)
 
-- L3 = your home laptop/phone getting to the Internet
+- L3 = your home laptop/phone getting to the Internet (router)
 
 - L4 = when you stream an online movie
 
@@ -31,6 +31,8 @@ Let's pick some real life examples:
 
 
 (TO SPEECH)
+
+No need to remember it, just understand it.
 
 L1 corresponds to anything physical, such as a device or a cable. If we go back to our chat about routers and switches, the devices as such will sit in L1 since they are physical.
 

@@ -6,42 +6,115 @@ pre:
 ---
 
 
-A network (or LAN) is defined by a a block of IP addresses called a CIDR block, from which every machine in the network receives an IP address.
+A network (or LAN) is defined by a a block of IP addresses called a CIDR block, from which every host in the network receives an IP address.
 
-PICTURE
+A CIDR indicates the size of a network, and networks are calculated with subnetting. 
+Subnetting allows the segmentation of a bigger network in smaller networks. For example, a company could have different departments (HR, Finances, etc) and therefore wish to seggregate their corporate network based on these departments. So, each department will be allocated a portion of the big network (CIDR).
 
-CIDR have the purpose of sizing and seggregating networks. If you have a small home network, you will only need a few IP adresses, therefore the CIDR should be small, but if you work in a company where plenty of devices need to connect, and therefore require an IP address, then the size needs to be bigger.
+<img src='/images/segmentation.png' width='400px'>
 
-How is a CIDR calculated?
+**Anatomy of a an IP address:**
 
-the full lenght of an IP address is 32 bits.
+An IP address is made of 4 octets, 1 octet equals to 8 bits. So the maximum lenght of an IP address is 32 bits.
 
-IP addresses are written in binaries and translated into numbers called octets, so each number representing 8 bits.
+IP addresses are translated from binaries, so each number represents an octet and an octet ranges from 0 to 255.
 
 <img src='/images/octet.png' width='500px'>
 
+Example:
 
-This is segmented in 2 parts : the subnet ID (always the left part), and the network ID (always on the right).
+0000 0000 = 0
+1111 1111 = 255
 
-The subnet mask defines the size of your network, the network part defines the number of IP addresses (called hosts) that you can use in your network.
+=> 1111 1111.1111 1111.1111 1111.1111 1111 = 255.255.255.255
 
-A subnet is calculated from right to left, as below:
+**How is this calculated?**
+
+Each bit is a power of 2 (X^2) and is calculated from right to left.
 
 <img src='/images/subnettable.png' width='1200px'>
 
+*Example:*
 
-255 is the maximum number you can have over an octet, therefore the subnet mask covers the full lenght, giving no space for IP address use. As a result, the subnet mask is /32, the maximum size in an IP address.
+192.168.1.0 => 1100 0000.1010 1000.0000 0001.0000 0000
+
+(Drawing examples)
+
+**Subnet Masks**
+
+An IP address is segmented in 2 parts : 
+- The Network section (always the left part)
+- The Host section (always on the right).
+
+The Host section defines the number of IPs available in a network.
+The Network section remains the same for all the hosts in a same network, ad is called the Network ID.
+
+*Example:*
+
+Network: 10.1.1.0/24
+Host 1: 10.1.1.1
+Host 2: 10.1.1.2
+Host 3: 10.1.1.4
+
+
+The /24 is called the subnet mask and determines which parts of the IP are the network portion and the host portion.
+
+/24 represents 24 bits:
+
+1111 1111.1111 1111.1111 1111.0000 0000 = 255.255.255.0
+
+2552.255.255 = network section
+0 = host section
+
+Going back to the previous example:
+
+10.1.1.0/24 = 10.1.1.0/255.255.255.0
+
+So, the network ID is 10.1.1.0, and hosts can only be allocated in the .0 octet.
+
+*Examples:*
+
+192.168.0.0/16 = 192.168.0.0/255.255.0.0
+Network ID = 192.168.0.0
+Host range = 192.168.0.0 - 192.168.255.255
+
+192.168.128.0/17 = 192.168.128.0/255.255.128.0
+Network ID = 192.168.128.0
+Host range = 192.168.128.0 - 192.168.255.255
+
+The host range allows to calculate the number of hosts you can have in the network. The way to calculate is as follow: *2^(Nb of host bits)*.
+
+(That will matter if you want to know which size of a network to choose if you need X IPs)
+
+*Example:*
+
+- 192.168.0.0/16 has 16 host bits so 2^16 = 65536 hosts
+- 10.1.1.0/24 has 8 host bits so 2^8 = 256 hosts
+
+
+So, the smaller the network portion is, the more hosts you can allocate. 
+
+So, as we talked about segmenting big networks into smaller networks, we can divide big CIDR into small CIDR. 
+
+*How to calculate?*
+
+/16 = 16 bits = 2^16 65536 hosts
+/24 = 8 bits = 2^8 = 256 hosts
+=> 65536/256 = 256
+
+So there are 256 /24 subnets in a /16 subnet.
+
+/24 = 8 bits = 2^8 = 256 hosts
+/25 = 7 bits = 2^7 = 128 hosts
+=> 256/128 = 2
+
+So there are 2 /25 subnets in a /24 subnet.
 
 
 
-A few examples:
 
+(Show IP address on ipconfig laptop - show IP allocated, network, router gateway IP.)
 
-
-
-Show IP address on ipconfig laptop.
-
-Tutorial: https://acloud.guru/overview/124ee946-2249-40c2-a664-aa26af523920?_ga=2.78699287.2097752874.1606729826-1802322676.1602598892
 
 
 
