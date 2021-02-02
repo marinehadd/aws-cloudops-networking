@@ -1,7 +1,7 @@
 ---
 title: "Further Reading"
 chapter: false
-weight: 10
+weight: 100
 ---
 
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Day 2 - Networking in AWS on Amazon CloudOps Networking Workshop</title>
+    <title>Day 2 - AWS Networking basics on Amazon CloudOps Networking Workshop</title>
     <link>/day-2-aws-networking-basics.html</link>
-    <description>Recent content in Day 2 - Networking in AWS on Amazon CloudOps Networking Workshop</description>
+    <description>Recent content in Day 2 - AWS Networking basics on Amazon CloudOps Networking Workshop</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="/day-2-aws-networking-basics/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -12,8 +12,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-2-aws-networking-basics/aws-infrastructure.html</guid>
-      <description>AWS currently has 24 regions in its global infrastructure. Each of these regions contains at least two Availability Zones. You can think of an Availability Zone as a collection of one or more physical datacenters. There are 77 Availability Zones throughout the world.
-Talk about regions and AZa. Mention Shared responsibility by relating to OSI model too.</description>
+      <description>AWS currently has 24 regions in its global infrastructure. A region is a physical location around the world where data centers are clustered. These data centers are grouped in Availability Zones. Each of these regions contains at least two Availability Zones. There are 77 Availability Zones.
+AWS is responsible of protecting this infrastructure according to the Shared Responsibility Model:</description>
     </item>
     
     <item>
@@ -22,7 +22,8 @@ Talk about regions and AZa. Mention Shared responsibility by relating to OSI mod
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-2-aws-networking-basics/whats-a-vpc.html</guid>
-      <description>What is a virtual private cloud and why? Defined by a CIDR, refer to what we learned in Day 1. Explain the inside of a VPC and similitudes with traditional networking. Route tables. Mention Flow Logs.</description>
+      <description>Amazon Virtual Private Cloud (Amazon VPC) allows you to provision resources, such as Amazon EC2 instances, into a virtual network. This virtual network is a logically isolated area within the AWS cloud that resembles a traditional network. Think about it as a private data center in the cloud.
+The VPC is highly available as it spans all of the Availability Zones in the Region where you launch it. When you create a VPC, you provide a CIDR block that specifies the range of IP addresses for the VPC.</description>
     </item>
     
     <item>
