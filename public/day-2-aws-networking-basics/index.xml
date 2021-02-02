@@ -32,8 +32,8 @@ The VPC is highly available as it spans all of the Availability Zones in the Reg
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-2-aws-networking-basics/privatepublic.html</guid>
-      <description>Talk about route tables from VPC and how you define a public and a private subnet.
-Explain IGW and NGW.</description>
+      <description>Resources launched inside a VPC will take an IP address from the CIDR block assigned. For example, for a 10.0.0.0/16 CIDR block, an EC2 instance could have 10.0.0.42 as its IP address.
+This IP address is private: it only makes sense inside the VPC and can&amp;rsquo;t be reached from the Internet. In order to make the EC2 instance publicly reachable, two conditions must be fulfilled: the EC2 instance must have a public IP address and an Internet Gateway attached to the VPC.</description>
     </item>
     
     <item>
