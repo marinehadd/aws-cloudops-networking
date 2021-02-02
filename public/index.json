@@ -18,7 +18,7 @@
 	"title": "AWS Infrastructure",
 	"tags": [],
 	"description": "",
-	"content": "AWS currently has 24 regions in its global infrastructure. Each of these regions contains at least two Availability Zones. You can think of an Availability Zone as a collection of one or more physical datacenters. There are 77 Availability Zones throughout the world.\nTalk about regions and AZa. Mention Shared responsibility by relating to OSI model too.\n"
+	"content": "AWS currently has 24 regions in its global infrastructure. A region is a physical location around the world where data centers are clustered. These data centers are grouped in Availability Zones. Each of these regions contains at least two Availability Zones. There are 77 Availability Zones.\nAWS is responsible of protecting this infrastructure according to the Shared Responsibility Model:\n"
 },
 {
 	"uri": "/day-1-networking-foundations/network-definition.html",
@@ -39,7 +39,7 @@
 	"title": "What is a VPC?",
 	"tags": [],
 	"description": "",
-	"content": "What is a virtual private cloud and why? Defined by a CIDR, refer to what we learned in Day 1. Explain the inside of a VPC and similitudes with traditional networking. Route tables. Mention Flow Logs.\n"
+	"content": "Amazon Virtual Private Cloud (Amazon VPC) allows you to provision resources, such as Amazon EC2 instances, into a virtual network. This virtual network is a logically isolated area within the AWS cloud that resembles a traditional network. Think about it as a private data center in the cloud.\nThe VPC is highly available as it spans all of the Availability Zones in the Region where you launch it. When you create a VPC, you provide a CIDR block that specifies the range of IP addresses for the VPC. For example, 10.0.0.0/16.\nA VPC can contain multiple subnets where you can launch AWS resources. Each subnet will reside in one Availability Zone and you can have multiple subnets in the same Availability zone.\nYou must specify a CIDR block for the subnets from the range of your VPC. For example, 10.0.0.0/24 and 10.0.1.0/24. If you launch an EC2 instance inside the first subnet, it will have an IP address inside the 10.0.0.0/24 range (for example, 10.0.0.42).\nThe VPC has an implicit router that uses route tables to direct traffic. Each subnet is associated with a route table that controls the routing for that particular subnet. If you don\u0026rsquo;t associate explicitly a subnet with a particular route table, it will be implicitly associated the main route table:\n   Destination Target     10.0.0.0/16 local    Multiple subnets can be associated with the same route table. However, you can only associate a subnet with one route table.\n"
 },
 {
 	"uri": "/day-2-aws-networking-basics/privatepublic.html",
@@ -126,11 +126,11 @@
 	"content": "Talk about VPC endpoints.\n"
 },
 {
-	"uri": "/day-3-aws-advanced-networking.html",
-	"title": "Day 2 - Networking in AWS",
+	"uri": "/day-2-aws-networking-basics.html",
+	"title": "Day 2 - AWS Networking basics",
 	"tags": [],
 	"description": "",
-	"content": "In this chapter, we will see how networking applies in AWS Cloud.\n"
+	"content": "In this chapter, we will cover the basics of networking on the AWS Cloud.\n"
 },
 {
 	"uri": "/day-3-aws-advanced-networking/transit-gateway.html",
@@ -140,18 +140,18 @@
 	"content": "Talk about Transit Gateway.\n"
 },
 {
-	"uri": "/day-2-aws-networking-basics.html",
-	"title": "Day 2 - Networking in AWS",
+	"uri": "/day-3-aws-advanced-networking.html",
+	"title": "Day 3 - AWS Advanced Networking",
 	"tags": [],
 	"description": "",
 	"content": "In this chapter, we will cover advanced concepts of AWS networking.\n"
 },
 {
 	"uri": "/further_reading.html",
-	"title": "",
+	"title": "Further Reading",
 	"tags": [],
 	"description": "",
-	"content": "\n\n\nOSI:\n\nhttps://www.networkworld.com/article/3239677/the-osi-model-explained-and-how-to-easily-remember-its-7-layers.html\n\nhttps://medium.com/learn-with-the-lean-programmer/osi-model-layers-explained-ee1d43058c1f\n\n"
+	"content": "OSI:\nhttps://www.networkworld.com/article/3239677/the-osi-model-explained-and-how-to-easily-remember-its-7-layers.html\nhttps://medium.com/learn-with-the-lean-programmer/osi-model-layers-explained-ee1d43058c1f\n"
 },
 {
 	"uri": "/categories.html",
