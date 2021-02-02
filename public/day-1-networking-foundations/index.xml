@@ -46,11 +46,9 @@ A CIDR indicates the size of a network, and networks are calculated with subnett
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-1-networking-foundations/routing.html</guid>
-      <description>The way machines talk to each others is via routing tables, and that is the router&amp;rsquo;s responsibility.
-A routing table is like a map for routers to send traffic to and from.
-Picture with A to B with route table.
-Then show OSPF/BGP -&amp;gt; LAN/WAN.
-Show ping.</description>
+      <description>The router comes into the picture when different hosts from different networks try to communicate. We have seen in a previous section that the router does all the routing to allow the internal hosts to talk to an external destination such as the Internet or just another network.
+This communication is done by the means of routing tables and routing protocols.
+A route table is a source/destination map for the router to know where to send the traffic, based on the packet destination.</description>
     </item>
     
     <item>
@@ -59,7 +57,8 @@ Show ping.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-1-networking-foundations/dnsdhcp.html</guid>
-      <description>What&amp;rsquo;s DNS? Record types. Real life example. Application example.
+      <description>DNS stands for Domain Name System and is like an address book. It allows hosts to reach endpoints such as URLs or other machines.
+Authoritative, root, resolver. Recursion. Record types. Real life example. Application example.
 What;s DHCP? How does it work with DNS? Give example of home network, or VoIP phone.</description>
     </item>
     

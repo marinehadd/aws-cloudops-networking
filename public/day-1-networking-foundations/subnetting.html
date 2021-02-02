@@ -17,21 +17,21 @@
     <title>Subnetting :: Amazon CloudOps Networking Workshop</title>
 
     
-    <link href="../css/nucleus.css?1612288436" rel="stylesheet">
-    <link href="../css/all.css?1612288436" rel="stylesheet">
-    <link href="../css/hybrid.css?1612288436" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1612288436" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1612288436" rel="stylesheet">
-    <link href="../css/auto-complete.css?1612288436" rel="stylesheet">
-    <link href="../css/theme.css?1612288436" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1612288436" rel="stylesheet">
-    <link href="../css/jquery-ui.min.css?1612288436" rel="stylesheet">
+    <link href="../css/nucleus.css?1612292307" rel="stylesheet">
+    <link href="../css/all.css?1612292307" rel="stylesheet">
+    <link href="../css/hybrid.css?1612292307" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1612292307" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1612292307" rel="stylesheet">
+    <link href="../css/auto-complete.css?1612292307" rel="stylesheet">
+    <link href="../css/theme.css?1612292307" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1612292307" rel="stylesheet">
+    <link href="../css/jquery-ui.min.css?1612292307" rel="stylesheet">
     
-      <link href="../css/theme-mine.css?1612288436" rel="stylesheet">
+      <link href="../css/theme-mine.css?1612292307" rel="stylesheet">
     
 
-    <script src="../js/jquery-3.3.1.min.js?1612288436"></script>
-    <script src="../js/jquery-ui-1.12.1.min.js?1612288436"></script>
+    <script src="../js/jquery-3.3.1.min.js?1612292307"></script>
+    <script src="../js/jquery-ui-1.12.1.min.js?1612292307"></script>
 
 
     <style type="text/css">
@@ -63,14 +63,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1612288436"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1612288436"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1612292307"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1612292307"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1612288436"></script>
+<script type="text/javascript" src="../js/search.js?1612292307"></script>
 
     
   </div>
@@ -649,7 +649,6 @@ Subnetting allows the segmentation of a bigger network in smaller networks. For 
 <p><em><strong>Example:</strong></em></p>
 <p>192.168.1.0 =&gt; 1100 0000.1010 1000.0000 0001.0000 0000</p>
 <p>(Drawing examples)</p>
-<p>$$$</p>
 <p><strong>Subnet Masks</strong></p>
 <p>An IP address is segmented in 2 parts :</p>
 <ul>
@@ -698,6 +697,12 @@ Host range = 192.168.128.0 - 192.168.255.255</p>
 /25 = 7 bits = 2^7 = 128 hosts<br>
 => 256/128 = 2</p>
 <p>So there are 2 /25 subnets in a /24 subnet.</p>
+<p>One last thing to remember is that there are always 2 IP addresses that cannot be used within a subnet:</p>
+<ul>
+<li>The first IP (10.1.1.0 if the subnet is 10.1.1.0/24) since it is reserved for the Network ID</li>
+<li>The last IP (10.1.1.255 if the subnet is 10.1.1.0/24) since it is reserved for the Broadcast IP. The broadcast IP is the IP used within a network to send messages to everyone in the network.</li>
+</ul>
+<p>Not always but in most cases, as a best practice, the second IP of a subnet is dedicated to the router interface, called the Gateway IP. The gateway IP will be 10.1.1.1.1 if the subnet is 10.1.1.0/24.</p>
 <p>(Show IP address on ipconfig laptop - show IP allocated, network, router gateway IP.)</p>
 
 
@@ -1097,19 +1102,19 @@ Host range = 192.168.128.0 - 192.168.255.255</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1612288436"></script>
-    <script src="../js/perfect-scrollbar.min.js?1612288436"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1612288436"></script>
-    <script src="../js/jquery.sticky.js?1612288436"></script>
-    <script src="../js/featherlight.min.js?1612288436"></script>
-    <script src="../js/highlight.pack.js?1612288436"></script>
+    <script src="../js/clipboard.min.js?1612292307"></script>
+    <script src="../js/perfect-scrollbar.min.js?1612292307"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1612292307"></script>
+    <script src="../js/jquery.sticky.js?1612292307"></script>
+    <script src="../js/featherlight.min.js?1612292307"></script>
+    <script src="../js/highlight.pack.js?1612292307"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1612288436"></script>
-    <script src="../js/learn.js?1612288436"></script>
-    <script src="../js/hugo-learn.js?1612288436"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1612292307"></script>
+    <script src="../js/learn.js?1612292307"></script>
+    <script src="../js/hugo-learn.js?1612292307"></script>
 
-    <link href="../mermaid/mermaid.css?1612288436" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1612288436"></script>
+    <link href="../mermaid/mermaid.css?1612292307" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1612292307"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
