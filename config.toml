@@ -38,7 +38,10 @@ name = "<i class='fab fa-linkedin fa-lg'></i> Marine Haddad"
 identifier = "li1"
 url = "https://www.linkedin.com/in/marine-haddad-38a542b5/"
 weight = 2
-"Email : " = "marinehd@amazon.com"
+name = "<i class='fab fa-linkedin fa-lg'></i> Adrianna Kurzela"
+Email = "marinehd@amazon.com"
+Email = "akurzela@amazon.lu"
+
 
 # Deploy to S3 + CloudFront
 [deployment]

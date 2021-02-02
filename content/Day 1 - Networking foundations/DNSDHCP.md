@@ -5,10 +5,13 @@ weight: 50
 pre: 
 ---
 
+DNS stands for Domain Name System and is like an address book. It allows hosts to reach endpoints such as URLs or other machines.
 
 
 
-What's DNS?
+
+Authoritative, root, resolver.
+Recursion.
 Record types.
 Real life example.
 Application example.
