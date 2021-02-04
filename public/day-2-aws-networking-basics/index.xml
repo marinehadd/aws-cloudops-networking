@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-2-aws-networking-basics/aws-infrastructure.html</guid>
-      <description>AWS currently has 24 regions in its global infrastructure. A region is a physical location around the world where data centers are clustered. These data centers are grouped in Availability Zones. Each of these regions contains at least two Availability Zones. There are 77 Availability Zones.
+      <description>AWS currently has 24 regions in its global infrastructure. A region is a physical location around the world where data centers are clustered. These data centers are grouped in Availability Zones. Each AWS Region consists of multiple, isolated, and physically separate AZ&amp;rsquo;s within a geographic area. There are 77 Availability Zones.
 AWS is responsible of protecting this infrastructure according to the Shared Responsibility Model:</description>
     </item>
     
