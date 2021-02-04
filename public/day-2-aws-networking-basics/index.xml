@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-2-aws-networking-basics/aws-infrastructure.html</guid>
-      <description>AWS currently has 24 regions in its global infrastructure. A region is a physical location around the world where data centers are clustered. These data centers are grouped in Availability Zones. Each of these regions contains at least two Availability Zones. There are 77 Availability Zones.
+      <description>AWS currently has 24 regions in its global infrastructure. A region is a physical location around the world where data centers are clustered. These data centers are grouped in Availability Zones. Each AWS Region consists of multiple, isolated, and physically separate AZ&amp;rsquo;s within a geographic area. There are 77 Availability Zones.
 AWS is responsible of protecting this infrastructure according to the Shared Responsibility Model:</description>
     </item>
     
@@ -42,7 +42,8 @@ This IP address is private: it only makes sense inside the VPC and can&amp;rsquo
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-2-aws-networking-basics/security.html</guid>
-      <description>ACLs and SGs.</description>
+      <description>ACLs and SGs.
+A security group is a virtual stateful firewall that controls inbound and outbound network traffic to AWS resources and Amazon EC2 instances. At AWS, security groups act like a built-in firewall for your virtual servers. With these security groups, you have full control about how accessible your instances are. At the most basic level, it is just another method to filter traffic to your instances. It provides you control about what traffic to allow or deny.</description>
     </item>
     
     <item>
