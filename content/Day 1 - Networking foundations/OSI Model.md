@@ -5,7 +5,7 @@ weight: 30
 pre: 
 ---
 
-All networking concepts are based on the OSI model:
+Networking is based on the OSI model:
 
 <img src='/images/osi-model-7-layers.png' width='500px'>
 
@@ -17,9 +17,9 @@ Let's pick some real life examples:
 
 - L1 = your home router, your cables
 
-- L2 = your home devices interconnecting (find example)
+- L2 = your home devices interconnecting (find example) (switch)
 
-- L3 = your home laptop/phone getting to the Internet
+- L3 = your home laptop/phone getting to the Internet (router)
 
 - L4 = when you stream an online movie
 
@@ -32,6 +32,8 @@ Let's pick some real life examples:
 
 (TO SPEECH)
 
+No need to remember it, just understand it.
+
 L1 corresponds to anything physical, such as a device or a cable. If we go back to our chat about routers and switches, the devices as such will sit in L1 since they are physical.
 
 However, although they're physical machines, they provide functionalities corresponding to other layers. A switch does not do any routing, meaning it does not know what is an IP address, and only work out connectivity inside a LAN. So a switch, in it is logical way, will sit in L2 Data layer.
@@ -43,9 +45,9 @@ L4 corresponds to anything (protocols or devices) related to transport of data a
 
 When we talk about API or establishing an end to end path to send data, we refer to L5 Session layer.
 
-L6 Presentation layer for example SSH to login to instance, or SSL whe we check this small lock near the HTTP of the website we're on.
+L6 represents a presentation layer. For example SSH to login to instance, or SSL whe we check this small lock near the HTTP of the website we're on.
 
-To finish, L7 is the website, the DNS protocol to resolve the webiste, etc.
+Ultimately, L7 is the website, the DNS protocol to resolve the webiste, etc.
 
 
 

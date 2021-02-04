@@ -17,21 +17,21 @@
     <title>Private/Public concepts :: Amazon CloudOps Networking Workshop</title>
 
     
-    <link href="../css/nucleus.css?1612259082" rel="stylesheet">
-    <link href="../css/all.css?1612259082" rel="stylesheet">
-    <link href="../css/hybrid.css?1612259082" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1612259082" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1612259082" rel="stylesheet">
-    <link href="../css/auto-complete.css?1612259082" rel="stylesheet">
-    <link href="../css/theme.css?1612259082" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1612259082" rel="stylesheet">
-    <link href="../css/jquery-ui.min.css?1612259082" rel="stylesheet">
+    <link href="../css/nucleus.css?1612433634" rel="stylesheet">
+    <link href="../css/all.css?1612433634" rel="stylesheet">
+    <link href="../css/hybrid.css?1612433634" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1612433634" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1612433634" rel="stylesheet">
+    <link href="../css/auto-complete.css?1612433634" rel="stylesheet">
+    <link href="../css/theme.css?1612433634" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1612433634" rel="stylesheet">
+    <link href="../css/jquery-ui.min.css?1612433634" rel="stylesheet">
     
-      <link href="../css/theme-mine.css?1612259082" rel="stylesheet">
+      <link href="../css/theme-mine.css?1612433634" rel="stylesheet">
     
 
-    <script src="../js/jquery-3.3.1.min.js?1612259082"></script>
-    <script src="../js/jquery-ui-1.12.1.min.js?1612259082"></script>
+    <script src="../js/jquery-3.3.1.min.js?1612433634"></script>
+    <script src="../js/jquery-ui-1.12.1.min.js?1612433634"></script>
 
 
     <style type="text/css">
@@ -63,14 +63,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1612259082"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1612259082"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1612433634"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1612433634"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1612259082"></script>
+<script type="text/javascript" src="../js/search.js?1612433634"></script>
 
     
   </div>
@@ -631,8 +631,12 @@
         
 
 
-<p>Talk about route tables from VPC and how you define a public and a private subnet.</p>
-<p>Explain IGW and NGW.</p>
+<p>Resources launched inside a VPC will take an IP address from the CIDR block assigned. For example, for a <em>10.0.0.0/16</em> CIDR block, an EC2 instance could have <em>10.0.0.42</em> as its IP address.</p>
+<p>This IP address is private: it only makes sense inside the VPC and can&rsquo;t be reached from the Internet. In order to make the EC2 instance publicly reachable, two conditions must be fulfilled: the EC2 instance must have a public IP address and an <strong>Internet Gateway</strong> attached to the VPC.</p>
+<p>An Internet Gateway is a highly available component that brings connectivity to your VPC, allowing access to the Internet. Your public resources must reside in a subnet that&rsquo;s associated with a route table that has a route to an Internet Gateway. This subnet is a <strong>public subnet</strong>.</p>
+<img src='../images/nat-gateway-diagram.png'>
+<p>A <strong>private subnet</strong>, on the other hand, is associated with a route table that does not have a route to an Internet Gateway. The resources that should not be publicly accessible reside in these subnets. However, if your private resources need access to the Internet or other AWS services, you can add a <strong>NAT Gateway</strong>.</p>
+<p>The NAT Gateway allow your EC2 instance to connect to the Internet, but prevent the Internet from connecting to it. The NAT Gateway resides in a public subnet in a certain Availability Zone. In order to allow your private subnets use the NAT Gateway to connect to the Internet, you must update the route tables they are associated with.</p>
 
 
 <footer class=" footline" >
@@ -1031,19 +1035,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1612259082"></script>
-    <script src="../js/perfect-scrollbar.min.js?1612259082"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1612259082"></script>
-    <script src="../js/jquery.sticky.js?1612259082"></script>
-    <script src="../js/featherlight.min.js?1612259082"></script>
-    <script src="../js/highlight.pack.js?1612259082"></script>
+    <script src="../js/clipboard.min.js?1612433634"></script>
+    <script src="../js/perfect-scrollbar.min.js?1612433634"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1612433634"></script>
+    <script src="../js/jquery.sticky.js?1612433634"></script>
+    <script src="../js/featherlight.min.js?1612433634"></script>
+    <script src="../js/highlight.pack.js?1612433634"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1612259082"></script>
-    <script src="../js/learn.js?1612259082"></script>
-    <script src="../js/hugo-learn.js?1612259082"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1612433634"></script>
+    <script src="../js/learn.js?1612433634"></script>
+    <script src="../js/hugo-learn.js?1612433634"></script>
 
-    <link href="../mermaid/mermaid.css?1612259082" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1612259082"></script>
+    <link href="../mermaid/mermaid.css?1612433634" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1612433634"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

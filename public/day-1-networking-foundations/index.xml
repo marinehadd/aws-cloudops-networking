@@ -23,7 +23,7 @@ There are several types of networks but the most common are LAN (Local Area Netw
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-1-networking-foundations/osi-model.html</guid>
-      <description>All networking concepts are based on the OSI model:
+      <description>Networking is based on the OSI model:
 Each layer has a meaning in networking. We will not cover the layers in dept, but you can read more about in the Further Reading section.
 Networking is based on the OSI model, it is a bit like the layers of a cake, often referred as L1, L2, L3, etc..
 Let&amp;rsquo;s pick some real life examples:
@@ -36,9 +36,8 @@ Let&amp;rsquo;s pick some real life examples:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-1-networking-foundations/subnetting.html</guid>
-      <description>A network (or LAN) is defined by a a block of IP addresses called a CIDR block, from which every machine in the network receives an IP address.
-PICTURE
-CIDR have the purpose of sizing and seggregating networks. If you have a small home network, you will only need a few IP adresses, therefore the CIDR should be small, but if you work in a company where plenty of devices need to connect, and therefore require an IP address, then the size needs to be bigger.</description>
+      <description>A network (or LAN) is defined by a a block of IP addresses called a CIDR block, from which every host in the network receives an IP address.
+A CIDR indicates the size of a network, and networks are calculated with subnetting. Subnetting allows the segmentation of a bigger network in smaller networks. For example, a company could have different departments (HR, Finances, etc) and therefore wish to seggregate their corporate network based on these departments.</description>
     </item>
     
     <item>
@@ -47,11 +46,9 @@ CIDR have the purpose of sizing and seggregating networks. If you have a small h
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-1-networking-foundations/routing.html</guid>
-      <description>The way machines talk to each others is via routing tables, and that is the router&amp;rsquo;s responsibility.
-A routing table is like a map for routers to send traffic to and from.
-Picture with A to B with route table.
-Then show OSPF/BGP -&amp;gt; LAN/WAN.
-Show ping.</description>
+      <description>The router comes into the picture when different hosts from different networks try to communicate. We have seen in a previous section that the router does all the routing to allow the internal hosts to talk to an external destination such as the Internet or just another network.
+This communication is done by the means of routing tables and routing protocols.
+A route table is a source/destination map for the router to know where to send the traffic, based on the packet destination.</description>
     </item>
     
     <item>
@@ -60,7 +57,8 @@ Show ping.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-1-networking-foundations/dnsdhcp.html</guid>
-      <description>What&amp;rsquo;s DNS? Record types. Real life example. Application example.
+      <description>DNS stands for Domain Name System and is like an address book. It allows hosts to reach endpoints such as URLs or other machines.
+Authoritative, root, resolver. Recursion. Record types. Real life example. Application example.
 What;s DHCP? How does it work with DNS? Give example of home network, or VoIP phone.</description>
     </item>
     
