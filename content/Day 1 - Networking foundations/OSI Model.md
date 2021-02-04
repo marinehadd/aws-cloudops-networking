@@ -45,9 +45,9 @@ L4 corresponds to anything (protocols or devices) related to transport of data a
 
 When we talk about API or establishing an end to end path to send data, we refer to L5 Session layer.
 
-L6 Presentation layer for example SSH to login to instance, or SSL whe we check this small lock near the HTTP of the website we're on.
+L6 represents a presentation layer. For example SSH to login to instance, or SSL whe we check this small lock near the HTTP of the website we're on.
 
-To finish, L7 is the website, the DNS protocol to resolve the webiste, etc.
+Ultimately, L7 is the website, the DNS protocol to resolve the webiste, etc.
 
 
 
