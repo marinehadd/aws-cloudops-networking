@@ -57,9 +57,9 @@ A route table is a source/destination map for the router to know where to send t
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-1-networking-foundations/dnsdhcp.html</guid>
-      <description>DNS stands for Domain Name System and is like an address book. It allows hosts to reach endpoints such as URLs or other machines.
-Authoritative, root, resolver. Recursion. Record types. Real life example. Application example.
-What;s DHCP? How does it work with DNS? Give example of home network, or VoIP phone.</description>
+      <description>DNS stands for Domain Name System and it is used in our everyday tasks without even realising it. DNS can be compared to an address book since it is a directory of mappings between names and IP addresses and allows hosts to reach endpoints such as URLs or other machines.
+For example, when we browse a page and hit an URL, this is what happens:
+DNS uses a hierarchy to manage the different types of servers.</description>
     </item>
     
     <item>

@@ -67,7 +67,7 @@
 	"title": "Elastic Load Balancing",
 	"tags": [],
 	"description": "",
-	"content": "Explain goal of ELB and explain the 3 different types of ELBs and their main purpose/context.\n"
+	"content": "Explain goal of ELB and explain the 3 different types of ELBs and their main purpose/context.\nElastic Load Balancing automatically adjusts to incoming traffic and rapid changes in network traffic patterns by distributing traffic across multiple Amazon EC2 instances in the cloud, without manual intervention. This enables you to achieve higher levels of fault tolerance with your applications.\nThere are currently 3 types of a load balancer: • Application Load Balancer • Network Load Balancer • Classic Load Balancer\n"
 },
 {
 	"uri": "/day-1-networking-foundations/routing.html",
@@ -88,14 +88,14 @@
 	"title": "DNS/DHCP",
 	"tags": [],
 	"description": "",
-	"content": "DNS stands for Domain Name System and is like an address book. It allows hosts to reach endpoints such as URLs or other machines.\nAuthoritative, root, resolver. Recursion. Record types. Real life example. Application example.\nWhat;s DHCP? How does it work with DNS? Give example of home network, or VoIP phone.\n"
+	"content": "DNS stands for Domain Name System and it is used in our everyday tasks without even realising it. DNS can be compared to an address book since it is a directory of mappings between names and IP addresses and allows hosts to reach endpoints such as URLs or other machines.\nFor example, when we browse a page and hit an URL, this is what happens:\nDNS uses a hierarchy to manage the different types of servers.\nWhen using DNS, the URL or name of a server is read from right to left, the root being the highest in the hierarchy and represented by a \u0026ldquo;.\u0026rdquo;.\nBased on this hierarchy, there are several types of DNS servers:\n The Root servers, which sit at the top and handle all the queries to .com, .net. .io, etc.. The Authoritative servers, which own specific domains such as google.com, amazon.com, aws-cloudops.com, etc.. The DNS resolvers, which handle the local DNS requets by doing recursive resolution to the Root and Authoritative servers in order to get the response back to the asking client machine  DNS stores different types of DNS records in its mapping directory, but there are only a few common ones that you will ever used:\n A record (Address) - maps a name to an IP address (i.e. bob.com -\u0026gt; 10.1.1.4) PTR record (Pointer) - maps an IP address to a name (i.e. 10.1.1.4 -\u0026gt; bob.com) CNAME record (Canonical Name) - maps a name t a name (i.e. network.bob.com -\u0026gt; something.else.com) NS record (Name Servers) - indicates the authoritative servers for the domain SOA record (Start of Authority) - provides information about the domain  What;s DHCP? How does it work with DNS? Give example of home network, or VoIP phone.\n"
 },
 {
 	"uri": "/day-2-aws-networking-basics/route53.html",
 	"title": "Route53",
 	"tags": [],
 	"description": "",
-	"content": "Explain what is Route53 and the different routing policies.\n"
+	"content": "Amazon Route 53 is a Domain Name System (DNS) web service. Route 53 provides three main functions:\n  Domain registration: Route 53 allows you to register a domain name for your website, such as example.com. This domain name can be used by the users to access your website.\n  DNS service: an EC2 instance has an IP address assigned to it (i.e. 10.0.0.42). In order to connect to it, you would need to remember the whole IP address. Route 53 translates domain names, such as example.com, into IP addresses, such as 10.0.0.42. Therefore, you could access your website by using the domain name instead of having to remember the whole IP address.\n  Health checking: Route 53 uses health checks to monitor the health of your resources (such as EC2 instances or ELB). Optionally, you can receive notifications when your resources fail the health checks.\n  Route 53 can route the traffic to the resources following routing policies depending on different needs:\n  Simple routing policy: when you have a single resource, such as a web server that serves a website.\n  Failover routing policy: when you want an active-passive failover.\n  Geolocation routing policy: when you want to route traffic based on the location of your users.\n  Geoproximity routing policy: when you want to route traffic based on the location of your resources.\n  Latency routing policy: when you have resources in multiple AWS Regions and you want to minimize latency.\n  Multivalue answer routing policy: when you want Route 53 to respond to DNS queries with up to eight healthy records selected at random.\n  Weighted routing policy: when you want to route traffic to multiple resources in proportions that you specify.\n  "
 },
 {
 	"uri": "/day-1-networking-foundations/homework.html",

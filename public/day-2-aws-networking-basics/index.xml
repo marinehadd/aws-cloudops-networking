@@ -52,7 +52,9 @@ A security group is a virtual stateful firewall that controls inbound and outbou
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-2-aws-networking-basics/load-balancing.html</guid>
-      <description>Explain goal of ELB and explain the 3 different types of ELBs and their main purpose/context.</description>
+      <description>Explain goal of ELB and explain the 3 different types of ELBs and their main purpose/context.
+Elastic Load Balancing automatically adjusts to incoming traffic and rapid changes in network traffic patterns by distributing traffic across multiple Amazon EC2 instances in the cloud, without manual intervention. This enables you to achieve higher levels of fault tolerance with your applications.
+There are currently 3 types of a load balancer: • Application Load Balancer • Network Load Balancer • Classic Load Balancer</description>
     </item>
     
     <item>
@@ -61,7 +63,9 @@ A security group is a virtual stateful firewall that controls inbound and outbou
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-2-aws-networking-basics/route53.html</guid>
-      <description>Explain what is Route53 and the different routing policies.</description>
+      <description>Amazon Route 53 is a Domain Name System (DNS) web service. Route 53 provides three main functions:
+  Domain registration: Route 53 allows you to register a domain name for your website, such as example.com. This domain name can be used by the users to access your website.
+  DNS service: an EC2 instance has an IP address assigned to it (i.e. 10.0.0.42). In order to connect to it, you would need to remember the whole IP address.</description>
     </item>
     
   </channel>

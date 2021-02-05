@@ -17,21 +17,21 @@
     <title>Route53 :: Amazon CloudOps Networking Workshop</title>
 
     
-    <link href="../css/nucleus.css?1612521783" rel="stylesheet">
-    <link href="../css/all.css?1612521783" rel="stylesheet">
-    <link href="../css/hybrid.css?1612521783" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1612521783" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1612521783" rel="stylesheet">
-    <link href="../css/auto-complete.css?1612521783" rel="stylesheet">
-    <link href="../css/theme.css?1612521783" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1612521783" rel="stylesheet">
-    <link href="../css/jquery-ui.min.css?1612521783" rel="stylesheet">
+    <link href="../css/nucleus.css?1612540781" rel="stylesheet">
+    <link href="../css/all.css?1612540781" rel="stylesheet">
+    <link href="../css/hybrid.css?1612540781" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1612540781" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1612540781" rel="stylesheet">
+    <link href="../css/auto-complete.css?1612540781" rel="stylesheet">
+    <link href="../css/theme.css?1612540781" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1612540781" rel="stylesheet">
+    <link href="../css/jquery-ui.min.css?1612540781" rel="stylesheet">
     
-      <link href="../css/theme-mine.css?1612521783" rel="stylesheet">
+      <link href="../css/theme-mine.css?1612540781" rel="stylesheet">
     
 
-    <script src="../js/jquery-3.3.1.min.js?1612521783"></script>
-    <script src="../js/jquery-ui-1.12.1.min.js?1612521783"></script>
+    <script src="../js/jquery-3.3.1.min.js?1612540781"></script>
+    <script src="../js/jquery-ui-1.12.1.min.js?1612540781"></script>
 
 
     <style type="text/css">
@@ -63,14 +63,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1612521783"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1612521783"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1612540781"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1612540781"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1612521783"></script>
+<script type="text/javascript" src="../js/search.js?1612540781"></script>
 
     
   </div>
@@ -631,7 +631,43 @@
         
 
 
-<p>Explain what is Route53 and the different routing policies.</p>
+<p><strong>Amazon Route 53</strong> is a Domain Name System (DNS) web service. Route 53 provides three main functions:</p>
+<ul>
+<li>
+<p><strong>Domain registration</strong>: Route 53 allows you to register a <strong>domain name</strong> for your website, such as <em>example.com</em>. This domain name can be used by the users to access your website.</p>
+</li>
+<li>
+<p><strong>DNS service</strong>: an EC2 instance has an IP address assigned to it (i.e. <em>10.0.0.42</em>). In order to connect to it, you would need to remember the whole IP address. Route 53 translates domain names, such as <em>example.com</em>, into IP addresses, such as <em>10.0.0.42</em>. Therefore, you could access your website by using the domain name instead of having to remember the whole IP address.</p>
+</li>
+<li>
+<p><strong>Health checking</strong>: Route 53 uses health checks to monitor the health of your resources (such as EC2 instances or ELB). Optionally, you can receive notifications when your resources fail the health checks.</p>
+</li>
+</ul>
+<img src='../images/how-route-53-routes-traffic.png'>
+<p>Route 53 can route the traffic to the resources following routing policies depending on different needs:</p>
+<ul>
+<li>
+<p><strong>Simple routing policy</strong>: when you have a single resource, such as a web server that serves a website.</p>
+</li>
+<li>
+<p><strong>Failover routing policy</strong>: when you want an active-passive failover.</p>
+</li>
+<li>
+<p><strong>Geolocation routing policy</strong>: when you want to route traffic based on the location of your users.</p>
+</li>
+<li>
+<p><strong>Geoproximity routing policy</strong>: when you want to route traffic based on the location of your resources.</p>
+</li>
+<li>
+<p><strong>Latency routing policy</strong>: when you have resources in multiple AWS Regions and you want to minimize latency.</p>
+</li>
+<li>
+<p><strong>Multivalue answer routing policy</strong>: when you want Route 53 to respond to DNS queries with up to eight healthy records selected at random.</p>
+</li>
+<li>
+<p><strong>Weighted routing policy</strong>: when you want to route traffic to multiple resources in proportions that you specify.</p>
+</li>
+</ul>
 
 
 <footer class=" footline" >
@@ -1030,19 +1066,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1612521783"></script>
-    <script src="../js/perfect-scrollbar.min.js?1612521783"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1612521783"></script>
-    <script src="../js/jquery.sticky.js?1612521783"></script>
-    <script src="../js/featherlight.min.js?1612521783"></script>
-    <script src="../js/highlight.pack.js?1612521783"></script>
+    <script src="../js/clipboard.min.js?1612540781"></script>
+    <script src="../js/perfect-scrollbar.min.js?1612540781"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1612540781"></script>
+    <script src="../js/jquery.sticky.js?1612540781"></script>
+    <script src="../js/featherlight.min.js?1612540781"></script>
+    <script src="../js/highlight.pack.js?1612540781"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1612521783"></script>
-    <script src="../js/learn.js?1612521783"></script>
-    <script src="../js/hugo-learn.js?1612521783"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1612540781"></script>
+    <script src="../js/learn.js?1612540781"></script>
+    <script src="../js/hugo-learn.js?1612540781"></script>
 
-    <link href="../mermaid/mermaid.css?1612521783" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1612521783"></script>
+    <link href="../mermaid/mermaid.css?1612540781" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1612540781"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
