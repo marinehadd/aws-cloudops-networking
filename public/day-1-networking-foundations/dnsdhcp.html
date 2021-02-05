@@ -17,21 +17,21 @@
     <title>DNS/DHCP :: Amazon CloudOps Networking Workshop</title>
 
     
-    <link href="../css/nucleus.css?1612540781" rel="stylesheet">
-    <link href="../css/all.css?1612540781" rel="stylesheet">
-    <link href="../css/hybrid.css?1612540781" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1612540781" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1612540781" rel="stylesheet">
-    <link href="../css/auto-complete.css?1612540781" rel="stylesheet">
-    <link href="../css/theme.css?1612540781" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1612540781" rel="stylesheet">
-    <link href="../css/jquery-ui.min.css?1612540781" rel="stylesheet">
+    <link href="../css/nucleus.css?1612543844" rel="stylesheet">
+    <link href="../css/all.css?1612543844" rel="stylesheet">
+    <link href="../css/hybrid.css?1612543844" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1612543844" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1612543844" rel="stylesheet">
+    <link href="../css/auto-complete.css?1612543844" rel="stylesheet">
+    <link href="../css/theme.css?1612543844" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1612543844" rel="stylesheet">
+    <link href="../css/jquery-ui.min.css?1612543844" rel="stylesheet">
     
-      <link href="../css/theme-mine.css?1612540781" rel="stylesheet">
+      <link href="../css/theme-mine.css?1612543844" rel="stylesheet">
     
 
-    <script src="../js/jquery-3.3.1.min.js?1612540781"></script>
-    <script src="../js/jquery-ui-1.12.1.min.js?1612540781"></script>
+    <script src="../js/jquery-3.3.1.min.js?1612543844"></script>
+    <script src="../js/jquery-ui-1.12.1.min.js?1612543844"></script>
 
 
     <style type="text/css">
@@ -63,14 +63,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1612540781"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1612540781"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1612543844"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1612543844"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1612540781"></script>
+<script type="text/javascript" src="../js/search.js?1612543844"></script>
 
     
   </div>
@@ -631,6 +631,7 @@
         
 
 
+<p><strong>DNS</strong></p>
 <p>DNS stands for Domain Name System and it is used in our everyday tasks without even realising it. DNS can be compared to an address book since it is a directory of mappings between names and IP addresses and allows hosts to reach endpoints such as URLs or other machines.</p>
 <img src='../images/dns.png' width='500px'>
 <p>For example, when we browse a page and hit an URL, this is what happens:</p>
@@ -649,11 +650,29 @@
 <li>PTR record (Pointer) - maps an IP address to a name (i.e. 10.1.1.4 -&gt; bob.com)</li>
 <li>CNAME record (Canonical Name) - maps a name t a name (i.e. network.bob.com -&gt; something.else.com)</li>
 <li>NS record (Name Servers) - indicates the authoritative servers for the domain</li>
-<li>SOA record (Start of Authority) - provides information about the domain</li>
+<li>SOA record (Start of Authority) - provides administrative information about the domain</li>
+<li>MX record (Mail Exchange) - indicates which mail servers are used to send emails to the domain</li>
 </ul>
-<p>What;s DHCP?
-How does it work with DNS?
-Give example of home network, or VoIP phone.</p>
+<p>(Show nslookup/dig to resolve networking.aws-cloudops.com)</p>
+<p><strong>DHCP</strong></p>
+<p>DHCP stands for Dynamic Host Configuration Protocol and is used to dynamically alloacte IP addresses to clients in a network.</p>
+<p>The way it works:</p>
+<ul>
+<li>A new client connects to a network</li>
+<li>The client requests the DHCP server a new IP address in this network</li>
+<li>The DHCP server leases an IP address to this client for a specific duration</li>
+<li>When the client disconnects, the IP is released in the DHCP pool. If the client remains and the duration has expired, the lease is renewed.</li>
+</ul>
+<p>When a DHCP server leases an IP address, it doesn&rsquo;t only provide the IP but also information around it such as the router gateway of the network and the DNS servers.
+In other cases where a client would require other services such as a FTP server for example, this would also be provided in the lease. These additional information are called DHCP Options, and each option corresponds to a number.</p>
+<p><em><strong>Examples:</strong></em></p>
+<ul>
+<li>Option 1 = subnet mask</li>
+<li>Option 3 = router gateway</li>
+<li>Option 6 = DNS servers</li>
+<li>Option 51 = lease duration time</li>
+</ul>
+<p>(Show local laptop config static/dhcp)</p>
 
 
 <footer class=" footline" >
@@ -1052,19 +1071,19 @@ Give example of home network, or VoIP phone.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1612540781"></script>
-    <script src="../js/perfect-scrollbar.min.js?1612540781"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1612540781"></script>
-    <script src="../js/jquery.sticky.js?1612540781"></script>
-    <script src="../js/featherlight.min.js?1612540781"></script>
-    <script src="../js/highlight.pack.js?1612540781"></script>
+    <script src="../js/clipboard.min.js?1612543844"></script>
+    <script src="../js/perfect-scrollbar.min.js?1612543844"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1612543844"></script>
+    <script src="../js/jquery.sticky.js?1612543844"></script>
+    <script src="../js/featherlight.min.js?1612543844"></script>
+    <script src="../js/highlight.pack.js?1612543844"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1612540781"></script>
-    <script src="../js/learn.js?1612540781"></script>
-    <script src="../js/hugo-learn.js?1612540781"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1612543844"></script>
+    <script src="../js/learn.js?1612543844"></script>
+    <script src="../js/hugo-learn.js?1612543844"></script>
 
-    <link href="../mermaid/mermaid.css?1612540781" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1612540781"></script>
+    <link href="../mermaid/mermaid.css?1612543844" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1612543844"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

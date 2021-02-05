@@ -48,7 +48,7 @@ A CIDR indicates the size of a network, and networks are calculated with subnett
       <guid>/day-1-networking-foundations/routing.html</guid>
       <description>The router comes into the picture when different hosts from different networks try to communicate. We have seen in a previous section that the router does all the routing to allow the internal hosts to talk to an external destination such as the Internet or just another network.
 This communication is done by the means of routing tables and routing protocols.
-A route table is a source/destination map for the router to know where to send the traffic, based on the packet destination.</description>
+A route table is a source/destination map for the router to know where to send the traffic, based on the traffic destination.</description>
     </item>
     
     <item>
@@ -57,7 +57,8 @@ A route table is a source/destination map for the router to know where to send t
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-1-networking-foundations/dnsdhcp.html</guid>
-      <description>DNS stands for Domain Name System and it is used in our everyday tasks without even realising it. DNS can be compared to an address book since it is a directory of mappings between names and IP addresses and allows hosts to reach endpoints such as URLs or other machines.
+      <description>DNS
+DNS stands for Domain Name System and it is used in our everyday tasks without even realising it. DNS can be compared to an address book since it is a directory of mappings between names and IP addresses and allows hosts to reach endpoints such as URLs or other machines.
 For example, when we browse a page and hit an URL, this is what happens:
 DNS uses a hierarchy to manage the different types of servers.</description>
     </item>
