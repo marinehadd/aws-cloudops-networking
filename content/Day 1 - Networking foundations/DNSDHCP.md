@@ -5,6 +5,9 @@ weight: 50
 pre: 
 ---
 
+
+**DNS**
+
 DNS stands for Domain Name System and it is used in our everyday tasks without even realising it. DNS can be compared to an address book since it is a directory of mappings between names and IP addresses and allows hosts to reach endpoints such as URLs or other machines.
 
 <img src='/images/dns.png' width='500px'>
@@ -30,13 +33,43 @@ DNS stores different types of DNS records in its mapping directory, but there ar
 - PTR record (Pointer) - maps an IP address to a name (i.e. 10.1.1.4 -> bob.com)
 - CNAME record (Canonical Name) - maps a name t a name (i.e. network.bob.com -> something.else.com)
 - NS record (Name Servers) - indicates the authoritative servers for the domain
-- SOA record (Start of Authority) - provides information about the domain
+- SOA record (Start of Authority) - provides administrative information about the domain
+- MX record (Mail Exchange) - indicates which mail servers are used to send emails to the domain
+
+
+(Show nslookup/dig to resolve networking.aws-cloudops.com)
+
+
+**DHCP**
+
+DHCP stands for Dynamic Host Configuration Protocol and is used to dynamically alloacte IP addresses to clients in a network.
+
+The way it works:
+- A new client connects to a network
+- The client requests the DHCP server a new IP address in this network
+- The DHCP server leases an IP address to this client for a specific duration
+- When the client disconnects, the IP is released in the DHCP pool. If the client remains and the duration has expired, the lease is renewed.
+
+
+When a DHCP server leases an IP address, it doesn't only provide the IP but also information around it such as the router gateway of the network and the DNS servers.
+In other cases where a client would require other services such as a FTP server for example, this would also be provided in the lease. These additional information are called DHCP Options, and each option corresponds to a number.
+
+***Examples:***
+
+- Option 1 = subnet mask
+- Option 3 = router gateway
+- Option 6 = DNS servers
+- Option 51 = lease duration time
 
 
 
-What;s DHCP?
-How does it work with DNS?
-Give example of home network, or VoIP phone.
+
+
+
+
+(Show local laptop config static/dhcp)
+
+
 
 
 

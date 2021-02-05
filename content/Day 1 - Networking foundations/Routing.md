@@ -9,7 +9,9 @@ The router comes into the picture when different hosts from different networks t
 
 This communication is done by the means of routing tables and routing protocols.
 
-A route table is a source/destination map for the router to know where to send the traffic, based on the packet destination.
+A route table is a source/destination map for the router to know where to send the traffic, based on the traffic destination.
+
+*NB: ISP = Internet Service Provider*
 
 <img src='/images/routetables.png' width='400px'>
 
