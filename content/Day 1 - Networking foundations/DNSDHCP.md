@@ -12,7 +12,7 @@ DNS stands for Domain Name System and it is used in our everyday tasks without e
 
 <img src='/images/dns.png' width='500px'>
 
-A full name of a server or endpoint is made of a hostname and the domain in which it sits. It is called a Fully Qualified Domain Name (FQDN) and is used for DNS resolution.
+The full name of a server or endpoint is made of a hostname and the domain in which it sits. It is called a Fully Qualified Domain Name (FQDN) and is used for DNS resolution.
 
 <img src='/images/fqdn.png' width='800px'>
 
@@ -33,7 +33,7 @@ DNS resolution can be either iterative or recursive.
 
 In an iterative resolution, the local computer DNS resolver handles the full DNS resolution journey.
 
-<img src='/images/dnsiteration.png' width='800px'>
+<img src='/images/dnsiterative.png' width='800px'>
 
 In a recursive resolution, the DNS resolver/caching server handles the full DNS resolution journey.
 

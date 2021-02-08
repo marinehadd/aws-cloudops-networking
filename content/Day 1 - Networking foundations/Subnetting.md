@@ -132,11 +132,11 @@ Not always but in most cases, as a best practice, the second IP of a subnet is d
 
 - 10.20.3.2/24
 
-What is the binary address of 10.20.3.2?
-What is the network ID?
-What is the subnet mask?
-What is the gateway router IP address?
-How many IP addresses in this network?
+<p>What is the binary address of 10.20.3.2?<br>
+What is the network ID?<br>
+What is the subnet mask?<br>
+What is the gateway router IP address?<br>
+How many IP addresses in this network?</p>
 
 
 
