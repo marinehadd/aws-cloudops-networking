@@ -129,7 +129,9 @@ One last thing to remember is that there are always 2 IP addresses that cannot b
 
 Not always but in most cases, as a best practice, the second IP of a subnet is dedicated to the router interface, called the Gateway IP. The gateway IP will be 10.1.1.1.1 if the subnet is 10.1.1.0/24.
 
-(Show IP address on ipconfig laptop - show IP allocated, network, router gateway IP.)
+
+***Exercise:***
+
 
 
 

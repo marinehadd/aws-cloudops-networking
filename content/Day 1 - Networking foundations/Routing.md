@@ -13,11 +13,11 @@ A route table is a source/destination map for the router to know where to send t
 
 *NB: ISP = Internet Service Provider*
 
-<img src='/images/routetables.png' width='400px'>
+<img src='/images/routetables.png' width='1000px'>
 
 The source and destination correspond to subnets.
 
-<img src='/images/routing.png' width='400px'>
+<img src='/images/routing.png' width='1000px'>
 
 There are two types of routing:
 - static routing : routes are manually added to route tables
@@ -30,9 +30,6 @@ OSPF is used to dynamically route traffic between networks of a same domain, whi
 
 
 <img src='/images/protocols.png' width='400px'>
-
-
-(show a ping to show network "tool" to test connectivity).
 
 
 

@@ -6,10 +6,9 @@ pre:
 ---
 
 
+**Subnetting Exercice**
 
 
-Link and instructions for a lab.
-Subnetting exercise.
 
 
 
