@@ -6,7 +6,8 @@ pre:
 ---
 
 
-**Subnetting Exercice**
+**Subnetting Exercices**
+
 
 
 

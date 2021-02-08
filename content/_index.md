@@ -10,9 +10,8 @@ In this workshop, we will go through the basics of networking in both traditiona
 
 The workshop will consist of the following:
 - 3 x 2h lectures 
-- 3 x 2h office hours (optional)
+- 3 x 2h office hours
 
-(Provide dates)
 
 For additional labs and bedtime reading, you can find more material in the [Further Reading](/further_reading.html) section.
 
