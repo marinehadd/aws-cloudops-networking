@@ -59,7 +59,7 @@ A route table is a source/destination map for the router to know where to send t
       <guid>/day-1-networking-foundations/dnsdhcp.html</guid>
       <description>Domain Name System (DNS):
 DNS stands for Domain Name System and it is used in our everyday tasks without even realising it. DNS can be compared to an address book since it is a directory of mappings between names and IP addresses and allows hosts to reach endpoints such as URLs or other machines.
-A full name of a server or endpoint is made of a hostname and the domain in which it sits.</description>
+The full name of a server or endpoint is made of a hostname and the domain in which it sits.</description>
     </item>
     
     <item>
