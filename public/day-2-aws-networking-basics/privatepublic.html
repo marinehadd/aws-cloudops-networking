@@ -17,21 +17,21 @@
     <title>Private/Public concepts :: Amazon CloudOps Networking Workshop</title>
 
     
-    <link href="../css/nucleus.css?1612808191" rel="stylesheet">
-    <link href="../css/all.css?1612808191" rel="stylesheet">
-    <link href="../css/hybrid.css?1612808191" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1612808191" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1612808191" rel="stylesheet">
-    <link href="../css/auto-complete.css?1612808191" rel="stylesheet">
-    <link href="../css/theme.css?1612808191" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1612808191" rel="stylesheet">
-    <link href="../css/jquery-ui.min.css?1612808191" rel="stylesheet">
+    <link href="../css/nucleus.css?1612983463" rel="stylesheet">
+    <link href="../css/all.css?1612983463" rel="stylesheet">
+    <link href="../css/hybrid.css?1612983463" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1612983463" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1612983463" rel="stylesheet">
+    <link href="../css/auto-complete.css?1612983463" rel="stylesheet">
+    <link href="../css/theme.css?1612983463" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1612983463" rel="stylesheet">
+    <link href="../css/jquery-ui.min.css?1612983463" rel="stylesheet">
     
-      <link href="../css/theme-mine.css?1612808191" rel="stylesheet">
+      <link href="../css/theme-mine.css?1612983463" rel="stylesheet">
     
 
-    <script src="../js/jquery-3.3.1.min.js?1612808191"></script>
-    <script src="../js/jquery-ui-1.12.1.min.js?1612808191"></script>
+    <script src="../js/jquery-3.3.1.min.js?1612983463"></script>
+    <script src="../js/jquery-ui-1.12.1.min.js?1612983463"></script>
 
 
     <style type="text/css">
@@ -63,14 +63,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1612808191"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1612808191"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1612983463"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1612983463"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1612808191"></script>
+<script type="text/javascript" src="../js/search.js?1612983463"></script>
 
     
   </div>
@@ -631,12 +631,145 @@
         
 
 
-<p>Resources launched inside a VPC will take an IP address from the CIDR block assigned. For example, for a <em>10.0.0.0/16</em> CIDR block, an EC2 instance could have <em>10.0.0.42</em> as its IP address.</p>
-<p>This IP address is private: it only makes sense inside the VPC and can&rsquo;t be reached from the Internet. In order to make the EC2 instance publicly reachable, two conditions must be fulfilled: the EC2 instance must have a public IP address and an <strong>Internet Gateway</strong> attached to the VPC.</p>
-<p>An Internet Gateway is a highly available component that brings connectivity to your VPC, allowing access to the Internet. Your public resources must reside in a subnet that&rsquo;s associated with a route table that has a route to an Internet Gateway. This subnet is a <strong>public subnet</strong>.</p>
+<p>Resources launched inside a VPC will be assigned an IP address from the CIDR block assigned. For example, for a <em>10.0.0.0/16</em> CIDR block, an EC2 instance could have <em>10.0.0.42</em> as its IP address, depending on which subnet it lives in.</p>
+<p>All IPs inside that VPC CIDR block are private : they only make sense inside that VPC and cannot be reached from the Internet or from any other network/VPC unless the routing has been setup accordingly.
+In order to make an EC2 instance publicly reachable, two conditions must be fulfilled:</p>
+<ul>
+<li>the EC2 instance must have a public IP address</li>
+<li>an <strong>Internet Gateway</strong> must be attached to its VPC route table</li>
+</ul>
+<p>An Internet Gateway is a highly available component that brings connectivity to your VPC, allowing access to the Internet. Your public resources must reside in a subnet that&rsquo;s associated with a route table that has a route to an Internet Gateway. This subnet is called a <strong>public subnet</strong>.</p>
 <img src='../images/nat-gateway-diagram.png'>
-<p>A <strong>private subnet</strong>, on the other hand, is associated with a route table that does not have a route to an Internet Gateway. The resources that should not be publicly accessible reside in these subnets. However, if your private resources need access to the Internet or other AWS services, you can add a <strong>NAT Gateway</strong>.</p>
-<p>The NAT Gateway allow your EC2 instance to connect to the Internet, but prevent the Internet from connecting to it. The NAT Gateway resides in a public subnet in a certain Availability Zone. In order to allow your private subnets use the NAT Gateway to connect to the Internet, you must update the route tables they are associated with.</p>
+<p>A <strong>private subnet</strong>, on the other hand, is associated with a route table that does not have a route to an Internet Gateway. The resources that should remain private, reside in these subnets.
+However, it can happen that some private resources need access to the Internet to download some software, but while remaining unaccessible from the Internet. In this case, you can configure a <strong>NAT Gateway</strong> to allow egress Internet access from the private instances.</p>
+<p>The NAT Gateway allow your EC2 instance to connect to the Internet, but prevent the Internet from connecting to it. The NAT Gateway resides in a public subnet in a certain Availability Zone. In order to allow your private subnets to use the NAT Gateway to connect to the Internet, you must add it to the route tables they are associated with.
+Note that a NAT Gateway still needs an Internet Gateway to access the Internet. The NAT is only present to proxy the Internet traffic for the private instances, but the Internet Gateway remains the main and only Internet exit gate for a VPC.</p>
+<p>Note that all subnets in a VPC, regardless of being public or private, can communicate with each other by default because they belong to the same VPC CIDR. This is not a traditional networking use case, but in AWS, when the VPC gets created, all route tables are assigned a route to the VPC CIDR.</p>
+<p><strong>Lab 2:</strong></p>
+<p><em>Create a public subnet:</em></p>
+<ul>
+<li>Go to VPC Services and on the left panel, click on <em>Subnets</em></li>
+<li>Click on <em>Create Subnet</em>
+<ul>
+<li>give it a name (PublicSub-&ldquo;Your Initials&rdquo;)</li>
+<li>choose your VPC from the list</li>
+<li>choose one of the Availability Zones</li>
+<li>Use the first /24 of your VPC CIDR (i.e. 10.10.0.0/24)</li>
+<li>Click <em>Create Subnet</em></li>
+</ul>
+</li>
+</ul>
+<p>Now, your subnet is setup but can only communicate within the VPC by default.</p>
+<ul>
+<li>In the VPC Services tab, click on <em>Route Tables</em></li>
+<li>Click on <em>Create Route Table</em>
+<ul>
+<li>give it a name (PublicRT-&ldquo;Your Initials&rdquo;)</li>
+<li>choose your VPC from the list</li>
+<li>Click <em>Create</em></li>
+</ul>
+</li>
+<li>On the Route Tables interface, look for your route table:
+<ul>
+<li>select the route table</li>
+<li>on the panel at the bottom, click on <em>Subnet Associations</em></li>
+<li><em>Edit subnet associations</em> and select your public subnet and <em>Save</em></li>
+</ul>
+</li>
+</ul>
+<p>Now, you have a public route table that will be used to route all external (such as Internet) traffic to and from your public subnet. However, we still don&rsquo;t know how to go to the Internet as we have no exit door yet.</p>
+<ul>
+<li>In the VPC Services tab, click on <em>Internet Gateways</em></li>
+<li>Click on <em>Create Internet Gateway</em>
+<ul>
+<li>give it a name (IGW-&ldquo;Your Initials&rdquo;) and <em>Create</em></li>
+</ul>
+</li>
+<li>Once it is created, you should be on its configuration page:
+<ul>
+<li>click <em>Actions</em> and select <em>Attach to VPC</em></li>
+<li>select your VPC and <em>Attach</em></li>
+</ul>
+</li>
+</ul>
+<p>Now, your Internet Gateway belongs to your VPC environment, so we can set it up to route all Internet traffic.</p>
+<ul>
+<li>In the VPC Services tab, click on <em>Route Tables</em></li>
+<li>On the Route Tables interface, look for your public route table:
+<ul>
+<li>select the public route table</li>
+<li>on the panel at the bottom, click on <em>Routes</em> then <em>Edit routes</em></li>
+<li>Click <em>Add route</em>, set the following:
+<ul>
+<li>Destination: 0.0.0.0/0   (0/0 means everywhere, it is not restricted to a specific network)</li>
+<li>Target: Select Internet Gateway from the drop-down and click on your IGW-XXXX</li>
+</ul>
+</li>
+<li>Save the changes</li>
+</ul>
+</li>
+</ul>
+<p>Now, you have a public subnet! In a few sections, we will setup an EC2 instance, called public instance as a result of sitting in a public subnet, and test connectivity to the Internet.</p>
+<p><em>Create a private subnet:</em></p>
+<ul>
+<li>Go to VPC Services and on the left panel, click on <em>Subnets</em></li>
+<li>Click on <em>Create Subnet</em>
+<ul>
+<li>give it a name (PrivateSub-&ldquo;Your Initials&rdquo;)</li>
+<li>choose your VPC from the list</li>
+<li>choose one of the Availability Zones</li>
+<li>Use the second /24 of your VPC CIDR (i.e. 10.10.1.0/24)</li>
+<li>Click <em>Create Subnet</em></li>
+</ul>
+</li>
+</ul>
+<p>Now, your subnet is setup but can only communicate within the VPC by default.</p>
+<ul>
+<li>In the VPC Services tab, click on <em>Route Tables</em></li>
+<li>Click on <em>Create Route Table</em>
+<ul>
+<li>give it a name (PrivateRT-&ldquo;Your Initials&rdquo;)</li>
+<li>choose your VPC from the list</li>
+<li>Click <em>Create</em></li>
+</ul>
+</li>
+<li>On the Route Tables interface, look for your route table:
+<ul>
+<li>select the route table</li>
+<li>on the panel at the bottom, click on <em>Subnet Associations</em></li>
+<li><em>Edit subnet associations</em> and select your private subnet and <em>Save</em></li>
+</ul>
+</li>
+</ul>
+<p>Now, you have a private route table that will be used to route internal traffic. At the moment, we are unable to reach the Internet since we have no NAT Gateway.</p>
+<ul>
+<li>In the VPC Services tab, click on <em>NAT Gateways</em></li>
+<li>Click on <em>Create NAT Gateway</em>
+<ul>
+<li>give it a name (NGW-&ldquo;Your Initials&rdquo;) and <em>Create</em></li>
+<li>select your public subnet  <strong>(We choose the public subnet just to configure the NAT, since a NAT is a public instance)</strong></li>
+<li>click <em>Allocate Elastic IP</em> and <em>Create</em></li>
+</ul>
+</li>
+</ul>
+<p>Now, your NAT Gateway belongs to your VPC environment because it is setup in its public subnet. It is therefore ready to be setup and used by the private subnet.</p>
+<ul>
+<li>In the VPC Services tab, click on <em>Route Tables</em></li>
+<li>On the Route Tables interface, look for your private route table:
+<ul>
+<li>select the private route table</li>
+<li>on the panel at the bottom, click on <em>Routes</em> then <em>Edit routes</em></li>
+<li>Click <em>Add route</em>, set the following:
+<ul>
+<li>Destination: 0.0.0.0/0   (0/0 means everywhere, it is not restricted to a specific network)</li>
+<li>Target: Select NAT Gateway from the drop-down and click on your NGW-XXXX</li>
+</ul>
+</li>
+<li>Save the changes</li>
+</ul>
+</li>
+</ul>
+<p>Now, you have a private subnet with outbound access to the Internet. In the next section, we will setup an EC2 instance, called private instance as a result of sitting in a private subnet, and test outbound connectivity to the Internet.</p>
 
 
 <footer class=" footline" >
@@ -1035,19 +1168,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1612808191"></script>
-    <script src="../js/perfect-scrollbar.min.js?1612808191"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1612808191"></script>
-    <script src="../js/jquery.sticky.js?1612808191"></script>
-    <script src="../js/featherlight.min.js?1612808191"></script>
-    <script src="../js/highlight.pack.js?1612808191"></script>
+    <script src="../js/clipboard.min.js?1612983463"></script>
+    <script src="../js/perfect-scrollbar.min.js?1612983463"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1612983463"></script>
+    <script src="../js/jquery.sticky.js?1612983463"></script>
+    <script src="../js/featherlight.min.js?1612983463"></script>
+    <script src="../js/highlight.pack.js?1612983463"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1612808191"></script>
-    <script src="../js/learn.js?1612808191"></script>
-    <script src="../js/hugo-learn.js?1612808191"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1612983463"></script>
+    <script src="../js/learn.js?1612983463"></script>
+    <script src="../js/hugo-learn.js?1612983463"></script>
 
-    <link href="../mermaid/mermaid.css?1612808191" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1612808191"></script>
+    <link href="../mermaid/mermaid.css?1612983463" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1612983463"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

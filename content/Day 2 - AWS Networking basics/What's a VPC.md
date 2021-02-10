@@ -22,3 +22,12 @@ Destination | Target
 10.0.0.0/16 | local
 
 Multiple subnets can be associated with the same route table. However, you can only associate a subnet with one route table.
+
+
+**Lab 1:**
+
+- Login to your AWS account
+- Go to VPC Services and on the left panel, click on *Your VPCs*
+- Click on *Create VPC* and give it a name (i.e. VPC-"Your Initials") and a /16 CIDR block (i.e. 10.10.0.0/16), then leave the rest as default and click *Create VPC*
+- Go back to the *Your VPCs* tab and check that your VPC has been created
+
