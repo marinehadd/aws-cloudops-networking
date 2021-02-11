@@ -15,13 +15,35 @@ A VPC can contain multiple **subnets** where you can launch AWS resources. Each 
 
 You must specify a CIDR block for the subnets from the range of your VPC. For example, _10.0.0.0/24_ and _10.0.1.0/24_. If you launch an EC2 instance inside the first subnet, it will have an IP address inside the _10.0.0.0/24_ range (for example, _10.0.0.42_). 
 
-The VPC has an implicit router that uses **route tables** to direct traffic. Each subnet is associated with a route table that controls the routing for that particular subnet. If you don't associate explicitly a subnet with a particular route table, it will be implicitly associated the main route table:
+The VPC has an implicit router that uses **route tables** to direct traffic. Each subnet is associated with a route table that controls the routing for that particular subnet. If you don't associate explicitly a subnet with a particular route table, it will be implicitly associated with the main route table:
 
 Destination | Target
 --- | ---
 10.0.0.0/16 | local
 
-Multiple subnets can be associated with the same route table. However, you can only associate a subnet with one route table.
+Multiple subnets can be associated with the same route table. However, you can only associate a subnet with one route table, except for the default (or main) route table that is automatically generated at the VPC creation.
+
+As we discussed in Traditional Networking, the first IP and the last IP of a CIDR are reserved for Network ID and Broadcast respectively.
+AWS reserves 5 IPs by default within each subnet:
+- the first IP : Network ID
+- the second IP : VPC router (referred as the router gateway in traditional networking)
+- the third IP : DNS resolver
+- the fourth IP : reserved for future use
+- the last IP : broadcast address
+
+So, if our subnet is 10.10.1.0/24, the following IPs will be reserved:
+- 10.10.0.0
+- 10.10.1.1
+- 10.10.1.2
+- 10.10.1.3
+- 10.10.1.255
+
+In AWS, the maximum size of a CIDR is /16 and the minimum size is /28, which means:
+
+<p>/28 = 1111 1111.1111 1111.1111 1111.1111 0000 = 255.255.255.240<br>
+255 - 240 = 15<br>
+Because a network starts from .0 (.0 to .15), there are 16 addresses in a /28. However, we need to remove the 5 reserved IPs, therefore it gives us 11 IPs available for use. <br>
+That means that if you need more than 11 IPs in your network, you will need to have a bigger CIDR such as /27 or above.</p>
 
 
 **Lab 1:**

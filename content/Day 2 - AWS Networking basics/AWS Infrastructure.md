@@ -8,8 +8,6 @@ AWS currently has 24 regions in its [global infrastructure](https://aws.amazon.c
 
 <img src='/images/global_footprint.png' width='700px'>
 
-Availability Zones provide high availability and fault tolerance in infrastructures.
-
 
 AWS is responsible of protecting this infrastructure according to the _Shared Responsibility Model_:
 

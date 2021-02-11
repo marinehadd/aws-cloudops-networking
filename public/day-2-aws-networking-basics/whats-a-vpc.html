@@ -17,21 +17,21 @@
     <title>What is a VPC? :: Amazon CloudOps Networking Workshop</title>
 
     
-    <link href="../css/nucleus.css?1612983463" rel="stylesheet">
-    <link href="../css/all.css?1612983463" rel="stylesheet">
-    <link href="../css/hybrid.css?1612983463" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1612983463" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1612983463" rel="stylesheet">
-    <link href="../css/auto-complete.css?1612983463" rel="stylesheet">
-    <link href="../css/theme.css?1612983463" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1612983463" rel="stylesheet">
-    <link href="../css/jquery-ui.min.css?1612983463" rel="stylesheet">
+    <link href="../css/nucleus.css?1613069688" rel="stylesheet">
+    <link href="../css/all.css?1613069688" rel="stylesheet">
+    <link href="../css/hybrid.css?1613069688" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1613069688" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1613069688" rel="stylesheet">
+    <link href="../css/auto-complete.css?1613069688" rel="stylesheet">
+    <link href="../css/theme.css?1613069688" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1613069688" rel="stylesheet">
+    <link href="../css/jquery-ui.min.css?1613069688" rel="stylesheet">
     
-      <link href="../css/theme-mine.css?1612983463" rel="stylesheet">
+      <link href="../css/theme-mine.css?1613069688" rel="stylesheet">
     
 
-    <script src="../js/jquery-3.3.1.min.js?1612983463"></script>
-    <script src="../js/jquery-ui-1.12.1.min.js?1612983463"></script>
+    <script src="../js/jquery-3.3.1.min.js?1613069688"></script>
+    <script src="../js/jquery-ui-1.12.1.min.js?1613069688"></script>
 
 
     <style type="text/css">
@@ -63,14 +63,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1612983463"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1612983463"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1613069688"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1613069688"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1612983463"></script>
+<script type="text/javascript" src="../js/search.js?1613069688"></script>
 
     
   </div>
@@ -636,7 +636,7 @@
 <img src='../images/vpc-diagram.png'>
 <p>A VPC can contain multiple <strong>subnets</strong> where you can launch AWS resources. Each subnet will reside in one Availability Zone and you can have multiple subnets in the same Availability zone.</p>
 <p>You must specify a CIDR block for the subnets from the range of your VPC. For example, <em>10.0.0.0/24</em> and <em>10.0.1.0/24</em>. If you launch an EC2 instance inside the first subnet, it will have an IP address inside the <em>10.0.0.0/24</em> range (for example, <em>10.0.0.42</em>).</p>
-<p>The VPC has an implicit router that uses <strong>route tables</strong> to direct traffic. Each subnet is associated with a route table that controls the routing for that particular subnet. If you don&rsquo;t associate explicitly a subnet with a particular route table, it will be implicitly associated the main route table:</p>
+<p>The VPC has an implicit router that uses <strong>route tables</strong> to direct traffic. Each subnet is associated with a route table that controls the routing for that particular subnet. If you don&rsquo;t associate explicitly a subnet with a particular route table, it will be implicitly associated with the main route table:</p>
 <table>
 <thead>
 <tr>
@@ -651,7 +651,29 @@
 </tr>
 </tbody>
 </table>
-<p>Multiple subnets can be associated with the same route table. However, you can only associate a subnet with one route table.</p>
+<p>Multiple subnets can be associated with the same route table. However, you can only associate a subnet with one route table, except for the default (or main) route table that is automatically generated at the VPC creation.</p>
+<p>As we discussed in Traditional Networking, the first IP and the last IP of a CIDR are reserved for Network ID and Broadcast respectively.
+AWS reserves 5 IPs by default within each subnet:</p>
+<ul>
+<li>the first IP : Network ID</li>
+<li>the second IP : VPC router (referred as the router gateway in traditional networking)</li>
+<li>the third IP : DNS resolver</li>
+<li>the fourth IP : reserved for future use</li>
+<li>the last IP : broadcast address</li>
+</ul>
+<p>So, if our subnet is 10.10.1.0/24, the following IPs will be reserved:</p>
+<ul>
+<li>10.10.0.0</li>
+<li>10.10.1.1</li>
+<li>10.10.1.2</li>
+<li>10.10.1.3</li>
+<li>10.10.1.255</li>
+</ul>
+<p>In AWS, the maximum size of a CIDR is /16 and the minimum size is /28, which means:</p>
+<p>/28 = 1111 1111.1111 1111.1111 1111.1111 0000 = 255.255.255.240<br>
+255 - 240 = 15<br>
+Because a network starts from .0 (.0 to .15), there are 16 addresses in a /28. However, we need to remove the 5 reserved IPs, therefore it gives us 11 IPs available for use. <br>
+That means that if you need more than 11 IPs in your network, you will need to have a bigger CIDR such as /27 or above.</p>
 <p><strong>Lab 1:</strong></p>
 <ul>
 <li>Login to your AWS account</li>
@@ -1057,19 +1079,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1612983463"></script>
-    <script src="../js/perfect-scrollbar.min.js?1612983463"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1612983463"></script>
-    <script src="../js/jquery.sticky.js?1612983463"></script>
-    <script src="../js/featherlight.min.js?1612983463"></script>
-    <script src="../js/highlight.pack.js?1612983463"></script>
+    <script src="../js/clipboard.min.js?1613069688"></script>
+    <script src="../js/perfect-scrollbar.min.js?1613069688"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1613069688"></script>
+    <script src="../js/jquery.sticky.js?1613069688"></script>
+    <script src="../js/featherlight.min.js?1613069688"></script>
+    <script src="../js/highlight.pack.js?1613069688"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1612983463"></script>
-    <script src="../js/learn.js?1612983463"></script>
-    <script src="../js/hugo-learn.js?1612983463"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1613069688"></script>
+    <script src="../js/learn.js?1613069688"></script>
+    <script src="../js/hugo-learn.js?1613069688"></script>
 
-    <link href="../mermaid/mermaid.css?1612983463" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1612983463"></script>
+    <link href="../mermaid/mermaid.css?1613069688" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1613069688"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

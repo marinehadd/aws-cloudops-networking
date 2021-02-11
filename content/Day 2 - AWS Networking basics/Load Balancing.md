@@ -5,12 +5,11 @@ weight: 45
 pre: 
 ---
 
+The main purpose of a load balancer is to balance the load of your traffic across several servers.
 
+Load balancers in AWS are called elastic because they can dynamically adjust based on the load, and provide a lot more features than traditionally.
 
-Explain goal of ELB and explain the 3 different types of ELBs and their main purpose/context.
-
-
-**Elastic Load Balancing** automatically adjusts to incoming traffic and rapid changes in network traffic patterns by distributing traffic across multiple Amazon EC2 instances in the cloud, without manual intervention. This enables you to achieve higher levels of fault tolerance with your applications.
+**Elastic Load Balancing** automatically adjusts to incoming traffic and network changes by distributing traffic across multiple Amazon EC2 instances in the cloud, without manual intervention. This enables you to achieve higher levels of fault tolerance with your applications.
 
 There are currently 3 types of a load balancer:
 
@@ -23,16 +22,18 @@ There are currently 3 types of a load balancer:
   
   •  Classic Load Balancer
 
-<img src='../images/alb.png' width='600px'>
+<img src='../images/elb.png' width='600px'>
 
 
-**Application Load Balancer** - Choose an Application Load Balancer when you need a flexible feature set for your web applications with HTTP and HTTPS traffic. Operating at the request level, Application Load Balancers provide advanced routing and visibility features targeted at application architectures, including microservices and containers.
+**Application Load Balancer** - As its name indiactes, this type works at the application level (L7 in the OSI model) and also provides advanced routing and features. 
+For instance, if you need to load balance web servers working on HTTP/HTTPS and want to make the most of advanced features then you should use the application load balancer.
+When you setup an application load balancer, you are only provided with its DNS name, but no IP address.
+
+**Network Load Balancer** - The network load balancer works at the transport level (L4 in the OSI model) and in most cases, is used when high performance is required. Let's say you know you'll get thousands of requests per second, then the network load balancer might be a good option.
+One advantage, depending on the context, of a network load balancer is that it is provided a static IP address (that will not change).
 
 
-**Network Load Balancer** - Choose a Network Load Balancer when you need ultra-high performance, TLS offloading at scale, centralized certificate deployment, support for UDP, and static IP addresses for your application. Operating at the connection level, Network Load Balancers are capable of handling millions of requests per second securely while maintaining ultra-low latencies.
-
-
-**Classic Load Balancer** - Choose a Classic Load Balancer when you have an existing application running in the EC2-Classic network.
+**Classic Load Balancer** - A classic load balancer works both at L4 and L7 of the OSI model, but has limited features.
 
 
 
