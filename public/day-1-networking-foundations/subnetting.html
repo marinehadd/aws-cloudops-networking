@@ -17,21 +17,21 @@
     <title>Subnetting :: Amazon CloudOps Networking Workshop</title>
 
     
-    <link href="../css/nucleus.css?1612521783" rel="stylesheet">
-    <link href="../css/all.css?1612521783" rel="stylesheet">
-    <link href="../css/hybrid.css?1612521783" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1612521783" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1612521783" rel="stylesheet">
-    <link href="../css/auto-complete.css?1612521783" rel="stylesheet">
-    <link href="../css/theme.css?1612521783" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1612521783" rel="stylesheet">
-    <link href="../css/jquery-ui.min.css?1612521783" rel="stylesheet">
+    <link href="../css/nucleus.css?1612983463" rel="stylesheet">
+    <link href="../css/all.css?1612983463" rel="stylesheet">
+    <link href="../css/hybrid.css?1612983463" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1612983463" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1612983463" rel="stylesheet">
+    <link href="../css/auto-complete.css?1612983463" rel="stylesheet">
+    <link href="../css/theme.css?1612983463" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1612983463" rel="stylesheet">
+    <link href="../css/jquery-ui.min.css?1612983463" rel="stylesheet">
     
-      <link href="../css/theme-mine.css?1612521783" rel="stylesheet">
+      <link href="../css/theme-mine.css?1612983463" rel="stylesheet">
     
 
-    <script src="../js/jquery-3.3.1.min.js?1612521783"></script>
-    <script src="../js/jquery-ui-1.12.1.min.js?1612521783"></script>
+    <script src="../js/jquery-3.3.1.min.js?1612983463"></script>
+    <script src="../js/jquery-ui-1.12.1.min.js?1612983463"></script>
 
 
     <style type="text/css">
@@ -63,14 +63,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1612521783"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1612521783"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1612983463"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1612983463"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1612521783"></script>
+<script type="text/javascript" src="../js/search.js?1612983463"></script>
 
     
   </div>
@@ -648,7 +648,6 @@ Subnetting allows the segmentation of a bigger network in smaller networks. For 
 <img src='../images/subnettable.png' width='1200px'>
 <p><em><strong>Example:</strong></em></p>
 <p>192.168.1.0 =&gt; 1100 0000.1010 1000.0000 0001.0000 0000</p>
-<p>(Drawing examples)</p>
 <p><strong>Subnet Masks</strong></p>
 <p>An IP address is segmented in 2 parts :</p>
 <ul>
@@ -680,7 +679,6 @@ Host range = 192.168.0.0 - 192.168.255.255</p>
 Network ID = 192.168.128.0<br>
 Host range = 192.168.128.0 - 192.168.255.255</p>
 <p>The host range allows to calculate the number of hosts you can have in the network. The way to calculate is as follow: <em>2^(Nb of host bits)</em>.</p>
-<p>(That will matter if you want to know which size of a network to choose if you need X IPs)</p>
 <p><em><strong>Example:</strong></em></p>
 <ul>
 <li>192.168.0.0/16 has 16 host bits so 2^16 = 65536 hosts</li>
@@ -703,7 +701,15 @@ Host range = 192.168.128.0 - 192.168.255.255</p>
 <li>The last IP (10.1.1.255 if the subnet is 10.1.1.0/24) since it is reserved for the Broadcast IP. The broadcast IP is the IP used within a network to send messages to everyone in the network.</li>
 </ul>
 <p>Not always but in most cases, as a best practice, the second IP of a subnet is dedicated to the router interface, called the Gateway IP. The gateway IP will be 10.1.1.1.1 if the subnet is 10.1.1.0/24.</p>
-<p>(Show IP address on ipconfig laptop - show IP allocated, network, router gateway IP.)</p>
+<p><em><strong>Exercise:</strong></em></p>
+<ul>
+<li>10.20.3.2/24</li>
+</ul>
+<p>What is the binary address of 10.20.3.2?<br>
+What is the network ID?<br>
+What is the subnet mask?<br>
+What is the gateway router IP address?<br>
+How many IP addresses in this network?</p>
 
 
 <footer class=" footline" >
@@ -1102,19 +1108,19 @@ Host range = 192.168.128.0 - 192.168.255.255</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1612521783"></script>
-    <script src="../js/perfect-scrollbar.min.js?1612521783"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1612521783"></script>
-    <script src="../js/jquery.sticky.js?1612521783"></script>
-    <script src="../js/featherlight.min.js?1612521783"></script>
-    <script src="../js/highlight.pack.js?1612521783"></script>
+    <script src="../js/clipboard.min.js?1612983463"></script>
+    <script src="../js/perfect-scrollbar.min.js?1612983463"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1612983463"></script>
+    <script src="../js/jquery.sticky.js?1612983463"></script>
+    <script src="../js/featherlight.min.js?1612983463"></script>
+    <script src="../js/highlight.pack.js?1612983463"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1612521783"></script>
-    <script src="../js/learn.js?1612521783"></script>
-    <script src="../js/hugo-learn.js?1612521783"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1612983463"></script>
+    <script src="../js/learn.js?1612983463"></script>
+    <script src="../js/hugo-learn.js?1612983463"></script>
 
-    <link href="../mermaid/mermaid.css?1612521783" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1612521783"></script>
+    <link href="../mermaid/mermaid.css?1612983463" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1612983463"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

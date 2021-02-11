@@ -4,4 +4,12 @@ chapter: false
 weight: 90
 ---
 
-In this chapter, we will cover advanced concepts of AWS networking. 
+
+In this section, we will go through some advanced networking concepts.
+
+
+**The topics we will be covering:**
+- Hybrid Infrastructure
+- VPC Peering
+- Transit Gateway
+- VPC Endpoint

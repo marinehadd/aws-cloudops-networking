@@ -27,7 +27,7 @@ There are several types of networks but the most common are LAN (Local Area Netw
 Each layer has a meaning in networking. We will not cover the layers in dept, but you can read more about in the Further Reading section.
 Networking is based on the OSI model, it is a bit like the layers of a cake, often referred as L1, L2, L3, etc..
 Let&amp;rsquo;s pick some real life examples:
-  L1 = your home router, your cables</description>
+  L1 = a router, a switch, a cable, anything physical</description>
     </item>
     
     <item>
@@ -48,7 +48,7 @@ A CIDR indicates the size of a network, and networks are calculated with subnett
       <guid>/day-1-networking-foundations/routing.html</guid>
       <description>The router comes into the picture when different hosts from different networks try to communicate. We have seen in a previous section that the router does all the routing to allow the internal hosts to talk to an external destination such as the Internet or just another network.
 This communication is done by the means of routing tables and routing protocols.
-A route table is a source/destination map for the router to know where to send the traffic, based on the packet destination.</description>
+A route table is a source/destination map for the router to know where to send the traffic, based on the traffic destination.</description>
     </item>
     
     <item>
@@ -57,9 +57,9 @@ A route table is a source/destination map for the router to know where to send t
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-1-networking-foundations/dnsdhcp.html</guid>
-      <description>DNS stands for Domain Name System and is like an address book. It allows hosts to reach endpoints such as URLs or other machines.
-Authoritative, root, resolver. Recursion. Record types. Real life example. Application example.
-What;s DHCP? How does it work with DNS? Give example of home network, or VoIP phone.</description>
+      <description>Domain Name System (DNS):
+DNS stands for Domain Name System and it is used in our everyday tasks without even realising it. DNS can be compared to an address book since it is a directory of mappings between names and IP addresses and allows hosts to reach endpoints such as URLs or other machines.
+The full name of a server or endpoint is made of a hostname and the domain in which it sits.</description>
     </item>
     
     <item>
@@ -68,7 +68,7 @@ What;s DHCP? How does it work with DNS? Give example of home network, or VoIP ph
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-1-networking-foundations/homework.html</guid>
-      <description>Link and instructions for a lab. Subnetting exercise.</description>
+      <description>Subnetting Exercices</description>
     </item>
     
   </channel>

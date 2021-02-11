@@ -38,7 +38,6 @@ Each bit is a power of 2 (X^2) and is calculated from right to left.
 
 192.168.1.0 => 1100 0000.1010 1000.0000 0001.0000 0000
 
-(Drawing examples)
 
 
 
@@ -97,7 +96,6 @@ Host range = 192.168.128.0 - 192.168.255.255</p>
 
 The host range allows to calculate the number of hosts you can have in the network. The way to calculate is as follow: *2^(Nb of host bits)*.
 
-(That will matter if you want to know which size of a network to choose if you need X IPs)
 
 ***Example:***
 
@@ -129,8 +127,16 @@ One last thing to remember is that there are always 2 IP addresses that cannot b
 
 Not always but in most cases, as a best practice, the second IP of a subnet is dedicated to the router interface, called the Gateway IP. The gateway IP will be 10.1.1.1.1 if the subnet is 10.1.1.0/24.
 
-(Show IP address on ipconfig laptop - show IP allocated, network, router gateway IP.)
 
+***Exercise:***
+
+- 10.20.3.2/24
+
+<p>What is the binary address of 10.20.3.2?<br>
+What is the network ID?<br>
+What is the subnet mask?<br>
+What is the gateway router IP address?<br>
+How many IP addresses in this network?</p>
 
 
 
