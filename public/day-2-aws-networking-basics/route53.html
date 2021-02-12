@@ -17,21 +17,21 @@
     <title>Route53 :: Amazon CloudOps Networking Workshop</title>
 
     
-    <link href="../css/nucleus.css?1612983463" rel="stylesheet">
-    <link href="../css/all.css?1612983463" rel="stylesheet">
-    <link href="../css/hybrid.css?1612983463" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1612983463" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1612983463" rel="stylesheet">
-    <link href="../css/auto-complete.css?1612983463" rel="stylesheet">
-    <link href="../css/theme.css?1612983463" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1612983463" rel="stylesheet">
-    <link href="../css/jquery-ui.min.css?1612983463" rel="stylesheet">
+    <link href="../css/nucleus.css?1613069688" rel="stylesheet">
+    <link href="../css/all.css?1613069688" rel="stylesheet">
+    <link href="../css/hybrid.css?1613069688" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1613069688" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1613069688" rel="stylesheet">
+    <link href="../css/auto-complete.css?1613069688" rel="stylesheet">
+    <link href="../css/theme.css?1613069688" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1613069688" rel="stylesheet">
+    <link href="../css/jquery-ui.min.css?1613069688" rel="stylesheet">
     
-      <link href="../css/theme-mine.css?1612983463" rel="stylesheet">
+      <link href="../css/theme-mine.css?1613069688" rel="stylesheet">
     
 
-    <script src="../js/jquery-3.3.1.min.js?1612983463"></script>
-    <script src="../js/jquery-ui-1.12.1.min.js?1612983463"></script>
+    <script src="../js/jquery-3.3.1.min.js?1613069688"></script>
+    <script src="../js/jquery-ui-1.12.1.min.js?1613069688"></script>
 
 
     <style type="text/css">
@@ -63,14 +63,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1612983463"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1612983463"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1613069688"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1613069688"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1612983463"></script>
+<script type="text/javascript" src="../js/search.js?1613069688"></script>
 
     
   </div>
@@ -637,13 +637,16 @@
 <p><strong>Domain registration</strong>: Route 53 allows you to register a <strong>domain name</strong> for your website, such as <em>example.com</em>. This domain name can be used by the users to access your website.</p>
 </li>
 <li>
-<p><strong>DNS service</strong>: an EC2 instance has an IP address assigned to it (i.e. <em>10.0.0.42</em>). In order to connect to it, you would need to remember the whole IP address. Route 53 translates domain names, such as <em>example.com</em>, into IP addresses, such as <em>10.0.0.42</em>. Therefore, you could access your website by using the domain name instead of having to remember the whole IP address.</p>
+<p><strong>DNS service</strong>: an EC2 instance has an IP address assigned to it (i.e. <em>10.0.0.42</em>). In order to connect to it, you would need to remember the whole IP address. Route 53 translates domain names, such as <em>example.com</em>, into IP addresses, such as <em>10.0.0.42</em>. Therefore, you could access your website by using the domain name instead of having to remember the whole IP address. This is the same concept as for traditional networking.</p>
 </li>
 <li>
 <p><strong>Health checking</strong>: Route 53 uses health checks to monitor the health of your resources (such as EC2 instances or ELB). Optionally, you can receive notifications when your resources fail the health checks.</p>
 </li>
 </ul>
 <img src='../images/how-route-53-routes-traffic.png'>
+<p>By default, AWS provides each VPC with a local DNS resolver, the .2 reserved IP address mentionned previously. This resolver allows resources inside the VPC to obtain a DNS name and to query other hosts.</p>
+<p>As we discussed in Day 1, a DNS resolver is provided by a DHCP set. In AWS, there is a DHCP Option configured by default on each VPC, which contains details about the DNS servers provided by AWS.</p>
+<p>So, alternatively, if you want to use another DNS server, you can just create a DHCP set with your DNS servers and apply that set to the VPC. In that case, all instances in this VPC will query all DNS requests to this new set of DNS resolvers.</p>
 <p>Route 53 can route the traffic to the resources following routing policies depending on different needs:</p>
 <ul>
 <li>
@@ -1066,19 +1069,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1612983463"></script>
-    <script src="../js/perfect-scrollbar.min.js?1612983463"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1612983463"></script>
-    <script src="../js/jquery.sticky.js?1612983463"></script>
-    <script src="../js/featherlight.min.js?1612983463"></script>
-    <script src="../js/highlight.pack.js?1612983463"></script>
+    <script src="../js/clipboard.min.js?1613069688"></script>
+    <script src="../js/perfect-scrollbar.min.js?1613069688"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1613069688"></script>
+    <script src="../js/jquery.sticky.js?1613069688"></script>
+    <script src="../js/featherlight.min.js?1613069688"></script>
+    <script src="../js/highlight.pack.js?1613069688"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1612983463"></script>
-    <script src="../js/learn.js?1612983463"></script>
-    <script src="../js/hugo-learn.js?1612983463"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1613069688"></script>
+    <script src="../js/learn.js?1613069688"></script>
+    <script src="../js/hugo-learn.js?1613069688"></script>
 
-    <link href="../mermaid/mermaid.css?1612983463" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1612983463"></script>
+    <link href="../mermaid/mermaid.css?1613069688" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1613069688"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

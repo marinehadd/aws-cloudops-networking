@@ -13,7 +13,6 @@
       
       <guid>/day-2-aws-networking-basics/aws-infrastructure.html</guid>
       <description>AWS currently has 24 regions in its global infrastructure. A region is a physical location around the world where data centers are clustered. These data centers are grouped in Availability Zones. Each AWS Region consists of multiple, isolated, and physically separate AZ&amp;rsquo;s within a geographic area. There are 77 Availability Zones.
-Availability Zones provide high availability and fault tolerance in infrastructures.
 AWS is responsible of protecting this infrastructure according to the Shared Responsibility Model:</description>
     </item>
     
@@ -52,10 +51,9 @@ All IPs inside that VPC CIDR block are private : they only make sense inside tha
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-2-aws-networking-basics/load-balancing.html</guid>
-      <description>Explain goal of ELB and explain the 3 different types of ELBs and their main purpose/context.
-Elastic Load Balancing automatically adjusts to incoming traffic and rapid changes in network traffic patterns by distributing traffic across multiple Amazon EC2 instances in the cloud, without manual intervention. This enables you to achieve higher levels of fault tolerance with your applications.
-There are currently 3 types of a load balancer:
-• Application Load Balancer</description>
+      <description>The main purpose of a load balancer is to balance the load of your traffic across several servers.
+Load balancers in AWS are called elastic because they can dynamically adjust based on the load, and provide a lot more features than traditionally.
+Elastic Load Balancing automatically adjusts to incoming traffic and network changes by distributing traffic across multiple Amazon EC2 instances in the cloud, without manual intervention. This enables you to achieve higher levels of fault tolerance with your applications.</description>
     </item>
     
     <item>
