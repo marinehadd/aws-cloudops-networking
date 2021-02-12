@@ -17,21 +17,21 @@
     <title>Hybrid Connectivity :: Amazon CloudOps Networking Workshop</title>
 
     
-    <link href="../css/nucleus.css?1613069688" rel="stylesheet">
-    <link href="../css/all.css?1613069688" rel="stylesheet">
-    <link href="../css/hybrid.css?1613069688" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1613069688" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1613069688" rel="stylesheet">
-    <link href="../css/auto-complete.css?1613069688" rel="stylesheet">
-    <link href="../css/theme.css?1613069688" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1613069688" rel="stylesheet">
-    <link href="../css/jquery-ui.min.css?1613069688" rel="stylesheet">
+    <link href="../css/nucleus.css?1613154186" rel="stylesheet">
+    <link href="../css/all.css?1613154186" rel="stylesheet">
+    <link href="../css/hybrid.css?1613154186" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1613154186" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1613154186" rel="stylesheet">
+    <link href="../css/auto-complete.css?1613154186" rel="stylesheet">
+    <link href="../css/theme.css?1613154186" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1613154186" rel="stylesheet">
+    <link href="../css/jquery-ui.min.css?1613154186" rel="stylesheet">
     
-      <link href="../css/theme-mine.css?1613069688" rel="stylesheet">
+      <link href="../css/theme-mine.css?1613154186" rel="stylesheet">
     
 
-    <script src="../js/jquery-3.3.1.min.js?1613069688"></script>
-    <script src="../js/jquery-ui-1.12.1.min.js?1613069688"></script>
+    <script src="../js/jquery-3.3.1.min.js?1613154186"></script>
+    <script src="../js/jquery-ui-1.12.1.min.js?1613154186"></script>
 
 
     <style type="text/css">
@@ -63,14 +63,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1613069688"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1613069688"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1613154186"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1613154186"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1613069688"></script>
+<script type="text/javascript" src="../js/search.js?1613154186"></script>
 
     
   </div>
@@ -636,15 +636,68 @@
 <li>by using a Direct Connect connection (DX)</li>
 <li>by using a Virtual Private Network (VPN)</li>
 </ul>
-<p>They can both be used for this purpose but are chosen based on needs.</p>
+<p>They can both be used for this purpose but are chosen based on different needs.</p>
 <p>A VPN is an encrypted tunnel going over the Internet. There are two types of VPN in AWS:</p>
 <ul>
-<li>Site to Site VPN : this one is used between different sites, such as an on-premise network and the cloud, and uses IPsec type of VPN.</li>
-<li>Client VPN : this one allows single clients to connect to specific resources.</li>
-<li>Alternatively, if you require different features or use case, you can setup your own VPN instance with a Third Party Software</li>
+<li><strong>Site-to-Site VPN</strong> : this one is used between different sites, such as an on-premise network and the cloud, and uses IPsec type of VPN.</li>
 </ul>
-<p>A Direct Connect</p>
-<p>Talk about DX Gateway.</p>
+<img src='../images/sitetositevpn.png'>
+<ul>
+<li><strong>Client VPN</strong> : this one allows single clients to connect to specific resources.</li>
+</ul>
+<img src='../images/clientvpn.png'>
+<ul>
+<li>Alternatively, if you require different features or use case, you can setup your own VPN instance with a Third Party Software.</li>
+</ul>
+<p><strong>AWS Direct Connect</strong> allows you to establish a direct connection from on-premise to AWS through a dedicated link.</p>
+<p>There are several ways to use Direct Connect:</p>
+<ul>
+<li>There are several Direct Connect locations around the world to which you can connect your on-premise routers.</li>
+<li>You can work with an AWS Partner or a network provider to establish the connection from your on-premise data center to the AWS cloud.</li>
+<li>You can work with an AWS Partner to get a hosted connection, in which case you only get a slice of an existing Direct Connect link.</li>
+</ul>
+<img src='../images/dx.png'>
+<p>When connecting to AWS with Direct Connect, you need to setup a virtual interface to connect to the resources. When connecting to your private resources such as your VPCs, a private virtual interface will be required. When connecting to AWS services, a public virtual inerface will be required since they are considered as public services.</p>
+<img src='../images/dxpublic.png'>
+<p>In order to use the same existing Direct Connect link to connect to another region, you can use a Direct Connect Gateway. In this case, an interface is created from your existing Direct Connect endpoint to connect to the Gateway, and then the Gateway can connect to the different VPCs in the different regions.</p>
+<img src='../images/dx-gateway.png'>
+<p><em>VPN VS. DX</em></p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>VPN</th>
+<th>DirectConnect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Encryption</td>
+<td>YES</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>Connection Type</td>
+<td>VPN goes through the Internet</td>
+<td>DX is a dedicated connection</td>
+</tr>
+<tr>
+<td>Bandwidth</td>
+<td>Limited to 1.25 GBPS</td>
+<td>Between 1GBPS and 10GBPS</td>
+</tr>
+<tr>
+<td>Costs</td>
+<td>Cheaper</td>
+<td>More expensive than VPN</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td>Static/Dynamic</td>
+<td>Dynamic only</td>
+</tr>
+</tbody>
+</table>
 
 
 <footer class=" footline" >
@@ -1043,19 +1096,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1613069688"></script>
-    <script src="../js/perfect-scrollbar.min.js?1613069688"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1613069688"></script>
-    <script src="../js/jquery.sticky.js?1613069688"></script>
-    <script src="../js/featherlight.min.js?1613069688"></script>
-    <script src="../js/highlight.pack.js?1613069688"></script>
+    <script src="../js/clipboard.min.js?1613154186"></script>
+    <script src="../js/perfect-scrollbar.min.js?1613154186"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1613154186"></script>
+    <script src="../js/jquery.sticky.js?1613154186"></script>
+    <script src="../js/featherlight.min.js?1613154186"></script>
+    <script src="../js/highlight.pack.js?1613154186"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1613069688"></script>
-    <script src="../js/learn.js?1613069688"></script>
-    <script src="../js/hugo-learn.js?1613069688"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1613154186"></script>
+    <script src="../js/learn.js?1613154186"></script>
+    <script src="../js/hugo-learn.js?1613154186"></script>
 
-    <link href="../mermaid/mermaid.css?1613069688" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1613069688"></script>
+    <link href="../mermaid/mermaid.css?1613154186" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1613154186"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
