@@ -5,7 +5,7 @@ weight: 10
 ---
 
 
-This workshop is designed to provide fundamental networking knowledge.
+This workshop is designed to provide fundamental networking knowledge in AWS Cloud.
 
 As a pre-requisite, you should have:
 
@@ -13,17 +13,14 @@ As a pre-requisite, you should have:
 2. An AWS account with AWS console access
 3. Cloudguru platform access
 4. [Slack](https://www.slack.com)
-5. Amazon Chime client for [Windows](https://clients.chime.aws/win/latest) or [macOS](https://clients.chime.aws/mac/latest)
 6. [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) installed and working (if you use Windows)
 
 
-The agenda will spread over 3 days as below:
+The agenda will split in 3 topic areas as below:
 
-1. Day 1 will cover traditional networking in which we will talk about all the networking concepts that you should understand before getting into AWS Cloud.
-2. Day 2 will cover AWS Networking basics and provide you the ability to setup your own infrastructure in AWS.
-3. Day 3 will cover Advanced Networking concepts in AWS.
-
-
+1. Traditional Networking
+2. AWS Networking
+3. Advanced AWS Networking
 
 
-{{% children showhidden="false" %}}
+

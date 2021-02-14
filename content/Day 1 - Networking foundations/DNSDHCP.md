@@ -7,6 +7,7 @@ pre:
 
 
 **Domain Name System (DNS):**
+---
 
 DNS stands for Domain Name System and it is used in our everyday tasks without even realising it. DNS can be compared to an address book since it is a directory of mappings between names and IP addresses and allows hosts to reach endpoints such as URLs or other machines.
 
@@ -56,6 +57,7 @@ DNS stores different types of DNS records in its mapping directory, but there ar
 
 
 **Dynamic Host Configuration Protocol (DHCP):**
+---
 
 DHCP stands for Dynamic Host Configuration Protocol and is used to dynamically alloacte IP addresses to clients in a network.
 

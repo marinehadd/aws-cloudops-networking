@@ -31,43 +31,43 @@ Note that all subnets in a VPC, regardless of being public or private, can commu
 
 - Go to VPC Services and on the left panel, click on *Subnets*
 - Click on *Create Subnet*
-    - give it a name (PublicSub-"Your Initials")
-    - choose your VPC from the list
-    - choose one of the Availability Zones
-    - Use the first /24 of your VPC CIDR (i.e. 10.10.0.0/24)
-    - Click *Create Subnet*
+    + give it a name (PublicSub-"Your Initials")
+    + choose your VPC from the list
+    + choose one of the Availability Zones
+    + Use the first /24 of your VPC CIDR (i.e. 10.10.0.0/24)
+    + Click *Create Subnet*
 
 Now, your subnet is setup but can only communicate within the VPC by default.
 
 - In the VPC Services tab, click on *Route Tables*
 - Click on *Create Route Table*
-    - give it a name (PublicRT-"Your Initials")
-    - choose your VPC from the list
-    - Click *Create*
+    + give it a name (PublicRT-"Your Initials")
+    + choose your VPC from the list
+    + Click *Create*
 - On the Route Tables interface, look for your route table:
-    - select the route table
-    - on the panel at the bottom, click on *Subnet Associations*
-    - *Edit subnet associations* and select your public subnet and *Save*
+    + select the route table
+    + on the panel at the bottom, click on *Subnet Associations*
+    + *Edit subnet associations* and select your public subnet and *Save*
 
 Now, you have a public route table that will be used to route all external (such as Internet) traffic to and from your public subnet. However, we still don't know how to go to the Internet as we have no exit door yet.
 
 - In the VPC Services tab, click on *Internet Gateways*
 - Click on *Create Internet Gateway*
-    - give it a name (IGW-"Your Initials") and *Create*
+    + give it a name (IGW-"Your Initials") and *Create*
 - Once it is created, you should be on its configuration page:
-    - click *Actions* and select *Attach to VPC*
-    - select your VPC and *Attach*
+    + click *Actions* and select *Attach to VPC*
+    + select your VPC and *Attach*
 
 Now, your Internet Gateway belongs to your VPC environment, so we can set it up to route all Internet traffic.
 
 - In the VPC Services tab, click on *Route Tables*
 - On the Route Tables interface, look for your public route table:
-    - select the public route table
-    - on the panel at the bottom, click on *Routes* then *Edit routes* 
-    - Click *Add route*, set the following:
-        - Destination: 0.0.0.0/0   (0/0 means everywhere, it is not restricted to a specific network)
-        - Target: Select Internet Gateway from the drop-down and click on your IGW-XXXX
-    - Save the changes
+    + select the public route table
+    + on the panel at the bottom, click on *Routes* then *Edit routes* 
+    + Click *Add route*, set the following:
+        * Destination: 0.0.0.0/0   (0/0 means everywhere, it is not restricted to a specific network)
+        * Target: Select Internet Gateway from the drop-down and click on your IGW-XXXX
+    + Save the changes
 
 Now, you have a public subnet! In a few sections, we will setup an EC2 instance, called public instance as a result of sitting in a public subnet, and test connectivity to the Internet. 
 
@@ -76,41 +76,41 @@ Now, you have a public subnet! In a few sections, we will setup an EC2 instance,
 
 - Go to VPC Services and on the left panel, click on *Subnets*
 - Click on *Create Subnet*
-    - give it a name (PrivateSub-"Your Initials")
-    - choose your VPC from the list
-    - choose one of the Availability Zones
-    - Use the second /24 of your VPC CIDR (i.e. 10.10.1.0/24)
-    - Click *Create Subnet*
+    + give it a name (PrivateSub-"Your Initials")
+    + choose your VPC from the list
+    + choose one of the Availability Zones
+    + Use the second /24 of your VPC CIDR (i.e. 10.10.1.0/24)
+    + Click *Create Subnet*
 
 Now, your subnet is setup but can only communicate within the VPC by default.
 
 - In the VPC Services tab, click on *Route Tables*
 - Click on *Create Route Table*
-    - give it a name (PrivateRT-"Your Initials")
-    - choose your VPC from the list
-    - Click *Create*
+    + give it a name (PrivateRT-"Your Initials")
+    + choose your VPC from the list
+    + Click *Create*
 - On the Route Tables interface, look for your route table:
-    - select the route table
-    - on the panel at the bottom, click on *Subnet Associations*
-    - *Edit subnet associations* and select your private subnet and *Save*
+    + select the route table
+    + on the panel at the bottom, click on *Subnet Associations*
+    + *Edit subnet associations* and select your private subnet and *Save*
 
 Now, you have a private route table that will be used to route internal traffic. At the moment, we are unable to reach the Internet since we have no NAT Gateway.
 
 - In the VPC Services tab, click on *NAT Gateways*
 - Click on *Create NAT Gateway*
-    - give it a name (NGW-"Your Initials") and *Create*
-    - select your public subnet  **(We choose the public subnet just to configure the NAT, since a NAT is a public instance)**
-    - click *Allocate Elastic IP* and *Create*
+    + give it a name (NGW-"Your Initials") and *Create*
+    + select your public subnet  **(We choose the public subnet just to configure the NAT, since a NAT is a public instance)**
+    + click *Allocate Elastic IP* and *Create*
 
 Now, your NAT Gateway belongs to your VPC environment because it is setup in its public subnet. It is therefore ready to be setup and used by the private subnet.
 
 - In the VPC Services tab, click on *Route Tables*
 - On the Route Tables interface, look for your private route table:
-    - select the private route table
-    - on the panel at the bottom, click on *Routes* then *Edit routes* 
-    - Click *Add route*, set the following:
-        - Destination: 0.0.0.0/0   (0/0 means everywhere, it is not restricted to a specific network)
-        - Target: Select NAT Gateway from the drop-down and click on your NGW-XXXX
-    - Save the changes
+    + select the private route table
+    + on the panel at the bottom, click on *Routes* then *Edit routes* 
+    + Click *Add route*, set the following:
+        * Destination: 0.0.0.0/0   (0/0 means everywhere, it is not restricted to a specific network)
+        * Target: Select NAT Gateway from the drop-down and click on your NGW-XXXX
+    + Save the changes
 
 Now, you have a private subnet with outbound access to the Internet. In the next section, we will setup an EC2 instance, called private instance as a result of sitting in a private subnet, and test outbound connectivity to the Internet. 

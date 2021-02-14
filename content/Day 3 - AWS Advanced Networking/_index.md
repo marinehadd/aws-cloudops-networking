@@ -8,8 +8,12 @@ weight: 90
 In this section, we will go through some advanced networking concepts.
 
 
-**The topics we will be covering:**
+<h3>What we will be covering:</h3>
+
 - Hybrid Infrastructure
+
 - VPC Peering
+
 - Transit Gateway
+
 - VPC Endpoint

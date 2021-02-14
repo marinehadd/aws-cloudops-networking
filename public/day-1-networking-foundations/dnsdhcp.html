@@ -17,21 +17,21 @@
     <title>DNS/DHCP :: Amazon CloudOps Networking Workshop</title>
 
     
-    <link href="../css/nucleus.css?1613154186" rel="stylesheet">
-    <link href="../css/all.css?1613154186" rel="stylesheet">
-    <link href="../css/hybrid.css?1613154186" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1613154186" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1613154186" rel="stylesheet">
-    <link href="../css/auto-complete.css?1613154186" rel="stylesheet">
-    <link href="../css/theme.css?1613154186" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1613154186" rel="stylesheet">
-    <link href="../css/jquery-ui.min.css?1613154186" rel="stylesheet">
+    <link href="../css/nucleus.css?1613327747" rel="stylesheet">
+    <link href="../css/all.css?1613327747" rel="stylesheet">
+    <link href="../css/hybrid.css?1613327747" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1613327747" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1613327747" rel="stylesheet">
+    <link href="../css/auto-complete.css?1613327747" rel="stylesheet">
+    <link href="../css/theme.css?1613327747" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1613327747" rel="stylesheet">
+    <link href="../css/jquery-ui.min.css?1613327747" rel="stylesheet">
     
-      <link href="../css/theme-mine.css?1613154186" rel="stylesheet">
+      <link href="../css/theme-mine.css?1613327747" rel="stylesheet">
     
 
-    <script src="../js/jquery-3.3.1.min.js?1613154186"></script>
-    <script src="../js/jquery-ui-1.12.1.min.js?1613154186"></script>
+    <script src="../js/jquery-3.3.1.min.js?1613327747"></script>
+    <script src="../js/jquery-ui-1.12.1.min.js?1613327747"></script>
 
 
     <style type="text/css">
@@ -63,14 +63,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1613154186"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1613154186"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1613327747"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1613327747"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1613154186"></script>
+<script type="text/javascript" src="../js/search.js?1613327747"></script>
 
     
   </div>
@@ -463,9 +463,9 @@
  
   
     
-      <li data-nav-id="/day-3-aws-advanced-networking/vpc-endpoints.html" title="VPC Endpoints" class="dd-item ">
-        <a href="../day-3-aws-advanced-networking/vpc-endpoints.html">
-        VPC Endpoints
+      <li data-nav-id="/day-3-aws-advanced-networking/transit-gateway.html" title="Transit Gateway" class="dd-item ">
+        <a href="../day-3-aws-advanced-networking/transit-gateway.html">
+        Transit Gateway
         
         </a>
     </li>
@@ -482,9 +482,9 @@
  
   
     
-      <li data-nav-id="/day-3-aws-advanced-networking/transit-gateway.html" title="Transit Gateway" class="dd-item ">
-        <a href="../day-3-aws-advanced-networking/transit-gateway.html">
-        Transit Gateway
+      <li data-nav-id="/day-3-aws-advanced-networking/vpc-endpoints.html" title="VPC Endpoints" class="dd-item ">
+        <a href="../day-3-aws-advanced-networking/vpc-endpoints.html">
+        VPC Endpoints
         
         </a>
     </li>
@@ -535,6 +535,10 @@
           
               <li> 
                   <a class="padding" href="https://www.linkedin.com/in/marine-haddad-38a542b5/"><i class='fab fa-linkedin fa-lg'></i> Marine Haddad</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://www.linkedin.com/in/adrianna-kurzela-26b88210b/"><i class='fab fa-linkedin fa-lg'></i> Adrianna Kurzela</a>
               </li>
           
         </ul>
@@ -613,7 +617,12 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#domain-name-system-dns"><strong>Domain Name System (DNS):</strong></a></li>
+    <li><a href="#dynamic-host-configuration-protocol-dhcp"><strong>Dynamic Host Configuration Protocol (DHCP):</strong></a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -631,7 +640,7 @@
         
 
 
-<p><strong>Domain Name System (DNS):</strong></p>
+<h2 id="domain-name-system-dns"><strong>Domain Name System (DNS):</strong></h2>
 <p>DNS stands for Domain Name System and it is used in our everyday tasks without even realising it. DNS can be compared to an address book since it is a directory of mappings between names and IP addresses and allows hosts to reach endpoints such as URLs or other machines.</p>
 <img src='../images/dns.png' width='500px'>
 <p>The full name of a server or endpoint is made of a hostname and the domain in which it sits. It is called a Fully Qualified Domain Name (FQDN) and is used for DNS resolution.</p>
@@ -663,7 +672,7 @@ The time lenght of a cached resource is called a Time-To-Live (TTL). A TTL is a 
 <li>SOA record (Start of Authority) - provides administrative information about the domain</li>
 <li>MX record (Mail Exchange) - indicates which mail servers are used to send emails to the domain</li>
 </ul>
-<p><strong>Dynamic Host Configuration Protocol (DHCP):</strong></p>
+<h2 id="dynamic-host-configuration-protocol-dhcp"><strong>Dynamic Host Configuration Protocol (DHCP):</strong></h2>
 <p>DHCP stands for Dynamic Host Configuration Protocol and is used to dynamically alloacte IP addresses to clients in a network.</p>
 <p>The way it works:</p>
 <ul>
@@ -1081,19 +1090,19 @@ In other cases where a client would require other services such as a FTP server 
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1613154186"></script>
-    <script src="../js/perfect-scrollbar.min.js?1613154186"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1613154186"></script>
-    <script src="../js/jquery.sticky.js?1613154186"></script>
-    <script src="../js/featherlight.min.js?1613154186"></script>
-    <script src="../js/highlight.pack.js?1613154186"></script>
+    <script src="../js/clipboard.min.js?1613327747"></script>
+    <script src="../js/perfect-scrollbar.min.js?1613327747"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1613327747"></script>
+    <script src="../js/jquery.sticky.js?1613327747"></script>
+    <script src="../js/featherlight.min.js?1613327747"></script>
+    <script src="../js/highlight.pack.js?1613327747"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1613154186"></script>
-    <script src="../js/learn.js?1613154186"></script>
-    <script src="../js/hugo-learn.js?1613154186"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1613327747"></script>
+    <script src="../js/learn.js?1613327747"></script>
+    <script src="../js/hugo-learn.js?1613327747"></script>
 
-    <link href="../mermaid/mermaid.css?1613154186" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1613154186"></script>
+    <link href="../mermaid/mermaid.css?1613327747" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1613327747"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

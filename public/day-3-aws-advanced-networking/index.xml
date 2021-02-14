@@ -29,21 +29,23 @@ A VPC peering connection is a networking connection between two VPCs that allows
     </item>
     
     <item>
-      <title>VPC Endpoints</title>
-      <link>/day-3-aws-advanced-networking/vpc-endpoints.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/day-3-aws-advanced-networking/vpc-endpoints.html</guid>
-      <description>Talk about VPC endpoints.</description>
-    </item>
-    
-    <item>
       <title>Transit Gateway</title>
       <link>/day-3-aws-advanced-networking/transit-gateway.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-3-aws-advanced-networking/transit-gateway.html</guid>
-      <description>Talk about Transit Gateway.</description>
+      <description>VPC peering connections can become complicated when there are too many VPCs trying to communicate, the configuration and management becomes heavy (without also forgetting the VPC peering number limits). In which case, a good practice is to use a Transit Gateway to establish connectivity between the VPCs.
+A Transit Gateway acts like a central router to centralize routing across the different networks such as VPCs and on-premise networks. This component works with VPCs, VPNs and Direct Connect connections.</description>
+    </item>
+    
+    <item>
+      <title>VPC Endpoints</title>
+      <link>/day-3-aws-advanced-networking/vpc-endpoints.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/day-3-aws-advanced-networking/vpc-endpoints.html</guid>
+      <description>As we previsouly mentioned in the Direct Connect section, AWS services are considered &amp;ldquo;public&amp;rdquo; services unless they&amp;rsquo;re setup in a VPC. This means that when an instance is trying to reach an AWS service (such as API Gateway, an S3 bucket, ..), the traffic is going out to the Internet because the service name resolves (DNS) to a public name/URL endpoint.
+This situation therefore requires Internet access, therefore an Internet Gateway.</description>
     </item>
     
   </channel>

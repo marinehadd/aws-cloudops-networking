@@ -13,7 +13,7 @@ Subnetting allows the segmentation of a bigger network in smaller networks. For 
 
 <img src='/images/segmentation.png' width='400px'>
 
-**Anatomy of a an IP address:**
+<h3> Anatomy of a an IP address: </h3>
 
 An IP address is made of 4 octets, 1 octet equals to 8 bits. So the maximum lenght of an IP address is 32 bits.
 
@@ -41,7 +41,7 @@ Each bit is a power of 2 (X^2) and is calculated from right to left.
 
 
 
-**Subnet Masks**
+<h3> Subnet Masks </h3>
 
 An IP address is segmented in 2 parts : 
 - The Network section (always the left part)

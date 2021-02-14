@@ -17,21 +17,21 @@
     <title>VPC Endpoints :: Amazon CloudOps Networking Workshop</title>
 
     
-    <link href="../css/nucleus.css?1613154186" rel="stylesheet">
-    <link href="../css/all.css?1613154186" rel="stylesheet">
-    <link href="../css/hybrid.css?1613154186" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1613154186" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1613154186" rel="stylesheet">
-    <link href="../css/auto-complete.css?1613154186" rel="stylesheet">
-    <link href="../css/theme.css?1613154186" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1613154186" rel="stylesheet">
-    <link href="../css/jquery-ui.min.css?1613154186" rel="stylesheet">
+    <link href="../css/nucleus.css?1613327747" rel="stylesheet">
+    <link href="../css/all.css?1613327747" rel="stylesheet">
+    <link href="../css/hybrid.css?1613327747" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1613327747" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1613327747" rel="stylesheet">
+    <link href="../css/auto-complete.css?1613327747" rel="stylesheet">
+    <link href="../css/theme.css?1613327747" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1613327747" rel="stylesheet">
+    <link href="../css/jquery-ui.min.css?1613327747" rel="stylesheet">
     
-      <link href="../css/theme-mine.css?1613154186" rel="stylesheet">
+      <link href="../css/theme-mine.css?1613327747" rel="stylesheet">
     
 
-    <script src="../js/jquery-3.3.1.min.js?1613154186"></script>
-    <script src="../js/jquery-ui-1.12.1.min.js?1613154186"></script>
+    <script src="../js/jquery-3.3.1.min.js?1613327747"></script>
+    <script src="../js/jquery-ui-1.12.1.min.js?1613327747"></script>
 
 
     <style type="text/css">
@@ -63,14 +63,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1613154186"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1613154186"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1613327747"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1613327747"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1613154186"></script>
+<script type="text/javascript" src="../js/search.js?1613327747"></script>
 
     
   </div>
@@ -463,9 +463,9 @@
  
   
     
-      <li data-nav-id="/day-3-aws-advanced-networking/vpc-endpoints.html" title="VPC Endpoints" class="dd-item active">
-        <a href="../day-3-aws-advanced-networking/vpc-endpoints.html">
-        VPC Endpoints
+      <li data-nav-id="/day-3-aws-advanced-networking/transit-gateway.html" title="Transit Gateway" class="dd-item ">
+        <a href="../day-3-aws-advanced-networking/transit-gateway.html">
+        Transit Gateway
         
         </a>
     </li>
@@ -482,9 +482,9 @@
  
   
     
-      <li data-nav-id="/day-3-aws-advanced-networking/transit-gateway.html" title="Transit Gateway" class="dd-item ">
-        <a href="../day-3-aws-advanced-networking/transit-gateway.html">
-        Transit Gateway
+      <li data-nav-id="/day-3-aws-advanced-networking/vpc-endpoints.html" title="VPC Endpoints" class="dd-item active">
+        <a href="../day-3-aws-advanced-networking/vpc-endpoints.html">
+        VPC Endpoints
         
         </a>
     </li>
@@ -535,6 +535,10 @@
           
               <li> 
                   <a class="padding" href="https://www.linkedin.com/in/marine-haddad-38a542b5/"><i class='fab fa-linkedin fa-lg'></i> Marine Haddad</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://www.linkedin.com/in/adrianna-kurzela-26b88210b/"><i class='fab fa-linkedin fa-lg'></i> Adrianna Kurzela</a>
               </li>
           
         </ul>
@@ -631,7 +635,20 @@
         
 
 
-<p>Talk about VPC endpoints.</p>
+<p>As we previsouly mentioned in the Direct Connect section, AWS services are considered &ldquo;public&rdquo; services unless they&rsquo;re setup in a VPC. This means that when an instance is trying to reach an AWS service (such as API Gateway, an S3 bucket, ..), the traffic is going out to the Internet because the service name resolves (DNS) to a public name/URL endpoint.</p>
+<p>This situation therefore requires Internet access, therefore an Internet Gateway.</p>
+<img src='../images/publicservices.png'>
+<p>In some cases, you may not have any Internet access due to architecture requirements or compliance for example, in which case you cannot reach these AWS services.</p>
+<p>A <strong>VPC endpoint</strong> is a component that allows resources to privately access AWS services, without going through the Internet. There are two types of endpoints: <strong>Interface Endpoint</strong> and <strong>Gateway Endpoint</strong>.</p>
+<h4> Gateway Endpoint </h4>
+<p>A Gateway endpoint can be configured for two services only: S3 and Dynamodb.</p>
+<p>This type of endpoint is setup in the same way as you would setup any other route such as an Internet Gateway or a Transit Gateway. This is just an added route to the subnet route table to point any traffic destined for the service to the VPC endpoint.</p>
+<img src='../images/gatewayendpoint.png'>
+<p>An Interface endpoint can be configured for all services except Dynamodb.</p>
+<h4> Interface Endpoint </h4>
+<p>The way to connect to this endpoint is not via route table addition, but via an ENI (elastic network interface). When an Interface endpoint gets created, an ENI is automatically created for this endpoint in the same VPC.</p>
+<p>Therefore, because we have seen that all resources within a VPC can route to each other by default, then the Interface endpoint is made available to all resources within the VPC.</p>
+<img src='../images/interfaceendpoint.png'>
 
 
 <footer class=" footline" >
@@ -958,7 +975,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -975,8 +991,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -996,6 +1010,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1017,10 +1034,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../day-3-aws-advanced-networking/vpc-peering.html" title="VPC Peering"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../day-3-aws-advanced-networking/transit-gateway.html" title="Transit Gateway"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../day-3-aws-advanced-networking/transit-gateway.html" title="Transit Gateway" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../further_reading.html" title="Further Reading" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1030,19 +1047,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1613154186"></script>
-    <script src="../js/perfect-scrollbar.min.js?1613154186"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1613154186"></script>
-    <script src="../js/jquery.sticky.js?1613154186"></script>
-    <script src="../js/featherlight.min.js?1613154186"></script>
-    <script src="../js/highlight.pack.js?1613154186"></script>
+    <script src="../js/clipboard.min.js?1613327747"></script>
+    <script src="../js/perfect-scrollbar.min.js?1613327747"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1613327747"></script>
+    <script src="../js/jquery.sticky.js?1613327747"></script>
+    <script src="../js/featherlight.min.js?1613327747"></script>
+    <script src="../js/highlight.pack.js?1613327747"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1613154186"></script>
-    <script src="../js/learn.js?1613154186"></script>
-    <script src="../js/hugo-learn.js?1613154186"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1613327747"></script>
+    <script src="../js/learn.js?1613327747"></script>
+    <script src="../js/hugo-learn.js?1613327747"></script>
 
-    <link href="../mermaid/mermaid.css?1613154186" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1613154186"></script>
+    <link href="../mermaid/mermaid.css?1613327747" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1613327747"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

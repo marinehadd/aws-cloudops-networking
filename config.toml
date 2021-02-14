@@ -37,13 +37,13 @@ baseURL = "http://d37ijis7gunnkm.cloudfront.net/"
 name = "<i class='fab fa-linkedin fa-lg'></i> Marine Haddad"
 identifier = "li1"
 url = "https://www.linkedin.com/in/marine-haddad-38a542b5/"
-weight = 2
+weight = 1
 Email = "marinehd@amazon.com"
 
 [[menu.shortcuts]]
 name = "<i class='fab fa-linkedin fa-lg'></i> Adrianna Kurzela"
-identifier = "li1"
-#url = "https://www.linkedin.com/in/marine-haddad-38a542b5/"
+identifier = "li2"
+url = "https://www.linkedin.com/in/adrianna-kurzela-26b88210b/"
 weight = 2
 Email = "akurzela@amazon.lu"
 

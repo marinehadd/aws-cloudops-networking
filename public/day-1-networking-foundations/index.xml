@@ -57,8 +57,7 @@ A route table is a source/destination map for the router to know where to send t
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-1-networking-foundations/dnsdhcp.html</guid>
-      <description>Domain Name System (DNS):
-DNS stands for Domain Name System and it is used in our everyday tasks without even realising it. DNS can be compared to an address book since it is a directory of mappings between names and IP addresses and allows hosts to reach endpoints such as URLs or other machines.
+      <description>Domain Name System (DNS): DNS stands for Domain Name System and it is used in our everyday tasks without even realising it. DNS can be compared to an address book since it is a directory of mappings between names and IP addresses and allows hosts to reach endpoints such as URLs or other machines.
 The full name of a server or endpoint is made of a hostname and the domain in which it sits.</description>
     </item>
     
@@ -68,13 +67,12 @@ The full name of a server or endpoint is made of a hostname and the domain in wh
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-1-networking-foundations/homework.html</guid>
-      <description>Subnetting Exercices
- 192.168.0.5/24  What is the binary address of 192.168.0.5?
-What is the network ID?
-What is the subnet mask?
-What is the gateway router IP address?
-How many IP addresses in this network?
-Add more.</description>
+      <description>Subnetting Exercices  192.168.0.5/24   What is the binary address of 192.168.0.5?
+ What is the network ID?
+ What is the subnet mask?
+ What is the gateway router IP address?
+ How many IP addresses in this network?
+    </description>
     </item>
     
   </channel>
