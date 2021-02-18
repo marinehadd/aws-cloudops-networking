@@ -5,7 +5,7 @@ weight: 100
 ---
 
 
-<h3>DAY 1: </h3>
+<h3>Networking Fundamentals: </h3>
 
 <h4>Networking basics </h4>
 
@@ -42,7 +42,7 @@ Comparison: https://www.cloudns.net/blog/dns-vs-dhcp/
 DNS Tutorial: https://www.youtube.com/watch?v=WDutOk8Piu8&ab_channel=DumbTutorials
 
 
-<h3>DAY 2: </h3>
+<h3>Aws Networking basics: </h3>
 
 <h4>Public/Private concepts</h4>
 
@@ -63,7 +63,7 @@ https://docs.amazonaws.cn/en_us/elasticloadbalancing/latest/userguide/how-elasti
 https://www.youtube.com/watch?v=e2xLV7pCOLI&feature=youtu.be&ab_channel=AmazonWebServices
 https://www.youtube.com/watch?v=BtiS0QyiTK8&ab_channel=Simplilearn
 
-<h3>DAY 3: </h3>
+<h3>AWS Advanced Networking: </h3>
 
 <h4>Hybrid Cloud</h4>
 

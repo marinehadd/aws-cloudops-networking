@@ -6,7 +6,7 @@ pre:
 ---
 
 
-**Subnetting Exercices**
+**Subnetting Exercice**
 ---
 
 - 192.168.0.5/24

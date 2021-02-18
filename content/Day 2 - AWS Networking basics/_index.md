@@ -1,5 +1,5 @@
 ---
-title: "Day 2 - AWS Networking basics"
+title: "AWS Networking basics"
 chapter: false
 weight: 70
 ---
