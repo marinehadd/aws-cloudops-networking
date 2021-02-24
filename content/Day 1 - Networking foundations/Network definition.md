@@ -17,7 +17,7 @@ There are several types of networks but the most common are LAN (Local Area Netw
 
 The main devices used in networking are switch and router. They work at different layers and allow connectivity inside and outside a network, respectively. 
 
-The main difference is that a switch communicates with MAC addresses (a unique physical ID) while a router communicates with IP addresses, and the main difference between a MAC and an IP is that it works at different network layers and a MAC is a static physical ID that cannot be changed while an IP can be allocated anc changed anytime.
+The main difference is that a switch communicates with MAC addresses (a unique physical ID) while a router communicates with IP addresses, and the main difference between a MAC and an IP is that it works at different network layers and a MAC is a static physical ID that cannot be changed while an IP can be allocated and changed anytime.
 
 The switch allows all devices in the network/LAN to communicate while the router sits on the edge of the LAN in order to provide external connectivity, either to the Internet or to another network/LAN.
 
