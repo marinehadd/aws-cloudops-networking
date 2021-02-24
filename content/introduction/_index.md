@@ -23,4 +23,9 @@ The agenda will split in 3 topic areas as below:
 3. Advanced AWS Networking
 
 
+Resources
+[FAQ](https://docs.google.com/document/d/13Lrz7Q-TtAAcyEPbk27ZAc0oxLe1WP3JUPWSOEngXbw/edit?usp=sharing)
+[Kahoot](https://kahoot.com/)
+[Survey](https://docs.google.com/forms/d/1PczsGUH_4pv5R2P_5iaTuIoF92ro_ll3JPmUZBdmWDA/edit?usp=sharing)
+[Slack Channel](https://join.slack.com/share/zt-n4u3v140-9j4JeUe9qJkG8Iqu5~XyyA)
 
