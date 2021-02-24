@@ -27,6 +27,8 @@ Note that all subnets in a VPC, regardless of being public or private, can commu
 
 <h4>LAB 2:</h4>
 
+Refer to [Lab Architecture](/lab_diagram.html) for architecture.
+
 **Create a public subnet:**
 
 - Go to VPC Services and on the left panel, click on *Subnets*

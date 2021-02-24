@@ -48,6 +48,8 @@ That means that if you need more than 11 IPs in your network, you will need to h
 
 <h4>LAB 1:</h4>
 
+The final architecture of the Lab can be found in [Lab Architecture](/lab_diagram.html) section.
+
 - Login to your AWS account
 - Go to VPC Services and on the left panel, click on *Your VPCs*
 - Click on *Create VPC* and give it a name (i.e. VPC-"Your Initials") and a /16 CIDR block (i.e. 10.10.0.0/16), then leave the rest as default and click *Create VPC*
