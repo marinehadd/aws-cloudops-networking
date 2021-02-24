@@ -17,21 +17,21 @@
     <title>Security in a VPC :: Amazon CloudOps Networking Workshop</title>
 
     
-    <link href="../css/nucleus.css?1613671320" rel="stylesheet">
-    <link href="../css/all.css?1613671320" rel="stylesheet">
-    <link href="../css/hybrid.css?1613671320" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1613671320" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1613671320" rel="stylesheet">
-    <link href="../css/auto-complete.css?1613671320" rel="stylesheet">
-    <link href="../css/theme.css?1613671320" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1613671320" rel="stylesheet">
-    <link href="../css/jquery-ui.min.css?1613671320" rel="stylesheet">
+    <link href="../css/nucleus.css?1613754137" rel="stylesheet">
+    <link href="../css/all.css?1613754137" rel="stylesheet">
+    <link href="../css/hybrid.css?1613754137" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1613754137" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1613754137" rel="stylesheet">
+    <link href="../css/auto-complete.css?1613754137" rel="stylesheet">
+    <link href="../css/theme.css?1613754137" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1613754137" rel="stylesheet">
+    <link href="../css/jquery-ui.min.css?1613754137" rel="stylesheet">
     
-      <link href="../css/theme-mine.css?1613671320" rel="stylesheet">
+      <link href="../css/theme-mine.css?1613754137" rel="stylesheet">
     
 
-    <script src="../js/jquery-3.3.1.min.js?1613671320"></script>
-    <script src="../js/jquery-ui-1.12.1.min.js?1613671320"></script>
+    <script src="../js/jquery-3.3.1.min.js?1613754137"></script>
+    <script src="../js/jquery-ui-1.12.1.min.js?1613754137"></script>
 
 
     <style type="text/css">
@@ -63,14 +63,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1613671320"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1613671320"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1613754137"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1613754137"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1613671320"></script>
+<script type="text/javascript" src="../js/search.js?1613754137"></script>
 
     
   </div>
@@ -644,8 +644,8 @@ When you first configure a Network ACL, all access is allowed by default.
 NACL are stateless, that means that if you want to allow a type of traffic, you need to do it both for inbound and outbound.</p>
 <img src='../images/sg_nacl.png' width='600px'>
 <p>In summary, the Network ACL acts at the subnet level. The Security Groups acts at the instance level.</p>
-<p><strong>Lab 3:</strong></p>
-<p><em>Create a public instance:</em></p>
+<h4>LAB 3:</h4>
+<p><strong>Create a public instance:</strong></p>
 <ul>
 <li>Go to EC2 Services and click on <em>Launch Instance</em>
 <ul>
@@ -667,7 +667,7 @@ NACL are stateless, that means that if you want to allow a type of traffic, you 
 </li>
 </ul>
 <p>Let it spin up, and create your private instance in the meantime.</p>
-<p><em>Create a private instance:</em></p>
+<p><strong>Create a private instance:</strong></p>
 <ul>
 <li>Go to EC2 Services and click on <em>Launch Instance</em>
 <ul>
@@ -702,7 +702,7 @@ Notice that your public EC2 has a public IPv4 address as well as a public DNS na
 </ul>
 <p>Now that we have SSH and ICMP traffic allowed from our IP address, it means only you will be able to connect on those ports to the instance.</p>
 <p>We will not be using NACL today as it is not required in this context, but you can have a look at the default one by going to VPC Services -&gt; Subnets -&gt; Network ACL (bottom panel).</p>
-<p>You can now:</p>
+<p><strong>You can now:</strong></p>
 <ul>
 <li>open a terminal window and ping the public IP address of your instance ( <em>ping X.X.X.X</em> )</li>
 <li>use SSH to login to your instance</li>
@@ -1107,19 +1107,19 @@ A way to SSH into it would be to setup a Bastion instance. This instance is a pu
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1613671320"></script>
-    <script src="../js/perfect-scrollbar.min.js?1613671320"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1613671320"></script>
-    <script src="../js/jquery.sticky.js?1613671320"></script>
-    <script src="../js/featherlight.min.js?1613671320"></script>
-    <script src="../js/highlight.pack.js?1613671320"></script>
+    <script src="../js/clipboard.min.js?1613754137"></script>
+    <script src="../js/perfect-scrollbar.min.js?1613754137"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1613754137"></script>
+    <script src="../js/jquery.sticky.js?1613754137"></script>
+    <script src="../js/featherlight.min.js?1613754137"></script>
+    <script src="../js/highlight.pack.js?1613754137"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1613671320"></script>
-    <script src="../js/learn.js?1613671320"></script>
-    <script src="../js/hugo-learn.js?1613671320"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1613754137"></script>
+    <script src="../js/learn.js?1613754137"></script>
+    <script src="../js/hugo-learn.js?1613754137"></script>
 
-    <link href="../mermaid/mermaid.css?1613671320" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1613671320"></script>
+    <link href="../mermaid/mermaid.css?1613754137" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1613754137"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

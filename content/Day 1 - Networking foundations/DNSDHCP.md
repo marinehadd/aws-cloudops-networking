@@ -17,6 +17,7 @@ The full name of a server or endpoint is made of a hostname and the domain in wh
 
 <img src='/images/fqdn.png' width='800px'>
 
+<h4> Hierarchy </h4>
 
 DNS uses a hierarchy to manage the different types of servers.
 
@@ -29,6 +30,8 @@ Based on this hierarchy, there are several types of DNS servers:
 - The Top Level Domain (TLDs), which are authoritative for .net, .com. .io, etc..
 - The Authoritative servers, which own specific domains such as google.com, amazon.com, aws-cloudops.com, etc..
 - The DNS resolvers, which receive DNS queries and handle caching and resolution.
+
+<h4> Resolution Types </h4>
 
 DNS resolution can be either iterative or recursive.
 
@@ -43,6 +46,8 @@ In a recursive resolution, the DNS resolver/caching server handles the full DNS 
 
 Once bob.com is resolved, the data will be cached into the local DNS cache so that next time it is queried, the resolution does not need to happen again, until the data expires.
 The time lenght of a cached resource is called a Time-To-Live (TTL). A TTL is a setting configured on a DNS resource to allow DNS caching.
+
+<h4> DNS Records </h4>
 
 Those name/IP mappings stored in DNS servers are called resources or records.
 

@@ -21,9 +21,9 @@ NACL are stateless, that means that if you want to allow a type of traffic, you 
 In summary, the Network ACL acts at the subnet level. The Security Groups acts at the instance level.
 
 
-**Lab 3:**
+<h4>LAB 3:</h4>
 
-*Create a public instance:*
+**Create a public instance:**
 
 - Go to EC2 Services and click on *Launch Instance*
     + select the 1st Amazon Linux AMI from the list
@@ -40,7 +40,7 @@ In summary, the Network ACL acts at the subnet level. The Security Groups acts a
 
 Let it spin up, and create your private instance in the meantime.
 
-*Create a private instance:*
+**Create a private instance:**
 
 - Go to EC2 Services and click on *Launch Instance*
     + select the 1st Amazon Linux AMI from the list
@@ -70,7 +70,7 @@ Now that we have SSH and ICMP traffic allowed from our IP address, it means only
 We will not be using NACL today as it is not required in this context, but you can have a look at the default one by going to VPC Services -> Subnets -> Network ACL (bottom panel).
 
 
-You can now:
+**You can now:**
 - open a terminal window and ping the public IP address of your instance ( *ping X.X.X.X* )
 - use SSH to login to your instance
 

@@ -46,7 +46,7 @@ Because a network starts from .0 (.0 to .15), there are 16 addresses in a /28. H
 That means that if you need more than 11 IPs in your network, you will need to have a bigger CIDR such as /27 or above.</p>
 
 
-**Lab 1:**
+<h4>LAB 1:</h4>
 
 - Login to your AWS account
 - Go to VPC Services and on the left panel, click on *Your VPCs*

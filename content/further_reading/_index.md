@@ -42,7 +42,7 @@ Comparison: https://www.cloudns.net/blog/dns-vs-dhcp/
 DNS Tutorial: https://www.youtube.com/watch?v=WDutOk8Piu8&ab_channel=DumbTutorials
 
 
-<h3>Aws Networking basics: </h3>
+<h3>AWS Networking basics: </h3>
 
 <h4>Public/Private concepts</h4>
 

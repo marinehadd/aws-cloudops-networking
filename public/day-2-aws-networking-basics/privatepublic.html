@@ -17,21 +17,21 @@
     <title>Private/Public concepts :: Amazon CloudOps Networking Workshop</title>
 
     
-    <link href="../css/nucleus.css?1613671320" rel="stylesheet">
-    <link href="../css/all.css?1613671320" rel="stylesheet">
-    <link href="../css/hybrid.css?1613671320" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1613671320" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1613671320" rel="stylesheet">
-    <link href="../css/auto-complete.css?1613671320" rel="stylesheet">
-    <link href="../css/theme.css?1613671320" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1613671320" rel="stylesheet">
-    <link href="../css/jquery-ui.min.css?1613671320" rel="stylesheet">
+    <link href="../css/nucleus.css?1613754137" rel="stylesheet">
+    <link href="../css/all.css?1613754137" rel="stylesheet">
+    <link href="../css/hybrid.css?1613754137" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1613754137" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1613754137" rel="stylesheet">
+    <link href="../css/auto-complete.css?1613754137" rel="stylesheet">
+    <link href="../css/theme.css?1613754137" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1613754137" rel="stylesheet">
+    <link href="../css/jquery-ui.min.css?1613754137" rel="stylesheet">
     
-      <link href="../css/theme-mine.css?1613671320" rel="stylesheet">
+      <link href="../css/theme-mine.css?1613754137" rel="stylesheet">
     
 
-    <script src="../js/jquery-3.3.1.min.js?1613671320"></script>
-    <script src="../js/jquery-ui-1.12.1.min.js?1613671320"></script>
+    <script src="../js/jquery-3.3.1.min.js?1613754137"></script>
+    <script src="../js/jquery-ui-1.12.1.min.js?1613754137"></script>
 
 
     <style type="text/css">
@@ -63,14 +63,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1613671320"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1613671320"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1613754137"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1613754137"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1613671320"></script>
+<script type="text/javascript" src="../js/search.js?1613754137"></script>
 
     
   </div>
@@ -649,8 +649,8 @@ However, it can happen that some private resources need access to the Internet t
 <p>The NAT Gateway allow your EC2 instance to connect to the Internet, but prevent the Internet from connecting to it. The NAT Gateway resides in a public subnet in a certain Availability Zone. In order to allow your private subnets to use the NAT Gateway to connect to the Internet, you must add it to the route tables they are associated with.
 Note that a NAT Gateway still needs an Internet Gateway to access the Internet. The NAT is only present to proxy the Internet traffic for the private instances, but the Internet Gateway remains the main and only Internet exit gate for a VPC.</p>
 <p>Note that all subnets in a VPC, regardless of being public or private, can communicate with each other by default because they belong to the same VPC CIDR. This is not a traditional networking use case, but in AWS, when the VPC gets created, all route tables are assigned a route to the VPC CIDR.</p>
-<p><strong>Lab 2:</strong></p>
-<p><em>Create a public subnet:</em></p>
+<h4>LAB 2:</h4>
+<p><strong>Create a public subnet:</strong></p>
 <ul>
 <li>Go to VPC Services and on the left panel, click on <em>Subnets</em></li>
 <li>Click on <em>Create Subnet</em>
@@ -714,7 +714,7 @@ Note that a NAT Gateway still needs an Internet Gateway to access the Internet. 
 </li>
 </ul>
 <p>Now, you have a public subnet! In a few sections, we will setup an EC2 instance, called public instance as a result of sitting in a public subnet, and test connectivity to the Internet.</p>
-<p><em>Create a private subnet:</em></p>
+<p><strong>Create a private subnet:</strong></p>
 <ul>
 <li>Go to VPC Services and on the left panel, click on <em>Subnets</em></li>
 <li>Click on <em>Create Subnet</em>
@@ -1172,19 +1172,19 @@ Note that a NAT Gateway still needs an Internet Gateway to access the Internet. 
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1613671320"></script>
-    <script src="../js/perfect-scrollbar.min.js?1613671320"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1613671320"></script>
-    <script src="../js/jquery.sticky.js?1613671320"></script>
-    <script src="../js/featherlight.min.js?1613671320"></script>
-    <script src="../js/highlight.pack.js?1613671320"></script>
+    <script src="../js/clipboard.min.js?1613754137"></script>
+    <script src="../js/perfect-scrollbar.min.js?1613754137"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1613754137"></script>
+    <script src="../js/jquery.sticky.js?1613754137"></script>
+    <script src="../js/featherlight.min.js?1613754137"></script>
+    <script src="../js/highlight.pack.js?1613754137"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1613671320"></script>
-    <script src="../js/learn.js?1613671320"></script>
-    <script src="../js/hugo-learn.js?1613671320"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1613754137"></script>
+    <script src="../js/learn.js?1613754137"></script>
+    <script src="../js/hugo-learn.js?1613754137"></script>
 
-    <link href="../mermaid/mermaid.css?1613671320" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1613671320"></script>
+    <link href="../mermaid/mermaid.css?1613754137" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1613754137"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

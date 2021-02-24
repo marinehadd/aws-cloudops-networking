@@ -25,9 +25,9 @@ Note that a NAT Gateway still needs an Internet Gateway to access the Internet. 
 Note that all subnets in a VPC, regardless of being public or private, can communicate with each other by default because they belong to the same VPC CIDR. This is not a traditional networking use case, but in AWS, when the VPC gets created, all route tables are assigned a route to the VPC CIDR.
 
 
-**Lab 2:**
+<h4>LAB 2:</h4>
 
-*Create a public subnet:*
+**Create a public subnet:**
 
 - Go to VPC Services and on the left panel, click on *Subnets*
 - Click on *Create Subnet*
@@ -72,7 +72,7 @@ Now, your Internet Gateway belongs to your VPC environment, so we can set it up 
 Now, you have a public subnet! In a few sections, we will setup an EC2 instance, called public instance as a result of sitting in a public subnet, and test connectivity to the Internet. 
 
 
-*Create a private subnet:*
+**Create a private subnet:**
 
 - Go to VPC Services and on the left panel, click on *Subnets*
 - Click on *Create Subnet*
