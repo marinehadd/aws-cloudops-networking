@@ -13,5 +13,5 @@ The workshop will consist of the following:
 - 3 x 2h office hours
 
 
-For additional labs and bedtime reading, you can find more material in the [Further Reading](/further_reading.html) section.
+For additional material, go to the [Further Reading](/further_reading.html) section.
 

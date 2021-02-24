@@ -23,6 +23,8 @@ In summary, the Network ACL acts at the subnet level. The Security Groups acts a
 
 <h4>LAB 3:</h4>
 
+Refer to [Lab Architecture](/lab_diagram.html) for architecture.
+
 **Create a public instance:**
 
 - Go to EC2 Services and click on *Launch Instance*
