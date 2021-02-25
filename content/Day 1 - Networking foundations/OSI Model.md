@@ -9,7 +9,7 @@ Networking is based on the OSI model:
 
 <img src='/images/osi-model-7-layers.png' width='500px'>
 
-Each layer has a meaning in networking. We will not cover the layers in dept, but you can read more about in the [Further Reading](/further_reading.html) section.
+Each layer has a meaning in networking. We will not cover the layers in depth, but you can read more about in the [Further Reading](/further_reading.html) section.
 
 Networking is based on the OSI model, it is a bit like the layers of a cake, often referred as L1, L2, L3, etc..
 
