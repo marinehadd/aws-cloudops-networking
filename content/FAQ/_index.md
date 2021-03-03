@@ -91,7 +91,7 @@ The router gateway IP address is not strictly reserved but is usually assigned t
 Let's pick an example : 
 
 /24 = 24 bits = 1111 1111.1111 1111.1111 1111.0000 0000 => In the host portion we have 8 bits of space and 8 bits = 256
-/25 = 25 bits = 1111 1111.1111 1111.1111 1111.1000 0000 => If we were using this /24 inside the host portion of a /24, it means we would only be using 1, and this bit is equal to 128.
+/25 = 25 bits = 1111 1111.1111 1111.1111 1111.1000 0000 => If we were using this /25 inside the host portion of a /24, it means we would only be using 1, and this bit is equal to 128.
 However, given the /24 can accept up to 256 hosts and the /25 is only using half, it then means that we actually put 2x /25 (2x 128) in this /24.
 
 Therefore : 1 x /24 = 2 x /25 
