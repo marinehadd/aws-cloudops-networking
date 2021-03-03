@@ -67,7 +67,7 @@ The /24 is called the subnet mask and determines which parts of the IP are the n
 /24 represents 24 bits:
 
 <p>1111 1111.1111 1111.1111 1111.0000 0000 = 255.255.255.0<br>
-2552.255.255 = network section<br>
+255.255.255 = network section<br>
 0 = host section</p>
 
 
