@@ -68,7 +68,7 @@ The /24 is the subnet mask and defines the size of the network portion, and ther
 /24 represents 24 bits:
 
 <p>1111 1111.1111 1111.1111 1111.0000 0000 = 255.255.255.0<br>
-2552.255.255 = network section<br>
+255.255.255 = network section<br>
 0 = host section</p>
 
 
