@@ -25,6 +25,9 @@ https://medium.com/learn-with-the-lean-programmer/osi-model-layers-explained-ee1
 
 Tutorial: https://acloud.guru/overview/124ee946-2249-40c2-a664-aa26af523920?_ga=2.78699287.2097752874.1606729826-1802322676.1602598892
 
+Explanation: https://www.cbtnuggets.com/blog/technology/networking/networking-basics-what-is-ipv4-subnetting
+
+ACG tutorial: https://acloudguru.com/course/subnetting-fundamentals
 
 Online Subnetting calculator: https://www.subnet-calculator.com/
 
@@ -32,6 +35,10 @@ Online Subnetting calculator: https://www.subnet-calculator.com/
 Detailed exercices with explanations: http://www.steves-internet-guide.com/subnetting-worked-examples/
 
 More exercises: https://subnetipv4.com/
+
+<h4>Routing</h4>
+
+ACG Tutorial: https://acloudguru.com/course/network-routing-fundamentals
 
 <h4>DNS / DHCP</h4>
 
@@ -50,9 +57,16 @@ Public vs Private: https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addre
 Internet access with public subnet: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html
 Internet access with private subnet: https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html
 
+ACG LAB: https://acloudguru.com/hands-on-labs/creating-and-validating-connectivity-for-amazon-ec2-instances-in-a-public-and-private-subnet
+
+ACG LAB: https://acloudguru.com/hands-on-labs/create-a-multi-subnet-vpc-with-secure-access-to-private-servers-with-outbound-internet-access
+
+
 <h4>Security</h4>
 
 NACL vs SecurityGroups: https://medium.com/awesome-cloud/aws-difference-between-security-groups-and-network-acls-adc632ea29ae
+
+ACG LAB: https://acloudguru.com/hands-on-labs/aws-security-essentials-network-segmentation-lab
 
 <h4>Elastic Load Balancing</h4>
 
@@ -80,6 +94,9 @@ Overview: https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.htm
 
 Overview: https://docs.aws.amazon.com/vpc/latest/tgw/how-transit-gateways-work.html
 VPC Peering vs Transit Gateway: https://medium.com/slalom-technology/next-generation-networking-with-aws-transit-gateway-and-shared-vpcs-9d971d868c65
+
+ACG LAB: https://acloudguru.com/hands-on-labs/building-hub-and-spoke-network-topology-with-transit-gateway
+
 
 <h4>VPC Endpoints</h4>
 

@@ -56,10 +56,12 @@ Let it spin up, and create your private instance in the meantime.
     + In Tags, create a tag with *Key* : Name and *Value* : PrivateEC2-"YourInitials"
     + Leave the security group as default
     + In the Review and Launch page, click *Launch* and select your KP that you created and stored locally during the Linux course
+    ***If you deleted your key pair, just create a new one and download it.***
 
 Now you should have 1 public instance and 1 private instance. In the EC2 interface, if you select them one by one and look at the bottom panel, you should see all details about the instances.
 Notice that your public EC2 has a public IPv4 address as well as a public DNS name, on the opposite of the private EC2 that only has private addresses.
 
+**Edit the Security Group:**
 
 - On the public EC2 bottom panel, select the Security tab. The only rule allowed is SSH on port 22 from anywhere (o.o.o.o/0). Even if we want this instance to be publicly reachable, we do not want everyone to SSH into it and change configuration.
 - Click on the Security Group and *Edit Inbound rules*
@@ -67,16 +69,26 @@ Notice that your public EC2 has a public IPv4 address as well as a public DNS na
     + Add a new rule with Type as *All ICMP - IPv4* and Source as your IP again
     + *Save rules*
 
-Now that we have SSH and ICMP traffic allowed from our IP address, it means only you will be able to connect on those ports to the instance.
+Now that we have SSH and ICMP traffic allowed from our IP address, it means only you will be able to connect only on these specific ports to the instance.
+
+SSH (port 22) is the protocol used to login to your instance's CLI.
+ICMP (no port number) is the protocol used to communicate between instances at the network level. For example, we use the command *ping* to test connectivity from one instance to another, and this command uses ICMP protocol.
 
 We will not be using NACL today as it is not required in this context, but you can have a look at the default one by going to VPC Services -> Subnets -> Network ACL (bottom panel).
 
 
-**You can now:**
-- open a terminal window and ping the public IP address of your instance ( *ping X.X.X.X* )
-- use SSH to login to your instance
+**Test public connectivity to your public instance:**
+- open a terminal window and *ping* the public IP address of your instance ( *ping X.X.X.X* )
+- Try to login to your instance (refer to https://linuxworkshop.aws-cloudops.com/2.logging_in.html if you need the steps to use your key pair to login)
 
+If you do the same test on the private IP address of this same instance (public instance), you will notice that all traffic is blocked.
 
 We cannot do the same with the private instance since there is no public IP, you can try to SSH to its private IP to prove that it is not reachable.
 A way to SSH into it would be to setup a Bastion instance. This instance is a public instance that just acts as a jump box in order to connect to private instances securely. Despite being public, this instance would also have a private IP address belonging to that same VPC, therefore routable to the private subnet of the private instance.
 
+
+**Cleanup:**
+
+You can keep this setup to work on different labs and/or play around with the AWS resources.
+
+If not, don't forget to cleanup your setup by deleting resources in the reverse order of the lab steps.

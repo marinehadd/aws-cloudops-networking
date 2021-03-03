@@ -17,21 +17,21 @@
     <title>Subnetting :: Amazon CloudOps Networking Workshop</title>
 
     
-    <link href="../css/nucleus.css?1614163323" rel="stylesheet">
-    <link href="../css/all.css?1614163323" rel="stylesheet">
-    <link href="../css/hybrid.css?1614163323" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1614163323" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1614163323" rel="stylesheet">
-    <link href="../css/auto-complete.css?1614163323" rel="stylesheet">
-    <link href="../css/theme.css?1614163323" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1614163323" rel="stylesheet">
-    <link href="../css/jquery-ui.min.css?1614163323" rel="stylesheet">
+    <link href="../css/nucleus.css?1614775601" rel="stylesheet">
+    <link href="../css/all.css?1614775601" rel="stylesheet">
+    <link href="../css/hybrid.css?1614775601" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1614775601" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1614775601" rel="stylesheet">
+    <link href="../css/auto-complete.css?1614775601" rel="stylesheet">
+    <link href="../css/theme.css?1614775601" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1614775601" rel="stylesheet">
+    <link href="../css/jquery-ui.min.css?1614775601" rel="stylesheet">
     
-      <link href="../css/theme-mine.css?1614163323" rel="stylesheet">
+      <link href="../css/theme-mine.css?1614775601" rel="stylesheet">
     
 
-    <script src="../js/jquery-3.3.1.min.js?1614163323"></script>
-    <script src="../js/jquery-ui-1.12.1.min.js?1614163323"></script>
+    <script src="../js/jquery-3.3.1.min.js?1614775601"></script>
+    <script src="../js/jquery-ui-1.12.1.min.js?1614775601"></script>
 
 
     <style type="text/css">
@@ -63,14 +63,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1614163323"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1614163323"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1614775601"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1614775601"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1614163323"></script>
+<script type="text/javascript" src="../js/search.js?1614775601"></script>
 
     
   </div>
@@ -546,6 +546,28 @@
  
 
           
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/faq.html" title="FAQs" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../faq.html">
+          FAQs
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
          
     </ul>
 
@@ -598,7 +620,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="http://d37ijis7gunnkm.cloudfront.net/Day%201%20-%20Networking%20foundations/Subnetting.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/marinehadd/aws-cloudops-networking/edit/master/content/Day%201%20-%20Networking%20foundations/Subnetting.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -680,14 +702,15 @@ Subnetting allows the segmentation of a bigger network in smaller networks. For 
 <li>The Network section (always the left part)</li>
 <li>The Host section (always on the right).</li>
 </ul>
-<p>The Host section defines the number of IPs available in a network.
-The Network section remains the same for all the hosts in a same network, ad is called the Network ID.</p>
+<p>The Host portion defines the number of IPs available in a network.
+The Network portion remains the same for all the hosts in a same network, ad is called the Network ID.
+A subnet mask represents the number of bits (out of 32) used in the network portion.</p>
 <p><em><strong>Example:</strong></em></p>
 <p>Network: 10.1.1.0/24<br>
 Host 1: 10.1.1.1<br>
 Host 2: 10.1.1.2<br>
 Host 3: 10.1.1.4</p>
-<p>The /24 is called the subnet mask and determines which parts of the IP are the network portion and the host portion.</p>
+<p>The /24 is the subnet mask and defines the size of the network portion, and therefore the number of bits left for the host portion (= number of available IPs to use in the network).</p>
 <p>/24 represents 24 bits:</p>
 <p>1111 1111.1111 1111.1111 1111.0000 0000 = 255.255.255.0<br>
 2552.255.255 = network section<br>
@@ -1128,6 +1151,22 @@ How many IP addresses in this network?</p>
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
         
@@ -1150,19 +1189,19 @@ How many IP addresses in this network?</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1614163323"></script>
-    <script src="../js/perfect-scrollbar.min.js?1614163323"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1614163323"></script>
-    <script src="../js/jquery.sticky.js?1614163323"></script>
-    <script src="../js/featherlight.min.js?1614163323"></script>
-    <script src="../js/highlight.pack.js?1614163323"></script>
+    <script src="../js/clipboard.min.js?1614775601"></script>
+    <script src="../js/perfect-scrollbar.min.js?1614775601"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1614775601"></script>
+    <script src="../js/jquery.sticky.js?1614775601"></script>
+    <script src="../js/featherlight.min.js?1614775601"></script>
+    <script src="../js/highlight.pack.js?1614775601"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1614163323"></script>
-    <script src="../js/learn.js?1614163323"></script>
-    <script src="../js/hugo-learn.js?1614163323"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1614775601"></script>
+    <script src="../js/learn.js?1614775601"></script>
+    <script src="../js/hugo-learn.js?1614775601"></script>
 
-    <link href="../mermaid/mermaid.css?1614163323" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1614163323"></script>
+    <link href="../mermaid/mermaid.css?1614775601" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1614775601"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

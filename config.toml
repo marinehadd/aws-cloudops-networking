@@ -20,8 +20,8 @@ disableAssetsBusting = false
 disableLanguageSwitchingButton = true
 disableShortcutsTitle=false
 disableInlineCopyToClipBoard = true
-editURL = "http://d37ijis7gunnkm.cloudfront.net/" # Add github URL
-baseURL = "http://d37ijis7gunnkm.cloudfront.net/"
+editURL = "https://github.com/marinehadd/aws-cloudops-networking/edit/master/content/" # Add github URL
+baseURL = "https://networking.aws-cloudops.com/index.html"
 
 #
 

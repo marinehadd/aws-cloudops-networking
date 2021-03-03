@@ -67,12 +67,16 @@ The full name of a server or endpoint is made of a hostname and the domain in wh
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-1-networking-foundations/homework.html</guid>
-      <description>Subnetting Exercice  192.168.0.5/24   What is the binary address of 192.168.0.5?
- What is the network ID?
- What is the subnet mask?
- What is the gateway router IP address?
- How many IP addresses in this network?
-    </description>
+      <description>Subnetting Exercice  192.168.0.5/16  What is the binary address of 192.168.0.5?
+What is the network ID?
+What is the subnet mask?
+What is the gateway router IP address?
+How many IP addresses in this network?
+ 172.31.10.10/25  What is the binary address of 172.31.10.10?
+What is the network ID?
+What is the subnet mask?
+What is the gateway router IP address?
+How many IP addresses in this network?</description>
     </item>
     
   </channel>

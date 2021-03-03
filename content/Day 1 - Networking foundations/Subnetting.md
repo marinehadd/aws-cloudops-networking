@@ -47,8 +47,9 @@ An IP address is segmented in 2 parts :
 - The Network section (always the left part)
 - The Host section (always on the right).
 
-The Host section defines the number of IPs available in a network.
-The Network section remains the same for all the hosts in a same network, ad is called the Network ID.
+The Host portion defines the number of IPs available in a network.
+The Network portion remains the same for all the hosts in a same network, ad is called the Network ID.
+A subnet mask represents the number of bits (out of 32) used in the network portion.
 
 ***Example:***
 
@@ -60,7 +61,7 @@ Host 3: 10.1.1.4</p>
 
 
 
-The /24 is called the subnet mask and determines which parts of the IP are the network portion and the host portion.
+The /24 is the subnet mask and defines the size of the network portion, and therefore the number of bits left for the host portion (= number of available IPs to use in the network). 
 
 
 
