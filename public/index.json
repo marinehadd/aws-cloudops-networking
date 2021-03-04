@@ -32,7 +32,7 @@
 	"title": "OSI Model",
 	"tags": [],
 	"description": "",
-	"content": "Networking is based on the OSI model:\nEach layer has a meaning in networking. We will not cover the layers in dept, but you can read more about in the Further Reading section.\nNetworking is based on the OSI model, it is a bit like the layers of a cake, often referred as L1, L2, L3, etc..\nLet\u0026rsquo;s pick some real life examples:\n  L1 = a router, a switch, a cable, anything physical\n  L2 = a switch, a MAC address\n  L3 = a router, an IP address\n  L4 = online streaming\n  L5 = when you connect to an application\n  L6 = when you used Putty to login to your EC2 instance during Linux CloudOps workshop\n  L7 = an application\n  "
+	"content": "Networking is based on the OSI model:\nEach layer has a meaning in networking. We will not cover the layers in depth, but you can read more about in the Further Reading section.\nNetworking is based on the OSI model, it is a bit like the layers of a cake, often referred as L1, L2, L3, etc..\nLet\u0026rsquo;s pick some real life examples:\n  L1 = a router, a switch, a cable, anything physical\n  L2 = a switch, a MAC address\n  L3 = a router, an IP address\n  L4 = online streaming\n  L5 = when you connect to an application\n  L6 = when you used Putty to login to your EC2 instance during Linux CloudOps workshop\n  L7 = an application\n  "
 },
 {
 	"uri": "/day-2-aws-networking-basics/whats-a-vpc.html",
