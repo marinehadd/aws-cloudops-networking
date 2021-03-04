@@ -33,8 +33,8 @@ Refer to [Lab Architecture](/lab_diagram.html) for architecture.
 
 - Go to VPC Services and on the left panel, click on *Subnets*
 - Click on *Create Subnet*
-    + give it a name (PublicSub-"Your Initials")
     + choose your VPC from the list
+    + give it a name (PublicSub-"Your Initials")
     + choose one of the Availability Zones
     + Use the first /24 of your VPC CIDR (i.e. 10.10.0.0/24)
     + Click *Create Subnet*
@@ -43,8 +43,8 @@ Now, your subnet is setup but can only communicate within the VPC by default.
 
 - In the VPC Services tab, click on *Route Tables*
 - Click on *Create Route Table*
-    + give it a name (PublicRT-"Your Initials")
     + choose your VPC from the list
+    + give it a name (PublicRT-"Your Initials")
     + Click *Create*
 - On the Route Tables interface, look for your route table:
     + select the route table
@@ -78,8 +78,8 @@ Now, you have a public subnet! In a few sections, we will setup an EC2 instance,
 
 - Go to VPC Services and on the left panel, click on *Subnets*
 - Click on *Create Subnet*
-    + give it a name (PrivateSub-"Your Initials")
     + choose your VPC from the list
+    + give it a name (PrivateSub-"Your Initials")
     + choose one of the Availability Zones
     + Use the second /24 of your VPC CIDR (i.e. 10.10.1.0/24)
     + Click *Create Subnet*
@@ -88,8 +88,8 @@ Now, your subnet is setup but can only communicate within the VPC by default.
 
 - In the VPC Services tab, click on *Route Tables*
 - Click on *Create Route Table*
-    + give it a name (PrivateRT-"Your Initials")
     + choose your VPC from the list
+    + give it a name (PrivateRT-"Your Initials")
     + Click *Create*
 - On the Route Tables interface, look for your route table:
     + select the route table
