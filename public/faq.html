@@ -17,21 +17,21 @@
     <title>FAQs :: Amazon CloudOps Networking Workshop</title>
 
     
-    <link href="./css/nucleus.css?1614775601" rel="stylesheet">
-    <link href="./css/all.css?1614775601" rel="stylesheet">
-    <link href="./css/hybrid.css?1614775601" rel="stylesheet">
-    <link href="./css/featherlight.min.css?1614775601" rel="stylesheet">
-    <link href="./css/perfect-scrollbar.min.css?1614775601" rel="stylesheet">
-    <link href="./css/auto-complete.css?1614775601" rel="stylesheet">
-    <link href="./css/theme.css?1614775601" rel="stylesheet">
-    <link href="./css/hugo-theme.css?1614775601" rel="stylesheet">
-    <link href="./css/jquery-ui.min.css?1614775601" rel="stylesheet">
+    <link href="./css/nucleus.css?1614872808" rel="stylesheet">
+    <link href="./css/all.css?1614872808" rel="stylesheet">
+    <link href="./css/hybrid.css?1614872808" rel="stylesheet">
+    <link href="./css/featherlight.min.css?1614872808" rel="stylesheet">
+    <link href="./css/perfect-scrollbar.min.css?1614872808" rel="stylesheet">
+    <link href="./css/auto-complete.css?1614872808" rel="stylesheet">
+    <link href="./css/theme.css?1614872808" rel="stylesheet">
+    <link href="./css/hugo-theme.css?1614872808" rel="stylesheet">
+    <link href="./css/jquery-ui.min.css?1614872808" rel="stylesheet">
     
-      <link href="./css/theme-mine.css?1614775601" rel="stylesheet">
+      <link href="./css/theme-mine.css?1614872808" rel="stylesheet">
     
 
-    <script src="./js/jquery-3.3.1.min.js?1614775601"></script>
-    <script src="./js/jquery-ui-1.12.1.min.js?1614775601"></script>
+    <script src="./js/jquery-3.3.1.min.js?1614872808"></script>
+    <script src="./js/jquery-ui-1.12.1.min.js?1614872808"></script>
 
 
     <style type="text/css">
@@ -63,14 +63,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="./js/lunr.min.js?1614775601"></script>
-<script type="text/javascript" src="./js/auto-complete.js?1614775601"></script>
+<script type="text/javascript" src="./js/lunr.min.js?1614872808"></script>
+<script type="text/javascript" src="./js/auto-complete.js?1614872808"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="./js/search.js?1614775601"></script>
+<script type="text/javascript" src="./js/search.js?1614872808"></script>
 
     
   </div>
@@ -741,7 +741,7 @@ Example:</p>
 <p><strong>How can I know how many subnets in a network?</strong></p>
 <p>Let&rsquo;s pick an example :</p>
 <p>/24 = 24 bits = 1111 1111.1111 1111.1111 1111.0000 0000 =&gt; In the host portion we have 8 bits of space and 8 bits = 256
-/25 = 25 bits = 1111 1111.1111 1111.1111 1111.1000 0000 =&gt; If we were using this /24 inside the host portion of a /24, it means we would only be using 1, and this bit is equal to 128.
+/25 = 25 bits = 1111 1111.1111 1111.1111 1111.1000 0000 =&gt; If we were using this /25 inside the host portion of a /24, it means we would only be using 1, and this bit is equal to 128.
 However, given the /24 can accept up to 256 hosts and the /25 is only using half, it then means that we actually put 2x /25 (2x 128) in this /24.</p>
 <p>Therefore : 1 x /24 = 2 x /25</p>
 <p>In real life, that means that we could for example configure our big network (or VPC in AWS) and then create 2 small subnets of /25 inside to dedicate to 2 different departments or applications.</p>
@@ -1189,19 +1189,19 @@ Example: <em>dig networking.aws-cloudops.com</em>      OR      <em>nslookup netw
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="./js/clipboard.min.js?1614775601"></script>
-    <script src="./js/perfect-scrollbar.min.js?1614775601"></script>
-    <script src="./js/perfect-scrollbar.jquery.min.js?1614775601"></script>
-    <script src="./js/jquery.sticky.js?1614775601"></script>
-    <script src="./js/featherlight.min.js?1614775601"></script>
-    <script src="./js/highlight.pack.js?1614775601"></script>
+    <script src="./js/clipboard.min.js?1614872808"></script>
+    <script src="./js/perfect-scrollbar.min.js?1614872808"></script>
+    <script src="./js/perfect-scrollbar.jquery.min.js?1614872808"></script>
+    <script src="./js/jquery.sticky.js?1614872808"></script>
+    <script src="./js/featherlight.min.js?1614872808"></script>
+    <script src="./js/highlight.pack.js?1614872808"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="./js/modernizr.custom-3.6.0.js?1614775601"></script>
-    <script src="./js/learn.js?1614775601"></script>
-    <script src="./js/hugo-learn.js?1614775601"></script>
+    <script src="./js/modernizr.custom-3.6.0.js?1614872808"></script>
+    <script src="./js/learn.js?1614872808"></script>
+    <script src="./js/hugo-learn.js?1614872808"></script>
 
-    <link href="./mermaid/mermaid.css?1614775601" rel="stylesheet" />
-    <script src="./mermaid/mermaid.js?1614775601"></script>
+    <link href="./mermaid/mermaid.css?1614872808" rel="stylesheet" />
+    <script src="./mermaid/mermaid.js?1614872808"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
