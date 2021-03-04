@@ -45,7 +45,7 @@ In a recursive resolution, the DNS resolver/caching server handles the full DNS 
 
 
 Once bob.com is resolved, the data will be cached into the local DNS cache so that next time it is queried, the resolution does not need to happen again, until the data expires.
-The time lenght of a cached resource is called a Time-To-Live (TTL). A TTL is a setting configured on a DNS resource to allow DNS caching.
+The time length of a cached resource is called a Time-To-Live (TTL). A TTL is a setting configured on a DNS resource to allow DNS caching.
 
 <h4> DNS Records </h4>
 
@@ -54,7 +54,7 @@ Those name/IP mappings stored in DNS servers are called resources or records.
 DNS stores different types of DNS records in its mapping directory, but there are only a few common ones that you will ever used:
 - A record (Address) - maps a name to an IP address (i.e. bob.com -> 10.1.1.4)
 - PTR record (Pointer) - maps an IP address to a name (i.e. 10.1.1.4 -> bob.com)
-- CNAME record (Canonical Name) - maps a name t a name (i.e. network.bob.com -> something.else.com)
+- CNAME record (Canonical Name) - maps a name to a name (i.e. network.bob.com -> something.else.com)
 - NS record (Name Servers) - indicates the authoritative servers for the domain
 - SOA record (Start of Authority) - provides administrative information about the domain
 - MX record (Mail Exchange) - indicates which mail servers are used to send emails to the domain
@@ -64,7 +64,7 @@ DNS stores different types of DNS records in its mapping directory, but there ar
 **Dynamic Host Configuration Protocol (DHCP):**
 ---
 
-DHCP stands for Dynamic Host Configuration Protocol and is used to dynamically alloacte IP addresses to clients in a network.
+DHCP stands for Dynamic Host Configuration Protocol and is used to dynamically allocate IP addresses to clients in a network.
 
 The way it works:
 - A new client connects to a network
