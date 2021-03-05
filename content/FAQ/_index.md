@@ -128,7 +128,15 @@ To resolve a name to an IP, or an IP to a name (that's when we talk about DNS), 
 Example: *dig networking.aws-cloudops.com*      OR      *nslookup networking.aws-cloudops.com*
 
 
+**What makes an instance public?**
 
+For an instance to be public, it must have:
+* a public IP address
+* a route table with a default route to an Internet Gateway
+
+**Can a subnet span across 2 availability zones?**
+
+No, a subnet can only exist within a single availability zone.
 
 
 
