@@ -29,4 +29,5 @@ The agenda will split in 3 topic areas as below:
 * Make sure you are registered to the #networking [Slack Channel](https://join.slack.com/share/zt-n4u3v140-9j4JeUe9qJkG8Iqu5~XyyA).
 * For additional learning material, go to [Further Reading](/further_reading.html).
 * For FAQs and exercises answers, go to [FAQs](/FAQ.html).
+* To register your attendance, click on this [link] (https://docs.google.com/spreadsheets/d/1xxHMJ_m2R-VvTCkJWQvTv6I2geRETGq9m9ezoIEyBxw/edit#gid=2052515162)
 

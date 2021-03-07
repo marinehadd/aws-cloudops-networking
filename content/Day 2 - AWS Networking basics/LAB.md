@@ -20,7 +20,9 @@ In this lab, you will setup a VPC infrastructure with 4 subnets (2 private for t
 
 **Create subnets:**
 
-- Go to VPC Services and on the left panel, click on *Subnets* and create 4 subnets:
+We will create 4 subnets, where Subnets 1 and 2 will be used for public, and Subnets 3 and 4 will be used for private.
+
+- Go to VPC Services and on the left panel, click on *Subnets* and create the subnets:
 - Click on *Create Subnet*
     + choose your VPC from the list
     + give it a name (Sub1-ELB-LAB)
@@ -102,7 +104,7 @@ We want 2 servers to host the same content to allow the load balancer to balance
         * Leave the rest as default and go to the next page
     + Leave Storage as default and go to the next page
     + In Tags, create a tag with *Key* : Name and *Value* : WebServer1
-    + In Security Groups, leave the SSH rule and add a new rule for HTTP (port 80) with Custom source from 0.0.0.0/0
+    + In Security Groups, give it a name (i.e. SG-PrivateWS) leave the SSH rule and add a new rule for HTTP (port 80) with Custom source from 0.0.0.0/0
     + In the Review and Launch page, click *Launch* and select your KP that you created and stored locally during the Linux course
     ***If you deleted your key pair, just create a new one and download it.***
 
@@ -117,7 +119,7 @@ We want 2 servers to host the same content to allow the load balancer to balance
         * Leave the rest as default and go to the next page
     + Leave Storage as default and go to the next page
     + In Tags, create a tag with *Key* : Name and *Value* : WebServer2
-    + In Security Groups, leave the SSH rule and add a new rule for HTTP (port 80) with Custom source from 0.0.0.0/0
+    + In Security Groups, choose an existing security group and pick the same one you created for the first instance
     + In the Review and Launch page, click *Launch* and select the same KP as for the previous instance.
 
 
@@ -149,21 +151,22 @@ Now you should be able to SSH into both instances.
 
 - For each instance, login with SSH and run the below commands in order to install an http server : 
 
+**In the last command where you create your html file, replace the X with 1 for the first instance, and 2 for the second instance.**
 
 ```commandline
-yum install httpd -y
+sudo su
 yum install httpd -y
 service httpd start
 chkconfig httpd on
 cd /var/www/html
-echo "< html >< h1 >Hello World X< /h1 >" > index.html* ** (X being 1 for webserver 1 and 2 for webserver2)**
+echo "<html><h1>Hello World X</h1>" > index.html
 ```
 
 - Verify the configuration: 
-    + For each instance, take it elastic IP address, replace it in the following URL HTTP://<ElasticIP>/index.html
+    + For each instance, take it elastic IP address, replace the ELASTICIP in the following URL HTTP://ELASTICIP/index.html
     + Open a browser and enter the URL
 
-Now we can move the instances back to private:
+Now we know our web servers are working, we can move the instances back to private:
 * Go to the public route table and remove both subnets associations
 * Go to the private route table and associate both subnets
 * Go to the Elastic IPs and disassociate each Elastic IP from the web servers
@@ -184,6 +187,7 @@ If you browse the URLs again now, you should not get anything anymore.
         + Select Subnets: Click on the + button of Sub1-ELB-LAB and Sub2-ELB-LAB
 
     + Click Next and configure a new Security Group:
+        + Name it ELB-SG
         + Add a rule for HTTP on port 80 with a source "Anywhere"
 
     + Click Next to Security Settings then Next again to Configure health Check:
@@ -197,10 +201,23 @@ If you browse the URLs again now, you should not get anything anymore.
 
     + Click Next then Next then Review and Create
 
-Once the load balancer is "active", select it and check the bottom panel - you should see both web servers, they should show "in-service" after a few seconds.
-On the description part, copy the DNS name of the load balancer, open your browser and type HTTP://<DNSname>. You should see the index content of one of the servers, and if you keep refreshing it you should see it changing between WebServer1 and WebServer2.
+Let's now restrict the access to the web servers only from the load balancer, given the load balancer will be the one giving us the content.
 
-That's when we want to use Route53 DNS. Let's assume now many users will access this application, but the URL is not very friendly and quite difficult to remember. So, we cannot do it in this lab because we do not own any DNS domain and would need to pay to own one, but here is what we would do:
++ Go back to your EC2 instances, and one by one:
+    - Select the instance and click on the Security tab at the bottom panel
+    - Click on the security group and edit the inbound rules:
+        - Modify the source of the HTTP rule by selecting custom, and then scroll through the list to find the the security group of the load balancer, ELB-SG.
+        - While you're there, you can modify the source of the SSH rule to "MyIP"
+        - Save
+    - Do the same for both instances
+
+Now your load balancer should be ready, go back to it, select it and check the bottom panel - you should see both web servers in the Instances tab at the bottom, they should show "in-service" after a little while.
+
+**Access the html content through the load balancer:**
+
+On the description tab, copy the DNS name of the load balancer and replace the ELBDNS in the URL and browse to HTTP://ELBDNS. You should see the index content of one of the servers, and if you keep refreshing it you should see it changing between "Hello World 1" and "Hello World 2".
+
+That's when we want to use Route53 DNS. Let's assume now many users will access this application, but the URL is not very friendly and quite difficult to remember. So, we will not implement it in this lab because we do not own any DNS domain and would need to pay to own one, but here is what we would do:
 + Go to Route53
 + Create a public hosted zone (basically a DNS domain accessible publicly)
 + Inside this zone, create a CNAME record or Alias record (they differ a little but achieve the same goal of mapping a name to a name) to do:

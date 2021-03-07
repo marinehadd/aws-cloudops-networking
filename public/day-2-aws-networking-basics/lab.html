@@ -17,21 +17,21 @@
     <title>LAB :: Amazon CloudOps Networking Workshop</title>
 
     
-    <link href="../css/nucleus.css?1614973824" rel="stylesheet">
-    <link href="../css/all.css?1614973824" rel="stylesheet">
-    <link href="../css/hybrid.css?1614973824" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1614973824" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1614973824" rel="stylesheet">
-    <link href="../css/auto-complete.css?1614973824" rel="stylesheet">
-    <link href="../css/theme.css?1614973824" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1614973824" rel="stylesheet">
-    <link href="../css/jquery-ui.min.css?1614973824" rel="stylesheet">
+    <link href="../css/nucleus.css?1615142720" rel="stylesheet">
+    <link href="../css/all.css?1615142720" rel="stylesheet">
+    <link href="../css/hybrid.css?1615142720" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1615142720" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1615142720" rel="stylesheet">
+    <link href="../css/auto-complete.css?1615142720" rel="stylesheet">
+    <link href="../css/theme.css?1615142720" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1615142720" rel="stylesheet">
+    <link href="../css/jquery-ui.min.css?1615142720" rel="stylesheet">
     
-      <link href="../css/theme-mine.css?1614973824" rel="stylesheet">
+      <link href="../css/theme-mine.css?1615142720" rel="stylesheet">
     
 
-    <script src="../js/jquery-3.3.1.min.js?1614973824"></script>
-    <script src="../js/jquery-ui-1.12.1.min.js?1614973824"></script>
+    <script src="../js/jquery-3.3.1.min.js?1615142720"></script>
+    <script src="../js/jquery-ui-1.12.1.min.js?1615142720"></script>
 
 
     <style type="text/css">
@@ -63,14 +63,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1614973824"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1614973824"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1615142720"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1615142720"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1614973824"></script>
+<script type="text/javascript" src="../js/search.js?1615142720"></script>
 
     
   </div>
@@ -709,8 +709,9 @@
 <li>Go back to the <em>Your VPCs</em> tab and check that your VPC has been created</li>
 </ul>
 <p><strong>Create subnets:</strong></p>
+<p>We will create 4 subnets, where Subnets 1 and 2 will be used for public, and Subnets 3 and 4 will be used for private.</p>
 <ul>
-<li>Go to VPC Services and on the left panel, click on <em>Subnets</em> and create 4 subnets:</li>
+<li>Go to VPC Services and on the left panel, click on <em>Subnets</em> and create the subnets:</li>
 <li>Click on <em>Create Subnet</em>
 <ul>
 <li>choose your VPC from the list</li>
@@ -827,7 +828,7 @@
 </li>
 <li>Leave Storage as default and go to the next page</li>
 <li>In Tags, create a tag with <em>Key</em> : Name and <em>Value</em> : WebServer1</li>
-<li>In Security Groups, leave the SSH rule and add a new rule for HTTP (port 80) with Custom source from 0.0.0.0/0</li>
+<li>In Security Groups, give it a name (i.e. SG-PrivateWS) leave the SSH rule and add a new rule for HTTP (port 80) with Custom source from 0.0.0.0/0</li>
 <li>In the Review and Launch page, click <em>Launch</em> and select your KP that you created and stored locally during the Linux course
 <em><strong>If you deleted your key pair, just create a new one and download it.</strong></em></li>
 </ul>
@@ -848,7 +849,7 @@
 </li>
 <li>Leave Storage as default and go to the next page</li>
 <li>In Tags, create a tag with <em>Key</em> : Name and <em>Value</em> : WebServer2</li>
-<li>In Security Groups, leave the SSH rule and add a new rule for HTTP (port 80) with Custom source from 0.0.0.0/0</li>
+<li>In Security Groups, choose an existing security group and pick the same one you created for the first instance</li>
 <li>In the Review and Launch page, click <em>Launch</em> and select the same KP as for the previous instance.</li>
 </ul>
 </li>
@@ -884,21 +885,22 @@
 <ul>
 <li>For each instance, login with SSH and run the below commands in order to install an http server :</li>
 </ul>
-<pre><code class="language-commandline" data-lang="commandline">yum install httpd -y
+<p><strong>In the last command where you create your html file, replace the X with 1 for the first instance, and 2 for the second instance.</strong></p>
+<pre><code class="language-commandline" data-lang="commandline">sudo su
 yum install httpd -y
 service httpd start
 chkconfig httpd on
 cd /var/www/html
-echo &quot;&lt; html &gt;&lt; h1 &gt;Hello World X&lt; /h1 &gt;&quot; &gt; index.html* ** (X being 1 for webserver 1 and 2 for webserver2)**
+echo &quot;&lt;html&gt;&lt;h1&gt;Hello World X&lt;/h1&gt;&quot; &gt; index.html
 </code></pre><ul>
 <li>Verify the configuration:
 <ul>
-<li>For each instance, take it elastic IP address, replace it in the following URL HTTP://<ElasticIP>/index.html</li>
+<li>For each instance, take it elastic IP address, replace the ELASTICIP in the following URL HTTP://ELASTICIP/index.html</li>
 <li>Open a browser and enter the URL</li>
 </ul>
 </li>
 </ul>
-<p>Now we can move the instances back to private:</p>
+<p>Now we know our web servers are working, we can move the instances back to private:</p>
 <ul>
 <li>Go to the public route table and remove both subnets associations</li>
 <li>Go to the private route table and associate both subnets</li>
@@ -924,6 +926,7 @@ echo &quot;&lt; html &gt;&lt; h1 &gt;Hello World X&lt; /h1 &gt;&quot; &gt; index
 <li>
 <p>Click Next and configure a new Security Group:</p>
 <ul>
+<li>Name it ELB-SG</li>
 <li>Add a rule for HTTP on port 80 with a source &ldquo;Anywhere&rdquo;</li>
 </ul>
 </li>
@@ -951,9 +954,26 @@ echo &quot;&lt; html &gt;&lt; h1 &gt;Hello World X&lt; /h1 &gt;&quot; &gt; index
 </ul>
 </li>
 </ul>
-<p>Once the load balancer is &ldquo;active&rdquo;, select it and check the bottom panel - you should see both web servers, they should show &ldquo;in-service&rdquo; after a few seconds.
-On the description part, copy the DNS name of the load balancer, open your browser and type HTTP://<DNSname>. You should see the index content of one of the servers, and if you keep refreshing it you should see it changing between WebServer1 and WebServer2.</p>
-<p>That&rsquo;s when we want to use Route53 DNS. Let&rsquo;s assume now many users will access this application, but the URL is not very friendly and quite difficult to remember. So, we cannot do it in this lab because we do not own any DNS domain and would need to pay to own one, but here is what we would do:</p>
+<p>Let&rsquo;s now restrict the access to the web servers only from the load balancer, given the load balancer will be the one giving us the content.</p>
+<ul>
+<li>Go back to your EC2 instances, and one by one:
+<ul>
+<li>Select the instance and click on the Security tab at the bottom panel</li>
+<li>Click on the security group and edit the inbound rules:
+<ul>
+<li>Modify the source of the HTTP rule by selecting custom, and then scroll through the list to find the the security group of the load balancer, ELB-SG.</li>
+<li>While you&rsquo;re there, you can modify the source of the SSH rule to &ldquo;MyIP&rdquo;</li>
+<li>Save</li>
+</ul>
+</li>
+<li>Do the same for both instances</li>
+</ul>
+</li>
+</ul>
+<p>Now your load balancer should be ready, go back to it, select it and check the bottom panel - you should see both web servers in the Instances tab at the bottom, they should show &ldquo;in-service&rdquo; after a little while.</p>
+<p><strong>Access the html content through the load balancer:</strong></p>
+<p>On the description tab, copy the DNS name of the load balancer and replace the ELBDNS in the URL and browse to HTTP://ELBDNS. You should see the index content of one of the servers, and if you keep refreshing it you should see it changing between &ldquo;Hello World 1&rdquo; and &ldquo;Hello World 2&rdquo;.</p>
+<p>That&rsquo;s when we want to use Route53 DNS. Let&rsquo;s assume now many users will access this application, but the URL is not very friendly and quite difficult to remember. So, we will not implement it in this lab because we do not own any DNS domain and would need to pay to own one, but here is what we would do:</p>
 <ul>
 <li>Go to Route53</li>
 <li>Create a public hosted zone (basically a DNS domain accessible publicly)</li>
@@ -1411,19 +1431,19 @@ On the description part, copy the DNS name of the load balancer, open your brows
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1614973824"></script>
-    <script src="../js/perfect-scrollbar.min.js?1614973824"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1614973824"></script>
-    <script src="../js/jquery.sticky.js?1614973824"></script>
-    <script src="../js/featherlight.min.js?1614973824"></script>
-    <script src="../js/highlight.pack.js?1614973824"></script>
+    <script src="../js/clipboard.min.js?1615142720"></script>
+    <script src="../js/perfect-scrollbar.min.js?1615142720"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1615142720"></script>
+    <script src="../js/jquery.sticky.js?1615142720"></script>
+    <script src="../js/featherlight.min.js?1615142720"></script>
+    <script src="../js/highlight.pack.js?1615142720"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1614973824"></script>
-    <script src="../js/learn.js?1614973824"></script>
-    <script src="../js/hugo-learn.js?1614973824"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1615142720"></script>
+    <script src="../js/learn.js?1615142720"></script>
+    <script src="../js/hugo-learn.js?1615142720"></script>
 
-    <link href="../mermaid/mermaid.css?1614973824" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1614973824"></script>
+    <link href="../mermaid/mermaid.css?1615142720" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1615142720"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
