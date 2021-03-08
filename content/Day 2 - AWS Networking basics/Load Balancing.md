@@ -25,7 +25,7 @@ There are currently 3 types of a load balancer:
 <img src='../images/elb.png' width='600px'>
 
 
-**Application Load Balancer** - As its name indiactes, this type works at the application level (L7 in the OSI model) and also provides advanced routing and features. 
+**Application Load Balancer** - As it's name indicates, this type works at the application level (L7 in the OSI model) and also provides advanced routing and features. 
 For instance, if you need to load balance web servers working on HTTP/HTTPS and want to make the most of advanced features then you should use the application load balancer.
 When you setup an application load balancer, you are only provided with its DNS name, but no IP address.
 
