@@ -23,7 +23,7 @@ The key terms:
 
 The Transit Gateway route tables work out the way to route traffic, however local network route tables are still required to direct the local traffic to the Transit Gateway for specific destination (like for a router to direct traffic to another router).
 
-<img src='/images/tgwroutetable.png' width='1000px>
+<img src='/images/tgwroutetable.png'>
 
 
 Having such routing allows customers to manage their routing centrally but also to centralize other services such as Internet (i.e. picture above), security services, etc.
@@ -31,4 +31,4 @@ Having such routing allows customers to manage their routing centrally but also 
 It also becomes convenient when 2 environments living in different regions need to be able to communicate, Transit Gateways can be peered.
 
 
-<img src='/images/tgwpeering.png' width='800px>
+<img src='/images/tgwpeering.png'>
