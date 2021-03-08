@@ -14,7 +14,7 @@
 
     <link rel="icon" href="./images/favicon.png" type="image/png">
 
-    <title>Introduction :: Amazon CloudOps Networking Workshop</title>
+    <title>FAQs :: Amazon CloudOps Networking Workshop</title>
 
     
     <link href="./css/nucleus.css?1615209158" rel="stylesheet">
@@ -46,7 +46,7 @@
     </style>
     
   </head>
-  <body class="" data-url="./introduction.html">
+  <body class="" data-url="./faq.html">
     <nav id="sidebar" class="">
 
 
@@ -87,8 +87,8 @@
   
     
     <li data-nav-id="/introduction.html" title="Introduction" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="./introduction.html">
@@ -572,8 +572,8 @@
   
     
     <li data-nav-id="/faq.html" title="FAQs" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="./faq.html">
@@ -639,7 +639,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/marinehadd/aws-cloudops-networking/edit/master/content/introduction/_index.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/marinehadd/aws-cloudops-networking/edit/master/content/FAQ/_index.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -664,7 +664,7 @@
             
           
           
-            <a href='./'>Welcome to the Amazon CloudOps Networking Workshop!</a> > Introduction
+            <a href='./'>Welcome to the Amazon CloudOps Networking Workshop!</a> > FAQs
           
          
           
@@ -686,37 +686,107 @@
         
         <div id="body-inner">
           
-            <h1>Introduction</h1>
+            <h1>FAQs</h1>
           
 
         
 
 
 
-	<p>This workshop is designed to provide fundamental networking knowledge in AWS Cloud.</p>
-<p>As a pre-requisite, you should have:</p>
-<ol>
-<li>Completed the CloudOps Linux Workshop</li>
-<li>An AWS account with AWS console access</li>
-<li><a href="https://www.slack.com">Slack</a></li>
-<li><a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTTY</a> installed and working (if you use Windows)</li>
-</ol>
-<p>The agenda will split in 3 topic areas as below:</p>
-<ol>
-<li>Traditional Networking</li>
-<li>AWS Networking</li>
-<li>Advanced AWS Networking</li>
-</ol>
-<p><strong>Resources</strong></p>
+	<p><strong>Subnetting Exercises Correction:</strong></p>
 <ul>
-<li>You can submit any questions and/or answers in the following <a href="https://docs.google.com/document/d/13Lrz7Q-TtAAcyEPbk27ZAc0oxLe1WP3JUPWSOEngXbw/edit?usp=sharing">FAQ</a> document. This document will be updated everyday after each lecture.</li>
-<li>We will play a <a href="https://kahoot.it">Kahoot</a> quizz at the end of each lecture.</li>
-<li>Please fill in the <a href="https://docs.google.com/forms/d/1PczsGUH_4pv5R2P_5iaTuIoF92ro_ll3JPmUZBdmWDA/edit?usp=sharing">Survey</a> at the end of each lecture. This will help us understand how everyone feels and tailor our sessions accordingly.</li>
-<li>Make sure you are registered to the #networking <a href="https://join.slack.com/share/zt-n4u3v140-9j4JeUe9qJkG8Iqu5~XyyA">Slack Channel</a>.</li>
-<li>For additional learning material, go to <a href="./further_reading.html">Further Reading</a>.</li>
-<li>For FAQs and exercises answers, go to <a href="./FAQ.html">FAQs</a>.</li>
-<li>To register your attendance, click on this [link] (<a href="https://docs.google.com/spreadsheets/d/1xxHMJ_m2R-VvTCkJWQvTv6I2geRETGq9m9ezoIEyBxw/edit#gid=2052515162">https://docs.google.com/spreadsheets/d/1xxHMJ_m2R-VvTCkJWQvTv6I2geRETGq9m9ezoIEyBxw/edit#gid=2052515162</a>)</li>
+<li>192.168.0.5/16</li>
 </ul>
+<p><em><strong>What is the binary address of 192.168.0.5?</strong></em>
+1100 0000.1010 1000.0000 0000.0000 0101</p>
+<p><em><strong>What is the subnet mask?</strong></em>
+The subnet mask is /16 which equals to this binary address: 1111 1111.1111 1111.0000 0000.0000 0000 =&gt; 255.255.0.0</p>
+<p><em><strong>What is the network ID?</strong></em>
+Since the subnet mask equals to /16, it means the network portion stops at the 16th bit of the IP address. Therefore the network portion is 192.168., and we complete it with zeros to get the ID =&gt; 192.168.0.0.</p>
+<p><em><strong>What is the gateway router IP address?</strong></em>
+The gateway is the second IP address (or first usable) =&gt; 192.168.0.1.</p>
+<p><em><strong>How many IP addresses in this network?</strong></em></p>
+<p>Maximum nb of bits = 32<br>
+Subnet mask bits = 16<br>
+Number of IP addresses = 2^(32-16)= 2^16 = 65 536<br>
+Number of usable IP address = 65 536 - 2 = 65 534</p>
+<ul>
+<li>172.31.10.10/25</li>
+</ul>
+<p><em><strong>What is the binary address of 172.31.10.10?</strong></em>
+1010 1100.0001 1111.0000 1010.0000 1010</p>
+<p><em><strong>What is the subnet mask?</strong></em>
+The subnet mask is /25 which equals to this binary address: 1111 1111.1111 1111.1111 1111.1000 0000 =&gt; 255.255.255.128</p>
+<p><em><strong>What is the network ID?</strong></em>
+Since the subnet mask equals to /25, it means the network portion stops at the 25th bit of the IP address. Therefore the network portion is 172.31.10., and we complete it with zeros to get the ID =&gt; 172.131.10.0.</p>
+<p><em><strong>What is the gateway router IP address?</strong></em>
+The gateway is the second IP address (or first usable) =&gt; 172.31.10.1.</p>
+<p><em><strong>How many IP addresses in this network?</strong></em>
+Maximum nb of bits = 32<p>
+Subnet mask bits = 25<br>
+Number of IP addresses = 2^(32-25)= 2^7 = 128<br>
+Number of usable IP address = 128 - 2 = 126</p></p>
+<ul>
+<li>10.20.3.2/24</li>
+</ul>
+<p><em><strong>What is the binary address of 10.20.3.2?</strong></em>
+0000 1010.0001 0100.0000 0011.0000 0010</p>
+<p><em><strong>What is the subnet mask?</strong></em>
+The subnet mask is /24 which equals to this binary address: 1111 1111.1111 1111.1111 1111.0000 0000 =&gt; 255.255.255.0</p>
+<p><em><strong>What is the network ID?</strong></em>
+Since the subnet mask equals to /24, it means the network portion stops at the 24th bit of the IP address. Therefore the network portion is 10.20.3., and we complete it with zeros to get the ID =&gt; 10.20.3.0.</p>
+<p><em><strong>What is the gateway router IP address?</strong></em>
+The gateway is the second IP address (or first usable) =&gt; 10.20.3.1.</p>
+<p><em><strong>How many IP addresses in this network?</strong></em>
+Maximum nb of bits = 32<p>
+Subnet mask bits = 24<br>
+Number of IP addresses = 2^(32-24)= 2^24 = 256<br>
+Number of usable IP address = 256 - 2 = 254</p></p>
+<p><strong>What does a /16 mean?</strong></p>
+<p>The /16 (or /17, 18, etc) is called a subnet mask and defines the size of a network. The number after the / represents the number of bits in the network portion of an IP address. Given 8 bits represent an octet, which represents a decimal number, a /16 would stop after the second octet of an IP address. In the same way, a /24 would stop after the third octet of an IP address given 24 bits equals to 3 times an octet (8 bits).
+Example:</p>
+<ul>
+<li>10.1.1.1/16 -&gt; Network portion = 10.1. (so the network ID will be 10.1.0.0)</li>
+<li>10.1.1.1/24 -&gt; Network portion = 10.1.1. (so the network ID will be 10.1.1.0)</li>
+<li>10.1.1.1/8 -&gt; Network portion = 10. (so the network ID will be 10.0.0.0)</li>
+</ul>
+<p><strong>What are the reserved IPs and what is the difference with the gateway router IP?</strong></p>
+<p>The reserved IPs in a traditional subnet (non AWS) are the following:</p>
+<ul>
+<li>first IP of the network (i.e. 10.1.1.0/24) = reserved for the network ID/Address</li>
+<li>last IP of the network (i.e. 10.1.1.255/24) = reserved for the broadcast IP</li>
+</ul>
+<p>The router gateway IP address is not strictly reserved but is usually assigned to the second IP address (or first usable address) of the network (i.e. 10.1.1.1/24).</p>
+<p><strong>How can I know how many subnets in a network?</strong></p>
+<p>Let&rsquo;s pick an example :</p>
+<p>/24 = 24 bits = 1111 1111.1111 1111.1111 1111.0000 0000 =&gt; In the host portion we have 8 bits of space and 8 bits = 256
+/25 = 25 bits = 1111 1111.1111 1111.1111 1111.1000 0000 =&gt; If we were using this /25 inside the host portion of a /24, it means we would only be using 1, and this bit is equal to 128.
+However, given the /24 can accept up to 256 hosts and the /25 is only using half, it then means that we actually put 2x /25 (2x 128) in this /24.</p>
+<p>Therefore : 1 x /24 = 2 x /25</p>
+<p>In real life, that means that we could for example configure our big network (or VPC in AWS) and then create 2 small subnets of /25 inside to dedicate to 2 different departments or applications.</p>
+<p>The same logic applies to all subnet maks, i.e. 1 x /16 = 2 x /17 = 4 x /18 etc&hellip;.</p>
+<p><strong>What is the difference between a switch and a router?</strong></p>
+<p>A switch works at L2 of the OSI and helps devices to communicate inside a network (i.e. 10.1.1.2 to 10.1.1.3). It does not understand IP addresses and will work using MAC addresses.</p>
+<p>A router works at the L3 of the OSI and helps devices to communicate between different networks or to the Internet (anything that is not part of the local network).</p>
+<p><strong>In a nutshell, what is a the difference between DNS and DHCP?</strong></p>
+<p>DNS can be compared to an address book and is used to map names and IP addresses together. You are using DNS every time you&rsquo;re browsing a URL - your browser first asks a DNS server what is the IP address of the URL in order to redirect you to that URL.</p>
+<p>DHCP is used to dynamically provide IP addresses. Every time you join a new network, you automatically get an IP address - this is thanks to DHCP which has detected you and leased you an IP. In addition to this IP, DHCP also gave you all the necessary information you will probabaly need such as your IP, your network, your router gateway, and your DNS servers for whenever you want to browse the Internet for example.</p>
+<p><strong>Useful tools:</strong></p>
+<p>To test connectivity between devices (i.e. your laptop and a server or even a website), you can use the PING command.
+Example: <em>ping 10.1.1.1</em>    OR      <em>ping networking.aws-cloudops.com</em></p>
+<p>To check your network details, you can use IFCONFIG (for Linux/Mac) or IPCONFIG (for Windows) commands.</p>
+<p>The above commands will give you your private IP address (from the network you are connected to). If you want to know your public IP address (the IP that the outside world sees), you can open a tab in your browser and type <em><strong>whatsmyip</strong></em>.</p>
+<p>To have a look at what routes your laptop has in its route table, you can use NETSTAT -RN (for Linux/Mac) or ROUTES (for Windows).</p>
+<p>To resolve a name to an IP, or an IP to a name (that&rsquo;s when we talk about DNS), you can use the DIG (for Linux/Mac) or NSLOOKUP (for Windows) commands.
+Example: <em>dig networking.aws-cloudops.com</em>      OR      <em>nslookup networking.aws-cloudops.com</em></p>
+<p><strong>What makes an instance public?</strong></p>
+<p>For an instance to be public, it must have:</p>
+<ul>
+<li>a public IP address</li>
+<li>a route table with a default route to an Internet Gateway</li>
+</ul>
+<p><strong>Can a subnet span across 2 availability zones?</strong></p>
+<p>No, a subnet can only exist within a single availability zone.</p>
 
 
 
@@ -757,38 +827,8 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -813,105 +853,6 @@
                     
                     
 
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1089,6 +1030,134 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1128,6 +1197,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -1149,10 +1219,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="./" title="Welcome to the Amazon CloudOps Networking Workshop!"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="./further_reading.html" title="Further Reading"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="./day-1-networking-foundations.html" title="Networking Fundamentals" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="./introduction.html" title="Introduction" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

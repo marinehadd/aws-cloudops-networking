@@ -14,7 +14,7 @@
 
     <link rel="icon" href="../images/favicon.png" type="image/png">
 
-    <title>Routing :: Amazon CloudOps Networking Workshop</title>
+    <title>LAB :: Amazon CloudOps Networking Workshop</title>
 
     
     <link href="../css/nucleus.css?1615209158" rel="stylesheet">
@@ -46,7 +46,7 @@
     </style>
     
   </head>
-  <body class="" data-url="../day-1-networking-foundations/routing.html">
+  <body class="" data-url="../day-2-aws-networking-basics/lab.html">
     <nav id="sidebar" class="">
 
 
@@ -109,7 +109,7 @@
   
     
     <li data-nav-id="/day-1-networking-foundations.html" title="Networking Fundamentals" class="dd-item 
-        parent
+        
         
         
         ">
@@ -190,7 +190,7 @@
  
   
     
-      <li data-nav-id="/day-1-networking-foundations/routing.html" title="Routing" class="dd-item active">
+      <li data-nav-id="/day-1-networking-foundations/routing.html" title="Routing" class="dd-item ">
         <a href="../day-1-networking-foundations/routing.html">
         Routing
         
@@ -255,7 +255,7 @@
   
     
     <li data-nav-id="/day-2-aws-networking-basics.html" title="AWS Networking basics" class="dd-item 
-        
+        parent
         
         
         ">
@@ -393,7 +393,7 @@
  
   
     
-      <li data-nav-id="/day-2-aws-networking-basics/lab.html" title="LAB" class="dd-item ">
+      <li data-nav-id="/day-2-aws-networking-basics/lab.html" title="LAB" class="dd-item active">
         <a href="../day-2-aws-networking-basics/lab.html">
         LAB
         
@@ -639,7 +639,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/marinehadd/aws-cloudops-networking/edit/master/content/Day%201%20-%20Networking%20foundations/Routing.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/marinehadd/aws-cloudops-networking/edit/master/content/Day%202%20-%20AWS%20Networking%20basics/LAB.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -668,7 +668,7 @@
             
           
           
-            <a href='../'>Welcome to the Amazon CloudOps Networking Workshop!</a> > <a href='../day-1-networking-foundations.html'>Networking Fundamentals</a> > Routing
+            <a href='../'>Welcome to the Amazon CloudOps Networking Workshop!</a> > <a href='../day-2-aws-networking-basics.html'>AWS Networking basics</a> > LAB
           
          
           
@@ -692,27 +692,301 @@
         
         <div id="body-inner">
           
-            <h1>Routing</h1>
+            <h1>LAB</h1>
           
 
         
 
 
-<p>The router comes into the picture when different hosts from different networks try to communicate. We have seen in a previous section that the router does all the routing to allow the internal hosts to talk to an external destination such as the Internet or just another network.</p>
-<p>This communication is done by the means of routing tables and routing protocols.</p>
-<p>A route table is a source/destination map for the router to know where to send the traffic, based on the traffic destination.</p>
-<p><em>NB: ISP = Internet Service Provider</em></p>
-<img src='../images/routetables.png' width='1000px'>
-<p>The source and destination correspond to subnets.</p>
-<img src='../images/routing.png' width='1000px'>
-<p>There are two types of routing:</p>
+<p>In this lab, you will setup a VPC infrastructure with 4 subnets (2 private for the private servers, 2 public for the load balancer), 2 web servers and an Elastic Load Balancer to balance the web traffic between both servers.</p>
+<img src='../images/lab4.png' width='600px'>
+<h4>Infrastructure setup:</h4>
+<p><strong>Create a VPC:</strong></p>
 <ul>
-<li>static routing : routes are manually added to route tables</li>
-<li>dynamic routing : routes are dynamically using routing protocols</li>
+<li>Login to your AWS account</li>
+<li>Go to VPC Services and on the left panel, click on <em>Your VPCs</em></li>
+<li>Click on <em>Create VPC</em> and give it a name (i.e. VPC-ELB-LAB) and a /16 CIDR block (i.e. 192.168.0.0/16), then leave the rest as default and click <em>Create VPC</em></li>
+<li>Go back to the <em>Your VPCs</em> tab and check that your VPC has been created</li>
 </ul>
-<p>There are several routing protocols, but the most commonly used are OSPF and BGP.</p>
-<p>OSPF is used to dynamically route traffic between networks of a same domain, while BGP is used to dynamically route between networks of different OSPF domains for example.</p>
-<img src='../images/protocols.png' width='400px'>
+<p><strong>Create subnets:</strong></p>
+<p>We will create 4 subnets, where Subnets 1 and 2 will be used for public, and Subnets 3 and 4 will be used for private.</p>
+<ul>
+<li>Go to VPC Services and on the left panel, click on <em>Subnets</em> and create the subnets:</li>
+<li>Click on <em>Create Subnet</em>
+<ul>
+<li>choose your VPC from the list</li>
+<li>give it a name (Sub1-ELB-LAB)</li>
+<li>choose Availability Zone A</li>
+<li>CIDR: 192.168.1.0/24</li>
+<li>Click <em>Create Subnet</em></li>
+</ul>
+</li>
+<li>Click on <em>Create Subnet</em>
+<ul>
+<li>choose your VPC from the list</li>
+<li>give it a name (Sub2-ELB-LAB)</li>
+<li>choose Availability Zone B</li>
+<li>CIDR: 192.168.2.0/24</li>
+<li>Click <em>Create Subnet</em></li>
+</ul>
+</li>
+<li>Click on <em>Create Subnet</em>
+<ul>
+<li>choose your VPC from the list</li>
+<li>give it a name (Sub3-ELB-LAB)</li>
+<li>choose Availability Zone A</li>
+<li>CIDR: 192.168.3.0/24</li>
+<li>Click <em>Create Subnet</em></li>
+</ul>
+</li>
+<li>Click on <em>Create Subnet</em>
+<ul>
+<li>choose your VPC from the list</li>
+<li>give it a name (Sub4-ELB-LAB)</li>
+<li>choose Availability Zone B</li>
+<li>CIDR: 192.168.4.0/24</li>
+<li>Click <em>Create Subnet</em></li>
+</ul>
+</li>
+</ul>
+<p><strong>Create route tables:</strong></p>
+<ul>
+<li>In the VPC Services tab, click on <em>Route Tables</em> and create a public and a private route tables:</li>
+<li>Click on <em>Create Route Table</em>
+<ul>
+<li>choose your VPC from the list</li>
+<li>give it a name (PublicRT-ELB-LAB)</li>
+<li>Click <em>Create</em></li>
+</ul>
+</li>
+<li>Click on <em>Create Route Table</em>
+<ul>
+<li>choose your VPC from the list</li>
+<li>give it a name (PrivateRT-ELB-LAB)</li>
+<li>Click <em>Create</em></li>
+</ul>
+</li>
+</ul>
+<p><strong>Make the public route table PUBLIC:</strong></p>
+<ul>
+<li>In the VPC Services tab, click on <em>Internet Gateways</em></li>
+<li>Click on <em>Create Internet Gateway</em>
+<ul>
+<li>give it a name (IGW-ELB-LAB) and <em>Create</em></li>
+</ul>
+</li>
+<li>Once it is created, you should be on its configuration page:
+<ul>
+<li>click <em>Actions</em> and select <em>Attach to VPC</em></li>
+<li>select your VPC and <em>Attach</em></li>
+</ul>
+</li>
+</ul>
+<p>Now, create an Internet route in your public route table:</p>
+<ul>
+<li>In the VPC Services tab, click on <em>Route Tables</em></li>
+<li>On the Route Tables interface, look for your public route table:
+<ul>
+<li>select PublicRT-ELB-LAB</li>
+<li>on the panel at the bottom, click on <em>Routes</em> then <em>Edit routes</em></li>
+<li>Click <em>Add route</em>, set the following:
+<ul>
+<li>Destination: 0.0.0.0/0   (0/0 means everywhere, it is not restricted to a specific network)</li>
+<li>Target: Select Internet Gateway from the drop-down and click on IGW-ELB-LAB</li>
+</ul>
+</li>
+<li>Save the changes</li>
+</ul>
+</li>
+</ul>
+<p>And add the public subnets to it:</p>
+<ul>
+<li>On the Route Tables interface, look for your route table:
+<ul>
+<li>click on <em>Subnet Associations</em></li>
+<li><em>Edit subnet associations</em> and select Sub1-ELB-LAB and Sub2-ELB-LAB then save</li>
+</ul>
+</li>
+</ul>
+<h4>Servers deployment:</h4>
+<p>We want 2 servers to host the same content to allow the load balancer to balance the traffic between both. In our setup, the load balancer will be public (accessible from the Internet) and will have 2 roles: serve the servers web content and protect the servers from being accessed. As a result, the servers will remain private and &ldquo;hide&rdquo; behind the load balancer.</p>
+<p><strong>Create a private instance:</strong></p>
+<ul>
+<li>
+<p>Go to EC2 Services and create the first instance:</p>
+<ul>
+<li>Click on <em>Launch Instance</em></li>
+<li>select the 1st Amazon Linux AMI from the list</li>
+<li>leave the Instance type as default and click <em>Next</em></li>
+<li>Set the below:
+<ul>
+<li>Network: choose your VPC</li>
+<li>Subnet: choose Sub3-ELB-LAB</li>
+<li>Auto-assign Public IP: Select <em>Disable</em></li>
+<li>Leave the rest as default and go to the next page</li>
+</ul>
+</li>
+<li>Leave Storage as default and go to the next page</li>
+<li>In Tags, create a tag with <em>Key</em> : Name and <em>Value</em> : WebServer1</li>
+<li>In Security Groups, give it a name (i.e. SG-PrivateWS) leave the SSH rule and add a new rule for HTTP (port 80) with Custom source from 0.0.0.0/0</li>
+<li>In the Review and Launch page, click <em>Launch</em> and select your KP that you created and stored locally during the Linux course
+<em><strong>If you deleted your key pair, just create a new one and download it.</strong></em></li>
+</ul>
+</li>
+<li>
+<p>Create the second instance:</p>
+<ul>
+<li>Click on <em>Launch Instance</em></li>
+<li>select the 1st Amazon Linux AMI from the list</li>
+<li>leave the Instance type as default and click <em>Next</em></li>
+<li>Set the below:
+<ul>
+<li>Network: choose your VPC</li>
+<li>Subnet: choose Sub4-ELB-LAB</li>
+<li>Auto-assign Public IP: Select <em>Disable</em></li>
+<li>Leave the rest as default and go to the next page</li>
+</ul>
+</li>
+<li>Leave Storage as default and go to the next page</li>
+<li>In Tags, create a tag with <em>Key</em> : Name and <em>Value</em> : WebServer2</li>
+<li>In Security Groups, choose an existing security group and pick the same one you created for the first instance</li>
+<li>In the Review and Launch page, click <em>Launch</em> and select the same KP as for the previous instance.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Configure the web servers:</strong></p>
+<p>The instances are currently private, with no public IP. We will make them public just to be able to access them easily and setup the content, after which we will make them private again.</p>
+<p>Note: When you launch an instance directly with a public IP address, you can&rsquo;t remove it. Here we only want temporary public access, so we will assign what we call Elastic IP addresses - they are public IPs that you create separately and can attach to and detach from instances as you wish.</p>
+<ul>
+<li>In the EC2 Services tab, scroll down to <em>Network &amp; Security</em> and click on <em>Elastic IPs</em>:
+<ul>
+<li>Click on <em>Allocate Elastic IP address</em></li>
+<li>Leave everything as default and click <em>Allocate</em></li>
+<li>Edit the name (which should be empty) and give it a name &ldquo;EIP-WS1&rdquo;</li>
+<li>Select it and click on <em>Actions</em> then *Associate Elastic IP address&quot;</li>
+<li>Choose WebServer1 and Associate</li>
+<li>Create a second elastic IP, call it &ldquo;EIP-WS2&rdquo; and associate it to WebServer2</li>
+</ul>
+</li>
+</ul>
+<p>Go to the EC2 instances tab and select WebServer1, check on the bottom details that there is an Elastic IP address. Do the same for WebServer2.</p>
+<p>Now we need to give them a route to the Internet, so we will temporarily associate the private subnets (Sub3-ELB-LAB and Sub4-ELB-LAB, in which our servers are living) to the public route table, and move them back when we are done.</p>
+<ul>
+<li>In the VPC Services tab, click on <em>Route Tables</em></li>
+<li>On the Route Tables interface:
+<ul>
+<li>select the route table PublicRT-ELB-LAB</li>
+<li>on the panel at the bottom, click on <em>Subnet Associations</em></li>
+<li><em>Edit subnet associations</em>, select both Sub3-ELB-LAB and Sub4-ELB-LAB and <em>Save</em></li>
+</ul>
+</li>
+</ul>
+<p>Now you should be able to SSH into both instances.</p>
+<ul>
+<li>For each instance, login with SSH and run the below commands in order to install an http server :</li>
+</ul>
+<p><strong>In the last command where you create your html file, REPLACE THE X WITH 1 FOR THE FIRST INSTANCE, AND 2 FOR THE SECOND INSTANCE.</strong></p>
+<pre><code class="language-commandline" data-lang="commandline">sudo su
+yum install httpd -y
+service httpd start
+chkconfig httpd on
+cd /var/www/html
+echo &quot;&lt;html&gt;&lt;h1&gt;Hello World X&lt;/h1&gt;&quot; &gt; index.html
+</code></pre><ul>
+<li>Verify the configuration:
+<ul>
+<li>For each instance, copy its elastic IP address, replace the ELASTICIP in the following URL HTTP://ELASTICIP/index.html</li>
+<li>Open a browser and enter the URL</li>
+</ul>
+</li>
+</ul>
+<p>Now we know our web servers are working, we can move the instances back to private:</p>
+<ul>
+<li>Go to the public route table and remove Sub3-ELB-LAB and Sub4-ELB-LAB subnets associations</li>
+<li>Go to the private route table and associate both subnets</li>
+<li>Go to the Elastic IPs and disassociate each Elastic IP from the web servers</li>
+</ul>
+<p>If you browse the URLs again now, you should not get anything anymore.</p>
+<h4>Elastic Load Balancer deployment:</h4>
+<p><strong>Configure the load balancer:</strong></p>
+<ul>
+<li>In the EC2 Services tab, scroll down to <em>Load Balancing</em> and click on <em>Load Balancers</em>:
+<ul>
+<li>
+<p>Click on Classic Load Balancer</p>
+<ul>
+<li>Name: ELB-LAB4</li>
+<li>Create ELB Inside: Select your VPC</li>
+<li>Create an internal load balancer: leave the box empty because we want it public</li>
+<li>Enable advanced VPC configuration: Check the box</li>
+<li>Make sure the Listener is on HTTP port 80 (because our web content lives on HTTP)</li>
+<li>Select Subnets: Click on the + button of Sub1-ELB-LAB and Sub2-ELB-LAB</li>
+</ul>
+</li>
+<li>
+<p>Click Next and configure a new Security Group:</p>
+<ul>
+<li>Name it ELB-SG</li>
+<li>Add a rule for HTTP on port 80 with a source &ldquo;Anywhere&rdquo;</li>
+</ul>
+</li>
+<li>
+<p>Click Next to Security Settings then Next again to Configure health Check:</p>
+<ul>
+<li>The settings should be set to:
+<ul>
+<li>ping protocol: HTTP</li>
+<li>ping port: 80</li>
+<li>ping path: /index.html  (because we configured the web content in an index.html file in the servers previously)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Click Next to Add EC2 instances:</p>
+<ul>
+<li>Select WebServer1 and WebServer2</li>
+</ul>
+</li>
+<li>
+<p>Click Next then Next then Review and Create</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Let&rsquo;s now restrict the access to the web servers only from the load balancer, given the load balancer will be the one giving us the content.</p>
+<ul>
+<li>Go back to your EC2 instances, and one by one:
+<ul>
+<li>Select the instance and click on the Security tab at the bottom panel</li>
+<li>Click on the security group and edit the inbound rules:
+<ul>
+<li>Modify the source of the HTTP rule by selecting custom, and then scroll through the list to find the the security group of the load balancer, ELB-SG.</li>
+<li>While you&rsquo;re there, you can modify the source of the SSH rule to &ldquo;MyIP&rdquo;</li>
+<li>Save</li>
+</ul>
+</li>
+<li>You do not need to do the same for the second instance since they are using the same security group.</li>
+</ul>
+</li>
+</ul>
+<p>Now your load balancer should be ready, go back to it, select it and check the bottom panel - you should see both web servers in the Instances tab at the bottom, they should show &ldquo;in-service&rdquo; after a little while.</p>
+<p><strong>Access the html content through the load balancer:</strong></p>
+<p>On the description tab, copy the DNS name of the load balancer and replace the ELBDNS in the URL and browse to HTTP://ELBDNS. You should see the index content of one of the servers, and if you keep refreshing it you should see it changing between &ldquo;Hello World 1&rdquo; and &ldquo;Hello World 2&rdquo;.</p>
+<p>That&rsquo;s when we want to use Route53 DNS. The lab is now over, however you can read the Route53 section below to understand how we would use DNS in this context.</p>
+<p><strong>ROUTE 53 (NOT PART OF THE LAB):</strong></p>
+<p>Let&rsquo;s assume now many users will access this application, but the URL is not very friendly and quite difficult to remember. So, we will not implement it in this lab because we do not own any DNS domain and would need to pay to own one, but here is what we would do:</p>
+<ul>
+<li>Go to Route53</li>
+<li>Create a public hosted zone (basically a DNS domain accessible publicly)</li>
+<li>Inside this zone, create a CNAME record or Alias record (they differ a little but achieve the same goal of mapping a name to a name) to do:
+<ul>
+<li>newfriendlyname.mynewdomain.com = loadbalancerdnsname.elb.eu-west-1.amazonaws.com</li>
+</ul>
+</li>
+</ul>
+<p>You&rsquo;re done! If you want to play a bit, you can stop one of the servers and browse to the ELB DNS name again to make sure that the traffic is only routed to the running server.</p>
+<p>Also, don&rsquo;t forget to cleanup your resources once you&rsquo;re done.</p>
 
 
 <footer class=" footline" >
@@ -831,7 +1105,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -847,9 +1120,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -893,22 +1163,6 @@
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1006,6 +1260,23 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1013,6 +1284,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1146,10 +1420,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../day-1-networking-foundations/subnetting.html" title="Subnetting"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../day-2-aws-networking-basics/route53.html" title="Route53"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../day-1-networking-foundations/dnsdhcp.html" title="DNS/DHCP" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../day-3-aws-advanced-networking.html" title="AWS Advanced Networking" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

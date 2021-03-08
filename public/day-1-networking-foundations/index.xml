@@ -24,7 +24,7 @@ There are several types of networks but the most common are LAN (Local Area Netw
       
       <guid>/day-1-networking-foundations/osi-model.html</guid>
       <description>Networking is based on the OSI model:
-Each layer has a meaning in networking. We will not cover the layers in dept, but you can read more about in the Further Reading section.
+Each layer has a meaning in networking. We will not cover the layers in depth, but you can read more about in the Further Reading section.
 Networking is based on the OSI model, it is a bit like the layers of a cake, often referred as L1, L2, L3, etc..
 Let&amp;rsquo;s pick some real life examples:
   L1 = a router, a switch, a cable, anything physical</description>
@@ -67,12 +67,16 @@ The full name of a server or endpoint is made of a hostname and the domain in wh
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/day-1-networking-foundations/homework.html</guid>
-      <description>Subnetting Exercice  192.168.0.5/24   What is the binary address of 192.168.0.5?
- What is the network ID?
- What is the subnet mask?
- What is the gateway router IP address?
- How many IP addresses in this network?
-    </description>
+      <description>Subnetting Exercice  192.168.0.5/16  What is the binary address of 192.168.0.5?
+What is the network ID?
+What is the subnet mask?
+What is the gateway router IP address?
+How many IP addresses in this network?
+ 172.31.10.10/25  What is the binary address of 172.31.10.10?
+What is the network ID?
+What is the subnet mask?
+What is the gateway router IP address?
+How many IP addresses in this network?</description>
     </item>
     
   </channel>

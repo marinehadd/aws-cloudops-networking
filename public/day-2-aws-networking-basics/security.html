@@ -17,21 +17,21 @@
     <title>Security in a VPC :: Amazon CloudOps Networking Workshop</title>
 
     
-    <link href="../css/nucleus.css?1614163323" rel="stylesheet">
-    <link href="../css/all.css?1614163323" rel="stylesheet">
-    <link href="../css/hybrid.css?1614163323" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1614163323" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1614163323" rel="stylesheet">
-    <link href="../css/auto-complete.css?1614163323" rel="stylesheet">
-    <link href="../css/theme.css?1614163323" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1614163323" rel="stylesheet">
-    <link href="../css/jquery-ui.min.css?1614163323" rel="stylesheet">
+    <link href="../css/nucleus.css?1615209158" rel="stylesheet">
+    <link href="../css/all.css?1615209158" rel="stylesheet">
+    <link href="../css/hybrid.css?1615209158" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1615209158" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1615209158" rel="stylesheet">
+    <link href="../css/auto-complete.css?1615209158" rel="stylesheet">
+    <link href="../css/theme.css?1615209158" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1615209158" rel="stylesheet">
+    <link href="../css/jquery-ui.min.css?1615209158" rel="stylesheet">
     
-      <link href="../css/theme-mine.css?1614163323" rel="stylesheet">
+      <link href="../css/theme-mine.css?1615209158" rel="stylesheet">
     
 
-    <script src="../js/jquery-3.3.1.min.js?1614163323"></script>
-    <script src="../js/jquery-ui-1.12.1.min.js?1614163323"></script>
+    <script src="../js/jquery-3.3.1.min.js?1615209158"></script>
+    <script src="../js/jquery-ui-1.12.1.min.js?1615209158"></script>
 
 
     <style type="text/css">
@@ -63,14 +63,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1614163323"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1614163323"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1615209158"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1615209158"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1614163323"></script>
+<script type="text/javascript" src="../js/search.js?1615209158"></script>
 
     
   </div>
@@ -386,6 +386,25 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/day-2-aws-networking-basics/lab.html" title="LAB" class="dd-item ">
+        <a href="../day-2-aws-networking-basics/lab.html">
+        LAB
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -546,6 +565,28 @@
  
 
           
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/faq.html" title="FAQs" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../faq.html">
+          FAQs
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
          
     </ul>
 
@@ -598,7 +639,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="http://d37ijis7gunnkm.cloudfront.net/Day%202%20-%20AWS%20Networking%20basics/Security.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/marinehadd/aws-cloudops-networking/edit/master/content/Day%202%20-%20AWS%20Networking%20basics/Security.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -660,7 +701,7 @@
 <p>A <strong>security group</strong> is a virtual stateful firewall that controls inbound and outbound network traffic to AWS resources and Amazon EC2 instances. At AWS, security groups act like a built-in firewall for your virtual servers. With these security groups, you have full control about how accessible your instances are.
 At the most basic level, it is just another method to filter traffic to your instances. It provides you control about what traffic to allow or deny. To determine who has access to your instances, you configure a security group rule. Rules can vary from keeping the instance completely private, completely public, or somewhere in between.
 When you first configure a Security Group, all access is denied, so you need to add rules to allow traffic to flow.
-Security Groups are stateful, that means that anything that you allow to flow out of your instance and allowed by default to flow back in your instance.</p>
+Security Groups are stateful, that means that anything that you allow to flow out of your instance is allowed by default to flow back in your instance.</p>
 <p>A <strong>Network access control list</strong> (network ACL) is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets.
 When you first configure a Network ACL, all access is allowed by default.
 NACL are stateless, that means that if you want to allow a type of traffic, you need to do it both for inbound and outbound.</p>
@@ -707,12 +748,14 @@ NACL are stateless, that means that if you want to allow a type of traffic, you 
 <li>Leave Storage as default and go to the next page</li>
 <li>In Tags, create a tag with <em>Key</em> : Name and <em>Value</em> : PrivateEC2-&ldquo;YourInitials&rdquo;</li>
 <li>Leave the security group as default</li>
-<li>In the Review and Launch page, click <em>Launch</em> and select your KP that you created and stored locally during the Linux course</li>
+<li>In the Review and Launch page, click <em>Launch</em> and select your KP that you created and stored locally during the Linux course
+<em><strong>If you deleted your key pair, just create a new one and download it.</strong></em></li>
 </ul>
 </li>
 </ul>
 <p>Now you should have 1 public instance and 1 private instance. In the EC2 interface, if you select them one by one and look at the bottom panel, you should see all details about the instances.
 Notice that your public EC2 has a public IPv4 address as well as a public DNS name, on the opposite of the private EC2 that only has private addresses.</p>
+<p><strong>Edit the Security Group:</strong></p>
 <ul>
 <li>On the public EC2 bottom panel, select the Security tab. The only rule allowed is SSH on port 22 from anywhere (o.o.o.o/0). Even if we want this instance to be publicly reachable, we do not want everyone to SSH into it and change configuration.</li>
 <li>Click on the Security Group and <em>Edit Inbound rules</em>
@@ -723,15 +766,21 @@ Notice that your public EC2 has a public IPv4 address as well as a public DNS na
 </ul>
 </li>
 </ul>
-<p>Now that we have SSH and ICMP traffic allowed from our IP address, it means only you will be able to connect on those ports to the instance.</p>
+<p>Now that we have SSH and ICMP traffic allowed from our IP address, it means only you will be able to connect only on these specific ports to the instance.</p>
+<p>SSH (port 22) is the protocol used to login to your instance&rsquo;s CLI.
+ICMP (no port number) is the protocol used to communicate between instances at the network level. For example, we use the command <em>ping</em> to test connectivity from one instance to another, and this command uses ICMP protocol.</p>
 <p>We will not be using NACL today as it is not required in this context, but you can have a look at the default one by going to VPC Services -&gt; Subnets -&gt; Network ACL (bottom panel).</p>
-<p><strong>You can now:</strong></p>
+<p><strong>Test public connectivity to your public instance:</strong></p>
 <ul>
-<li>open a terminal window and ping the public IP address of your instance ( <em>ping X.X.X.X</em> )</li>
-<li>use SSH to login to your instance</li>
+<li>open a terminal window and <em>ping</em> the public IP address of your instance ( <em>ping X.X.X.X</em> )</li>
+<li>Try to login to your instance (refer to <a href="https://linuxworkshop.aws-cloudops.com/2.logging_in.html">https://linuxworkshop.aws-cloudops.com/2.logging_in.html</a> if you need the steps to use your key pair to login)</li>
 </ul>
+<p>If you do the same test on the private IP address of this same instance (public instance), you will notice that all traffic is blocked.</p>
 <p>We cannot do the same with the private instance since there is no public IP, you can try to SSH to its private IP to prove that it is not reachable.
 A way to SSH into it would be to setup a Bastion instance. This instance is a public instance that just acts as a jump box in order to connect to private instances securely. Despite being public, this instance would also have a private IP address belonging to that same VPC, therefore routable to the private subnet of the private instance.</p>
+<p><strong>Cleanup:</strong></p>
+<p>You can keep this setup to work on different labs and/or play around with the AWS resources.</p>
+<p>If not, don&rsquo;t forget to cleanup your setup by deleting resources in the reverse order of the lab steps.</p>
 
 
 <footer class=" footline" >
@@ -1009,6 +1058,22 @@ A way to SSH into it would be to setup a Bastion instance. This instance is a pu
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1088,6 +1153,22 @@ A way to SSH into it would be to setup a Bastion instance. This instance is a pu
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
@@ -1146,19 +1227,19 @@ A way to SSH into it would be to setup a Bastion instance. This instance is a pu
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1614163323"></script>
-    <script src="../js/perfect-scrollbar.min.js?1614163323"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1614163323"></script>
-    <script src="../js/jquery.sticky.js?1614163323"></script>
-    <script src="../js/featherlight.min.js?1614163323"></script>
-    <script src="../js/highlight.pack.js?1614163323"></script>
+    <script src="../js/clipboard.min.js?1615209158"></script>
+    <script src="../js/perfect-scrollbar.min.js?1615209158"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1615209158"></script>
+    <script src="../js/jquery.sticky.js?1615209158"></script>
+    <script src="../js/featherlight.min.js?1615209158"></script>
+    <script src="../js/highlight.pack.js?1615209158"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1614163323"></script>
-    <script src="../js/learn.js?1614163323"></script>
-    <script src="../js/hugo-learn.js?1614163323"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1615209158"></script>
+    <script src="../js/learn.js?1615209158"></script>
+    <script src="../js/hugo-learn.js?1615209158"></script>
 
-    <link href="../mermaid/mermaid.css?1614163323" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1614163323"></script>
+    <link href="../mermaid/mermaid.css?1615209158" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1615209158"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -17,21 +17,21 @@
     <title>DNS/DHCP :: Amazon CloudOps Networking Workshop</title>
 
     
-    <link href="../css/nucleus.css?1614163323" rel="stylesheet">
-    <link href="../css/all.css?1614163323" rel="stylesheet">
-    <link href="../css/hybrid.css?1614163323" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1614163323" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1614163323" rel="stylesheet">
-    <link href="../css/auto-complete.css?1614163323" rel="stylesheet">
-    <link href="../css/theme.css?1614163323" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1614163323" rel="stylesheet">
-    <link href="../css/jquery-ui.min.css?1614163323" rel="stylesheet">
+    <link href="../css/nucleus.css?1615209158" rel="stylesheet">
+    <link href="../css/all.css?1615209158" rel="stylesheet">
+    <link href="../css/hybrid.css?1615209158" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1615209158" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1615209158" rel="stylesheet">
+    <link href="../css/auto-complete.css?1615209158" rel="stylesheet">
+    <link href="../css/theme.css?1615209158" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1615209158" rel="stylesheet">
+    <link href="../css/jquery-ui.min.css?1615209158" rel="stylesheet">
     
-      <link href="../css/theme-mine.css?1614163323" rel="stylesheet">
+      <link href="../css/theme-mine.css?1615209158" rel="stylesheet">
     
 
-    <script src="../js/jquery-3.3.1.min.js?1614163323"></script>
-    <script src="../js/jquery-ui-1.12.1.min.js?1614163323"></script>
+    <script src="../js/jquery-3.3.1.min.js?1615209158"></script>
+    <script src="../js/jquery-ui-1.12.1.min.js?1615209158"></script>
 
 
     <style type="text/css">
@@ -63,14 +63,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1614163323"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1614163323"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1615209158"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1615209158"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1614163323"></script>
+<script type="text/javascript" src="../js/search.js?1615209158"></script>
 
     
   </div>
@@ -386,6 +386,25 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/day-2-aws-networking-basics/lab.html" title="LAB" class="dd-item ">
+        <a href="../day-2-aws-networking-basics/lab.html">
+        LAB
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -546,6 +565,28 @@
  
 
           
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/faq.html" title="FAQs" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../faq.html">
+          FAQs
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
          
     </ul>
 
@@ -598,7 +639,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="http://d37ijis7gunnkm.cloudfront.net/Day%201%20-%20Networking%20foundations/DNSDHCP.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/marinehadd/aws-cloudops-networking/edit/master/content/Day%201%20-%20Networking%20foundations/DNSDHCP.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -685,20 +726,20 @@
 <p>In a recursive resolution, the DNS resolver/caching server handles the full DNS resolution journey.</p>
 <img src='../images/dnsrecursion.png' width='800px'>
 <p>Once bob.com is resolved, the data will be cached into the local DNS cache so that next time it is queried, the resolution does not need to happen again, until the data expires.
-The time lenght of a cached resource is called a Time-To-Live (TTL). A TTL is a setting configured on a DNS resource to allow DNS caching.</p>
+The time length of a cached resource is called a Time-To-Live (TTL). A TTL is a setting configured on a DNS resource to allow DNS caching.</p>
 <h4> DNS Records </h4>
 <p>Those name/IP mappings stored in DNS servers are called resources or records.</p>
 <p>DNS stores different types of DNS records in its mapping directory, but there are only a few common ones that you will ever used:</p>
 <ul>
 <li>A record (Address) - maps a name to an IP address (i.e. bob.com -&gt; 10.1.1.4)</li>
 <li>PTR record (Pointer) - maps an IP address to a name (i.e. 10.1.1.4 -&gt; bob.com)</li>
-<li>CNAME record (Canonical Name) - maps a name t a name (i.e. network.bob.com -&gt; something.else.com)</li>
+<li>CNAME record (Canonical Name) - maps a name to a name (i.e. network.bob.com -&gt; something.else.com)</li>
 <li>NS record (Name Servers) - indicates the authoritative servers for the domain</li>
 <li>SOA record (Start of Authority) - provides administrative information about the domain</li>
 <li>MX record (Mail Exchange) - indicates which mail servers are used to send emails to the domain</li>
 </ul>
 <h2 id="dynamic-host-configuration-protocol-dhcp"><strong>Dynamic Host Configuration Protocol (DHCP):</strong></h2>
-<p>DHCP stands for Dynamic Host Configuration Protocol and is used to dynamically alloacte IP addresses to clients in a network.</p>
+<p>DHCP stands for Dynamic Host Configuration Protocol and is used to dynamically allocate IP addresses to clients in a network.</p>
 <p>The way it works:</p>
 <ul>
 <li>A new client connects to a network</li>
@@ -994,6 +1035,22 @@ In other cases where a client would require other services such as a FTP server 
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1073,6 +1130,22 @@ In other cases where a client would require other services such as a FTP server 
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
@@ -1131,19 +1204,19 @@ In other cases where a client would require other services such as a FTP server 
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1614163323"></script>
-    <script src="../js/perfect-scrollbar.min.js?1614163323"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1614163323"></script>
-    <script src="../js/jquery.sticky.js?1614163323"></script>
-    <script src="../js/featherlight.min.js?1614163323"></script>
-    <script src="../js/highlight.pack.js?1614163323"></script>
+    <script src="../js/clipboard.min.js?1615209158"></script>
+    <script src="../js/perfect-scrollbar.min.js?1615209158"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1615209158"></script>
+    <script src="../js/jquery.sticky.js?1615209158"></script>
+    <script src="../js/featherlight.min.js?1615209158"></script>
+    <script src="../js/highlight.pack.js?1615209158"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1614163323"></script>
-    <script src="../js/learn.js?1614163323"></script>
-    <script src="../js/hugo-learn.js?1614163323"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1615209158"></script>
+    <script src="../js/learn.js?1615209158"></script>
+    <script src="../js/hugo-learn.js?1615209158"></script>
 
-    <link href="../mermaid/mermaid.css?1614163323" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1614163323"></script>
+    <link href="../mermaid/mermaid.css?1615209158" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1615209158"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
