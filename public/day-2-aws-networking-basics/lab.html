@@ -17,21 +17,21 @@
     <title>LAB :: Amazon CloudOps Networking Workshop</title>
 
     
-    <link href="../css/nucleus.css?1615142720" rel="stylesheet">
-    <link href="../css/all.css?1615142720" rel="stylesheet">
-    <link href="../css/hybrid.css?1615142720" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1615142720" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1615142720" rel="stylesheet">
-    <link href="../css/auto-complete.css?1615142720" rel="stylesheet">
-    <link href="../css/theme.css?1615142720" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1615142720" rel="stylesheet">
-    <link href="../css/jquery-ui.min.css?1615142720" rel="stylesheet">
+    <link href="../css/nucleus.css?1615209158" rel="stylesheet">
+    <link href="../css/all.css?1615209158" rel="stylesheet">
+    <link href="../css/hybrid.css?1615209158" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1615209158" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1615209158" rel="stylesheet">
+    <link href="../css/auto-complete.css?1615209158" rel="stylesheet">
+    <link href="../css/theme.css?1615209158" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1615209158" rel="stylesheet">
+    <link href="../css/jquery-ui.min.css?1615209158" rel="stylesheet">
     
-      <link href="../css/theme-mine.css?1615142720" rel="stylesheet">
+      <link href="../css/theme-mine.css?1615209158" rel="stylesheet">
     
 
-    <script src="../js/jquery-3.3.1.min.js?1615142720"></script>
-    <script src="../js/jquery-ui-1.12.1.min.js?1615142720"></script>
+    <script src="../js/jquery-3.3.1.min.js?1615209158"></script>
+    <script src="../js/jquery-ui-1.12.1.min.js?1615209158"></script>
 
 
     <style type="text/css">
@@ -63,14 +63,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1615142720"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1615142720"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1615209158"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1615209158"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1615142720"></script>
+<script type="text/javascript" src="../js/search.js?1615209158"></script>
 
     
   </div>
@@ -855,7 +855,7 @@
 </li>
 </ul>
 <p><strong>Configure the web servers:</strong></p>
-<p>The instances are currently private, with no public IP. We will make them public just to be able to access them easily and setup the content, after which we will make them back to private.</p>
+<p>The instances are currently private, with no public IP. We will make them public just to be able to access them easily and setup the content, after which we will make them private again.</p>
 <p>Note: When you launch an instance directly with a public IP address, you can&rsquo;t remove it. Here we only want temporary public access, so we will assign what we call Elastic IP addresses - they are public IPs that you create separately and can attach to and detach from instances as you wish.</p>
 <ul>
 <li>In the EC2 Services tab, scroll down to <em>Network &amp; Security</em> and click on <em>Elastic IPs</em>:
@@ -885,7 +885,7 @@
 <ul>
 <li>For each instance, login with SSH and run the below commands in order to install an http server :</li>
 </ul>
-<p><strong>In the last command where you create your html file, replace the X with 1 for the first instance, and 2 for the second instance.</strong></p>
+<p><strong>In the last command where you create your html file, REPLACE THE X WITH 1 FOR THE FIRST INSTANCE, AND 2 FOR THE SECOND INSTANCE.</strong></p>
 <pre><code class="language-commandline" data-lang="commandline">sudo su
 yum install httpd -y
 service httpd start
@@ -895,14 +895,14 @@ echo &quot;&lt;html&gt;&lt;h1&gt;Hello World X&lt;/h1&gt;&quot; &gt; index.html
 </code></pre><ul>
 <li>Verify the configuration:
 <ul>
-<li>For each instance, take it elastic IP address, replace the ELASTICIP in the following URL HTTP://ELASTICIP/index.html</li>
+<li>For each instance, copy its elastic IP address, replace the ELASTICIP in the following URL HTTP://ELASTICIP/index.html</li>
 <li>Open a browser and enter the URL</li>
 </ul>
 </li>
 </ul>
 <p>Now we know our web servers are working, we can move the instances back to private:</p>
 <ul>
-<li>Go to the public route table and remove both subnets associations</li>
+<li>Go to the public route table and remove Sub3-ELB-LAB and Sub4-ELB-LAB subnets associations</li>
 <li>Go to the private route table and associate both subnets</li>
 <li>Go to the Elastic IPs and disassociate each Elastic IP from the web servers</li>
 </ul>
@@ -966,14 +966,16 @@ echo &quot;&lt;html&gt;&lt;h1&gt;Hello World X&lt;/h1&gt;&quot; &gt; index.html
 <li>Save</li>
 </ul>
 </li>
-<li>Do the same for both instances</li>
+<li>You do not need to do the same for the second instance since they are using the same security group.</li>
 </ul>
 </li>
 </ul>
 <p>Now your load balancer should be ready, go back to it, select it and check the bottom panel - you should see both web servers in the Instances tab at the bottom, they should show &ldquo;in-service&rdquo; after a little while.</p>
 <p><strong>Access the html content through the load balancer:</strong></p>
 <p>On the description tab, copy the DNS name of the load balancer and replace the ELBDNS in the URL and browse to HTTP://ELBDNS. You should see the index content of one of the servers, and if you keep refreshing it you should see it changing between &ldquo;Hello World 1&rdquo; and &ldquo;Hello World 2&rdquo;.</p>
-<p>That&rsquo;s when we want to use Route53 DNS. Let&rsquo;s assume now many users will access this application, but the URL is not very friendly and quite difficult to remember. So, we will not implement it in this lab because we do not own any DNS domain and would need to pay to own one, but here is what we would do:</p>
+<p>That&rsquo;s when we want to use Route53 DNS. The lab is now over, however you can read the Route53 section below to understand how we would use DNS in this context.</p>
+<p><strong>ROUTE 53 (NOT PART OF THE LAB):</strong></p>
+<p>Let&rsquo;s assume now many users will access this application, but the URL is not very friendly and quite difficult to remember. So, we will not implement it in this lab because we do not own any DNS domain and would need to pay to own one, but here is what we would do:</p>
 <ul>
 <li>Go to Route53</li>
 <li>Create a public hosted zone (basically a DNS domain accessible publicly)</li>
@@ -1431,19 +1433,19 @@ echo &quot;&lt;html&gt;&lt;h1&gt;Hello World X&lt;/h1&gt;&quot; &gt; index.html
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1615142720"></script>
-    <script src="../js/perfect-scrollbar.min.js?1615142720"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1615142720"></script>
-    <script src="../js/jquery.sticky.js?1615142720"></script>
-    <script src="../js/featherlight.min.js?1615142720"></script>
-    <script src="../js/highlight.pack.js?1615142720"></script>
+    <script src="../js/clipboard.min.js?1615209158"></script>
+    <script src="../js/perfect-scrollbar.min.js?1615209158"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1615209158"></script>
+    <script src="../js/jquery.sticky.js?1615209158"></script>
+    <script src="../js/featherlight.min.js?1615209158"></script>
+    <script src="../js/highlight.pack.js?1615209158"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1615142720"></script>
-    <script src="../js/learn.js?1615142720"></script>
-    <script src="../js/hugo-learn.js?1615142720"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1615209158"></script>
+    <script src="../js/learn.js?1615209158"></script>
+    <script src="../js/hugo-learn.js?1615209158"></script>
 
-    <link href="../mermaid/mermaid.css?1615142720" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1615142720"></script>
+    <link href="../mermaid/mermaid.css?1615209158" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1615209158"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

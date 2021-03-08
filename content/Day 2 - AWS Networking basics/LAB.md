@@ -125,7 +125,7 @@ We want 2 servers to host the same content to allow the load balancer to balance
 
 **Configure the web servers:**
 
-The instances are currently private, with no public IP. We will make them public just to be able to access them easily and setup the content, after which we will make them back to private.
+The instances are currently private, with no public IP. We will make them public just to be able to access them easily and setup the content, after which we will make them private again.
 
 Note: When you launch an instance directly with a public IP address, you can't remove it. Here we only want temporary public access, so we will assign what we call Elastic IP addresses - they are public IPs that you create separately and can attach to and detach from instances as you wish.
 
@@ -151,7 +151,7 @@ Now you should be able to SSH into both instances.
 
 - For each instance, login with SSH and run the below commands in order to install an http server : 
 
-**In the last command where you create your html file, replace the X with 1 for the first instance, and 2 for the second instance.**
+**In the last command where you create your html file, REPLACE THE X WITH 1 FOR THE FIRST INSTANCE, AND 2 FOR THE SECOND INSTANCE.**
 
 ```commandline
 sudo su
@@ -163,11 +163,11 @@ echo "<html><h1>Hello World X</h1>" > index.html
 ```
 
 - Verify the configuration: 
-    + For each instance, take it elastic IP address, replace the ELASTICIP in the following URL HTTP://ELASTICIP/index.html
+    + For each instance, copy its elastic IP address, replace the ELASTICIP in the following URL HTTP://ELASTICIP/index.html
     + Open a browser and enter the URL
 
 Now we know our web servers are working, we can move the instances back to private:
-* Go to the public route table and remove both subnets associations
+* Go to the public route table and remove Sub3-ELB-LAB and Sub4-ELB-LAB subnets associations
 * Go to the private route table and associate both subnets
 * Go to the Elastic IPs and disassociate each Elastic IP from the web servers
 
@@ -209,7 +209,7 @@ Let's now restrict the access to the web servers only from the load balancer, gi
         - Modify the source of the HTTP rule by selecting custom, and then scroll through the list to find the the security group of the load balancer, ELB-SG.
         - While you're there, you can modify the source of the SSH rule to "MyIP"
         - Save
-    - Do the same for both instances
+    - You do not need to do the same for the second instance since they are using the same security group.
 
 Now your load balancer should be ready, go back to it, select it and check the bottom panel - you should see both web servers in the Instances tab at the bottom, they should show "in-service" after a little while.
 
@@ -217,7 +217,11 @@ Now your load balancer should be ready, go back to it, select it and check the b
 
 On the description tab, copy the DNS name of the load balancer and replace the ELBDNS in the URL and browse to HTTP://ELBDNS. You should see the index content of one of the servers, and if you keep refreshing it you should see it changing between "Hello World 1" and "Hello World 2".
 
-That's when we want to use Route53 DNS. Let's assume now many users will access this application, but the URL is not very friendly and quite difficult to remember. So, we will not implement it in this lab because we do not own any DNS domain and would need to pay to own one, but here is what we would do:
+That's when we want to use Route53 DNS. The lab is now over, however you can read the Route53 section below to understand how we would use DNS in this context.
+
+**ROUTE 53 (NOT PART OF THE LAB):**
+
+Let's assume now many users will access this application, but the URL is not very friendly and quite difficult to remember. So, we will not implement it in this lab because we do not own any DNS domain and would need to pay to own one, but here is what we would do:
 + Go to Route53
 + Create a public hosted zone (basically a DNS domain accessible publicly)
 + Inside this zone, create a CNAME record or Alias record (they differ a little but achieve the same goal of mapping a name to a name) to do:
