@@ -16,7 +16,7 @@ pre:
 <img src='/images/how-route-53-routes-traffic.png'>
 
 
-By default, AWS provides each VPC with a local DNS resolver, the .2 reserved IP address mentionned previously. This resolver allows resources inside the VPC to obtain a DNS name and to query other hosts.
+By default, AWS provides each VPC with a local DNS resolver, the .2 reserved IP address mentioned previously. This resolver allows resources inside the VPC to obtain a DNS name and to query other hosts.
 
 As we discussed in Day 1, a DNS resolver is provided by a DHCP set. In AWS, there is a DHCP Option configured by default on each VPC, which contains details about the DNS servers provided by AWS.
 
