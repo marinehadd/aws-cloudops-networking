@@ -197,7 +197,15 @@ Select the Route Table that is associated with the private subnet of the VPC 2.
 Now the architecture is set up. You can try ssh to the instances and try to ping them.
 
 **Test public connectivity to your public instance:**
+- open the .pem key you have downloaded earlier in the text editor and copy everything that is inside of the file.
 - Open a terminal window, ssh in to the Ec2 instance in the Private subnet of the VPC 1.
+- then ssh into the private instance in the same VPC 1. We need to add an ssh key to connect. We will need a security key to connect to the instance. Let's create it. In the console type:
+- vim *nameofthepublickeyfortheinstance.pem*
+- paste there the content of the .pem file you have downloaded
+- quit vim with ESC, :, wq
+- chmod 400 *nameofthepublickeyfortheinstance.pem*
+- Connect to the instance in the private subnet of the VPC 1.
+- ssh -i  *nameofthepublickeyfortheinstance.pem* ec2-user@privateIPof the instance
 - *ping* the private IP address of your instance  in the VPC 2 ( *ping X.X.X.X* )
 
 
