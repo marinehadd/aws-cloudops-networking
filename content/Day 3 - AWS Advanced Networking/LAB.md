@@ -145,12 +145,6 @@ Now, you have to copy those steps to create the same environment in the second V
  + Select the VPC peering connection that you've created, and choose Actions, Accept Request.
  + In the confirmation dialog, choose Yes, Accept. A second confirmation dialog displays; choose Modify my route tables now to go directly to the route tables page, or choose Close to do this later.
 
-- To accept a VPC peering connection
-+ Open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
-+ Use the region selector to choose the region of the accepter VPC.
-+ In the navigation pane, choose Peering Connections.
-+ Select the pending VPC peering connection (the status is pending-acceptance), and choose Actions, Accept Request.
-
 Note
 If you cannot see the pending VPC peering connection, check the region. An inter-region peering request must be accepted in the region of the accepter VPC.
 In the confirmation dialog box, choose Yes, Accept. A second confirmation dialog displays; choose Modify my route tables now to go directly to the route tables page, or choose Close to do this later.
