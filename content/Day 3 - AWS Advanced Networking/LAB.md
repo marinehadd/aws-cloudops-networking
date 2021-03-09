@@ -134,7 +134,7 @@ Now, you have to copy those steps to create the same environment in the second V
 - Go to VPC Services and on the left panel, click on *Subnets*
 - Click on *Create Subnet*
     + choose your VPC from the list
-    + give it a name (PublicSub-2)
+    + give it a name (PrivateSub-2)
     + choose one of the Availability Zones
     + Use the first /24 of your VPC CIDR (i.e. 10.200.1.0/24)
     + Click *Create Subnet*
