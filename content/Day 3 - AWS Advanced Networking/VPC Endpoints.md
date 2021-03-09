@@ -1,7 +1,7 @@
 ---
 title: "VPC Endpoints"
 draft: false
-weight: 70
+weight: 75
 pre: 
 ---
 

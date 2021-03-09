@@ -59,6 +59,10 @@
   </url>
   
   <url>
+    <loc>/day-2-aws-networking-basics/lab.html</loc>
+  </url>
+  
+  <url>
     <loc>/day-1-networking-foundations/homework.html</loc>
   </url>
   
@@ -67,19 +71,19 @@
   </url>
   
   <url>
-    <loc>/day-2-aws-networking-basics/lab.html</loc>
-  </url>
-  
-  <url>
     <loc>/day-3-aws-advanced-networking/vpc-peering.html</loc>
   </url>
   
   <url>
-    <loc>/day-3-aws-advanced-networking/transit-gateway.html</loc>
+    <loc>/day-3-aws-advanced-networking/lab.html</loc>
   </url>
   
   <url>
     <loc>/day-2-aws-networking-basics.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-3-aws-advanced-networking/transit-gateway.html</loc>
   </url>
   
   <url>

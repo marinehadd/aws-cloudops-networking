@@ -14,7 +14,7 @@
 
     <link rel="icon" href="../images/favicon.png" type="image/png">
 
-    <title>Elastic Load Balancing :: Amazon CloudOps Networking Workshop</title>
+    <title>VPC Peering LAB :: Amazon CloudOps Networking Workshop</title>
 
     
     <link href="../css/nucleus.css?1615284344" rel="stylesheet">
@@ -46,7 +46,7 @@
     </style>
     
   </head>
-  <body class="" data-url="../day-2-aws-networking-basics/load-balancing.html">
+  <body class="" data-url="../day-3-aws-advanced-networking/lab.html">
     <nav id="sidebar" class="">
 
 
@@ -255,7 +255,7 @@
   
     
     <li data-nav-id="/day-2-aws-networking-basics.html" title="AWS Networking basics" class="dd-item 
-        parent
+        
         
         
         ">
@@ -355,7 +355,7 @@
  
   
     
-      <li data-nav-id="/day-2-aws-networking-basics/load-balancing.html" title="Elastic Load Balancing" class="dd-item active">
+      <li data-nav-id="/day-2-aws-networking-basics/load-balancing.html" title="Elastic Load Balancing" class="dd-item ">
         <a href="../day-2-aws-networking-basics/load-balancing.html">
         Elastic Load Balancing
         
@@ -420,7 +420,7 @@
   
     
     <li data-nav-id="/day-3-aws-advanced-networking.html" title="AWS Advanced Networking" class="dd-item 
-        
+        parent
         
         
         ">
@@ -482,7 +482,7 @@
  
   
     
-      <li data-nav-id="/day-3-aws-advanced-networking/lab.html" title="VPC Peering LAB" class="dd-item ">
+      <li data-nav-id="/day-3-aws-advanced-networking/lab.html" title="VPC Peering LAB" class="dd-item active">
         <a href="../day-3-aws-advanced-networking/lab.html">
         VPC Peering LAB
         
@@ -658,7 +658,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/marinehadd/aws-cloudops-networking/edit/master/content/Day%202%20-%20AWS%20Networking%20basics/Load%20Balancing.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/marinehadd/aws-cloudops-networking/edit/master/content/Day%203%20-%20AWS%20Advanced%20Networking/LAB.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -687,7 +687,7 @@
             
           
           
-            <a href='../'>Welcome to the Amazon CloudOps Networking Workshop!</a> > <a href='../day-2-aws-networking-basics.html'>AWS Networking basics</a> > Elastic Load Balancing
+            <a href='../'>Welcome to the Amazon CloudOps Networking Workshop!</a> > <a href='../day-3-aws-advanced-networking.html'>AWS Advanced Networking</a> > VPC Peering LAB
           
          
           
@@ -711,26 +711,287 @@
         
         <div id="body-inner">
           
-            <h1>Elastic Load Balancing</h1>
+            <h1>VPC Peering LAB</h1>
           
 
         
 
 
-<p>The main purpose of a load balancer is to balance the load of your traffic across several servers.</p>
-<p>Load balancers in AWS are called elastic because they can dynamically adjust based on the load, and provide a lot more features than traditionally.</p>
-<p><strong>Elastic Load Balancing</strong> automatically adjusts to incoming traffic and network changes by distributing traffic across multiple Amazon EC2 instances in the cloud, without manual intervention. This enables you to achieve higher levels of fault tolerance with your applications.</p>
-<p>There are currently 3 types of a load balancer:</p>
-<p>•  Application Load Balancer</p>
-<p>•  Network Load Balancer</p>
-<p>•  Classic Load Balancer</p>
-<img src='../images/elb.png' width='600px'>
-<p><strong>Application Load Balancer</strong> - As it&rsquo;s name indicates, this type works at the application level (L7 in the OSI model) and also provides advanced routing and features.
-For instance, if you need to load balance web servers working on HTTP/HTTPS and want to make the most of advanced features then you should use the application load balancer.
-When you setup an application load balancer, you are only provided with its DNS name, but no IP address.</p>
-<p><strong>Network Load Balancer</strong> - The network load balancer works at the transport level (L4 in the OSI model) and in most cases, is used when high performance is required. Let&rsquo;s say you know you&rsquo;ll get thousands of requests per second, then the network load balancer might be a good option.
-One advantage, depending on the context, of a network load balancer is that it is provided a static IP address (that will not change).</p>
-<p><strong>Classic Load Balancer</strong> - A classic load balancer works both at L4 and L7 of the OSI model, but has limited features.</p>
+<p>In this lab, you will create a VPC Peering connection between 2 VPCs and allow their resources to communicate across.</p>
+<p>For that, you will need to launch 2 VPCs and a VPC peering connection, and to launch EC2 instances in each VPC with private connectivity between 2 instances.</p>
+<img src='../images/peering.png' width='600px'>
+<p><strong>Create a VPC 1:</strong></p>
+<ul>
+<li>Login to your AWS account</li>
+<li>Go to VPC Services and on the left panel, click on <em>Your VPCs</em></li>
+<li>Click on <em>Create VPC</em> and give it a name (i.e. VPC-1) and a /16 CIDR block (i.e. 10.100.0.0/16), then leave the rest as default and click <em>Create VPC</em></li>
+<li>Go back to the <em>Your VPCs</em> tab and check that your VPC has been created</li>
+</ul>
+<p><strong>Create a public subnet 1:</strong></p>
+<ul>
+<li>Go to VPC Services and on the left panel, click on <em>Subnets</em></li>
+<li>Click on <em>Create Subnet</em>
+<ul>
+<li>choose your VPC from the list</li>
+<li>give it a name (PublicSub-1)</li>
+<li>choose one of the Availability Zones</li>
+<li>Use the first /24 of your VPC CIDR (i.e. 10.100.0.0/24)</li>
+<li>Click <em>Create Subnet</em></li>
+</ul>
+</li>
+</ul>
+<p>Now, your subnet is setup but can only communicate within the VPC by default.</p>
+<p><strong>Create a private subnet 1:</strong></p>
+<ul>
+<li>Go to VPC Services and on the left panel, click on <em>Subnets</em></li>
+<li>Click on <em>Create Subnet</em>
+<ul>
+<li>choose your VPC from the list</li>
+<li>give it a name (PrivateSub1-1)</li>
+<li>choose one of the Availability Zones</li>
+<li>Use the first /24 of your VPC CIDR (i.e. 10.100.1.0/24)</li>
+<li>Click <em>Create Subnet</em></li>
+</ul>
+</li>
+</ul>
+<p>Now, your subnet is setup but can only communicate within the VPC by default.</p>
+<p><strong>Create a public route table:</strong></p>
+<ul>
+<li>In the VPC Services tab, click on <em>Route Tables</em></li>
+<li>Click on <em>Create Route Table</em>
+<ul>
+<li>choose your VPC from the list</li>
+<li>give it a name (PublicRT-1)</li>
+<li>Click <em>Create</em></li>
+</ul>
+</li>
+<li>On the Route Tables interface, look for your route table:
+<ul>
+<li>select the route table</li>
+<li>on the panel at the bottom, click on <em>Subnet Associations</em></li>
+<li><em>Edit subnet associations</em> and select your public subnet 1 and <em>Save</em></li>
+</ul>
+</li>
+</ul>
+<p>Now, you have a public route table that will be used to route all external (such as Internet) traffic to and from your public subnet. However, we still don&rsquo;t know how to go to the Internet as we have no exit door yet.</p>
+<p><strong>Create a IG 1:</strong></p>
+<ul>
+<li>In the VPC Services tab, click on <em>Internet Gateways</em></li>
+<li>Click on <em>Create Internet Gateway</em>
+<ul>
+<li>give it a name (IGW-1) and <em>Create</em></li>
+</ul>
+</li>
+<li>Once it is created, you should be on its configuration page:
+<ul>
+<li>click <em>Actions</em> and select <em>Attach to VPC</em></li>
+<li>select your VPC 1 and <em>Attach</em></li>
+</ul>
+</li>
+</ul>
+<p>Now, your Internet Gateway belongs to your VPC environment, so we can set it up to route all Internet traffic.</p>
+<ul>
+<li>In the VPC Services tab, click on <em>Route Tables</em></li>
+<li>On the Route Tables interface, look for your public route table:
+<ul>
+<li>select the public route table</li>
+<li>on the panel at the bottom, click on <em>Routes</em> then <em>Edit routes</em></li>
+<li>Click <em>Add route</em>, set the following:
+<ul>
+<li>Destination: 0.0.0.0/0   (0/0 means everywhere, it is not restricted to a specific network)</li>
+<li>Target: Select Internet Gateway 1 from the drop-down and click on your IGW-XXXX</li>
+</ul>
+</li>
+<li>Save the changes</li>
+</ul>
+</li>
+</ul>
+<p><strong>Create a private route table:</strong></p>
+<ul>
+<li>In the VPC Services tab, click on <em>Route Tables</em></li>
+<li>Click on <em>Create Route Table</em>
+<ul>
+<li>choose your VPC from the list</li>
+<li>give it a name (PrivateRT-1)</li>
+<li>Click <em>Create</em></li>
+</ul>
+</li>
+<li>On the Route Tables interface, look for your route table:
+<ul>
+<li>select the route table</li>
+<li>on the panel at the bottom, click on <em>Subnet Associations</em></li>
+<li><em>Edit subnet associations</em> and select your private subnet 1 and <em>Save</em></li>
+</ul>
+</li>
+</ul>
+<p><strong>Create a private instance 1:</strong></p>
+<ul>
+<li>Go to EC2 Services and click on <em>Launch Instance</em>
+<ul>
+<li>select the 1st Amazon Linux AMI from the list</li>
+<li>leave the Instance type as default and click <em>Next</em></li>
+<li>Set the below:
+<ul>
+<li>Network: choose your VPC 1</li>
+<li>Subnet: choose your private subnet 1</li>
+<li>Auto-assign Public IP: Select <em>Disable</em></li>
+<li>Leave the rest as default and go to the next page</li>
+</ul>
+</li>
+<li>Leave Storage as default and go to the next page</li>
+<li>In Tags, create a tag with <em>Key</em> : Name and <em>Value</em> : PrivateEC2-1&quot;</li>
+<li>In the security group name the sg as <em>SG-Private-1</em> and change the source to 10.100.0.0/24. As we only want to ssh to it from our public instances in our public subnet.</li>
+<li>In the Review and Launch page, click <em>Launch</em> and select your KP that you created and stored locally during the Linux course</li>
+</ul>
+</li>
+</ul>
+<p><strong>Create a public instance 1:</strong></p>
+<ul>
+<li>Go to EC2 Services and click on <em>Launch Instance</em>
+<ul>
+<li>select the 1st Amazon Linux AMI from the list</li>
+<li>leave the Instance type as default and click <em>Next</em></li>
+<li>Set the below:
+<ul>
+<li>Network: choose your VPC 1</li>
+<li>Subnet: choose your public subnet 1</li>
+<li>Auto-assign Public IP: Select <em>Enable</em></li>
+<li>Leave the rest as default and go to the next page</li>
+</ul>
+</li>
+<li>Leave Storage as default and go to the next page</li>
+<li>In Tags, create a tag with <em>Key</em> : Name and <em>Value</em> : PublicEC2-1&quot;</li>
+<li>In the security groups change the source to MyIP</li>
+<li>In the Review and Launch page, click <em>Launch</em> and select your KP that you created and stored locally during the Linux course</li>
+</ul>
+</li>
+</ul>
+<p>Now, you have to copy those steps to create the same environment in the second VPC.</p>
+<p><strong>Create a second VPC:</strong></p>
+<ul>
+<li>Login to your AWS account</li>
+<li>Go to VPC Services and on the left panel, click on <em>Your VPCs</em></li>
+<li>Click on <em>Create VPC</em> and give it a name (i.e. VPC-&ldquo;2&rdquo;) and a /16 CIDR block (i.e. 10.200.0.0/16), then leave the rest as default and click <em>Create VPC</em></li>
+<li>Go back to the <em>Your VPCs</em> tab and check that your VPC has been created</li>
+</ul>
+<p><strong>Create a second private subnet:</strong></p>
+<ul>
+<li>Go to VPC Services and on the left panel, click on <em>Subnets</em></li>
+<li>Click on <em>Create Subnet</em>
+<ul>
+<li>choose your VPC from the list</li>
+<li>give it a name (PublicSub-2)</li>
+<li>choose one of the Availability Zones</li>
+<li>Use the first /24 of your VPC CIDR (i.e. 10.200.1.0/24)</li>
+<li>Click <em>Create Subnet</em></li>
+</ul>
+</li>
+</ul>
+<p><strong>Create a private route table:</strong></p>
+<ul>
+<li>In the VPC Services tab, click on <em>Route Tables</em></li>
+<li>Click on <em>Create Route Table</em>
+<ul>
+<li>choose your VPC from the list</li>
+<li>give it a name (PrivateRT-2)</li>
+<li>Click <em>Create</em></li>
+</ul>
+</li>
+<li>On the Route Tables interface, look for your route table:
+<ul>
+<li>select the route table</li>
+<li>on the panel at the bottom, click on <em>Subnet Associations</em></li>
+<li><em>Edit subnet associations</em> and select your private subnet 2 and <em>Save</em></li>
+</ul>
+</li>
+</ul>
+<p><strong>Create a private instance 2:</strong></p>
+<ul>
+<li>Go to EC2 Services and click on <em>Launch Instance</em>
+<ul>
+<li>select the 1st Amazon Linux AMI from the list</li>
+<li>leave the Instance type as default and click <em>Next</em></li>
+<li>Set the below:
+<ul>
+<li>Network: choose your VPC 2</li>
+<li>Subnet: choose your private subnet 2</li>
+<li>Auto-assign Public IP: Select <em>Disable</em></li>
+<li>Leave the rest as default and go to the next page</li>
+</ul>
+</li>
+<li>Leave Storage as default and go to the next page</li>
+<li>In Tags, create a tag with <em>Key</em> : Name and <em>Value</em> : PrivateEC2-2&quot;</li>
+<li>In the security group part add one port for ssh and another for ping. The security group from our second VPC should allow instances in th private subnet of VPC 1 to ssh and ping from it.</li>
+<li>Change source in the SSH type of the connection to <em>10.100.1.0/24</em> and add another route for <em>ALL ICMP IPv4</em>, set the source to <em>10.100.1.0/24</em>.</li>
+<li>In the Review and Launch page, click <em>Launch</em> and select your KP that you created and stored locally during the Linux course</li>
+</ul>
+</li>
+</ul>
+<p><strong>Create a peering connection:</strong></p>
+<ul>
+<li>Open the Amazon VPC console at <a href="https://console.aws.amazon.com/vpc/">https://console.aws.amazon.com/vpc/</a>.</li>
+</ul>
+<ul>
+<li>In the navigation pane, choose Peering Connections, Create Peering Connection.</li>
+<li>Configure the following information, and choose Create Peering Connection when you are done:</li>
+<li>Peering connection name tag: You can optionally name your VPC peering connection.</li>
+<li>VPC (Requester): Select the VPC in your account with which you want to create the VPC peering connection -&gt; <em>10.100.0.0/16</em></li>
+<li>Under Select another VPC to peer with: Ensure My account is selected, and select another of your VPCs -&gt; <em>10.200.0.0/16</em></li>
+<li>In the confirmation dialog box, choose OK.</li>
+<li>Select the VPC peering connection that you&rsquo;ve created, and choose Actions, Accept Request.</li>
+<li>In the confirmation dialog, choose Yes, Accept. A second confirmation dialog displays; choose Modify my route tables now to go directly to the route tables page, or choose Close to do this later.</li>
+</ul>
+<p>Note
+If you cannot see the pending VPC peering connection, check the region. An inter-region peering request must be accepted in the region of the accepter VPC.
+In the confirmation dialog box, choose Yes, Accept. A second confirmation dialog displays; choose Modify my route tables now to go directly to the route tables page, or choose Close to do this later.</p>
+<p>Now we have to update the route tables to express the peering connection.</p>
+<p>Add a Route in Private subnet of VPC 1 to connect to Private subnet in the VPC 2.</p>
+<ul>
+<li>In the VPC Services tab, click on <em>Route Tables</em>. Select the Route Table that is associated with the private subnet of the VPC 1.</li>
+</ul>
+<ul>
+<li>on the panel at the bottom, click on <em>Routes</em> then <em>Edit routes</em>
+<ul>
+<li>Click <em>Add route</em>, set the following:
+<ul>
+<li>Destination: 10.200.1.0/24</li>
+<li>Target: pcx-xxxxxxxx (select the peering coonnection you have just established)</li>
+</ul>
+</li>
+<li>Save the changes</li>
+</ul>
+</li>
+</ul>
+<p>Now you&rsquo;ll have to do the same for the second VPC.</p>
+<p>Select the Route Table that is associated with the private subnet of the VPC 2.</p>
+<ul>
+<li>on the panel at the bottom, click on <em>Routes</em> then <em>Edit routes</em>
+<ul>
+<li>Click <em>Add route</em>, set the following:
+<ul>
+<li>Destination: 10.100.1.0/24</li>
+<li>Target: pcx-xxxxxxxx (select the peering coonnection you have just established)</li>
+</ul>
+</li>
+<li>Save the changes</li>
+</ul>
+</li>
+</ul>
+<p>Now the architecture is set up. You can try ssh to the instances and try to ping them.</p>
+<p><strong>Test public connectivity to your public instance:</strong></p>
+<ul>
+<li>open the .pem key you have downloaded earlier in the text editor and copy everything that is inside of the file.</li>
+<li>Open a terminal window, ssh in to the Ec2 instance in the Private subnet of the VPC 1.</li>
+<li>then ssh into the private instance in the same VPC 1. We need to add an ssh key to connect. We will need a security key to connect to the instance. Let&rsquo;s create it. In the console type:</li>
+<li>vim <em>nameofthepublickeyfortheinstance.pem</em></li>
+<li>paste there the content of the .pem file you have downloaded</li>
+<li>quit vim with ESC, :, wq</li>
+<li>chmod 400 <em>nameofthepublickeyfortheinstance.pem</em></li>
+<li>Connect to the instance in the private subnet of the VPC 1.</li>
+<li>ssh -i  <em>nameofthepublickeyfortheinstance.pem</em> ec2-user@privateIPof the instance</li>
+<li><em>ping</em> the private IP address of your instance  in the VPC 2 ( <em>ping X.X.X.X</em> )</li>
+</ul>
+<p>Well done! Good job!</p>
 
 
 <footer class=" footline" >
@@ -977,74 +1238,6 @@ One advantage, depending on the context, of a network load balancer is that it i
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
                 
                 
 
@@ -1088,10 +1281,78 @@ One advantage, depending on the context, of a network load balancer is that it i
             
         
                     
+            
+        
+                    
                         
             
             
                 
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -1180,10 +1441,10 @@ One advantage, depending on the context, of a network load balancer is that it i
 	 
 	 
 		
-			<a class="nav nav-prev" href="../day-2-aws-networking-basics/security.html" title="Security in a VPC"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../day-3-aws-advanced-networking/vpc-peering.html" title="VPC Peering"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../day-2-aws-networking-basics/route53.html" title="Route53" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../day-3-aws-advanced-networking/transit-gateway.html" title="Transit Gateway" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

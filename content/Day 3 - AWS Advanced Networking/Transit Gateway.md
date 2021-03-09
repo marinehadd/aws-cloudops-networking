@@ -1,7 +1,7 @@
 ---
 title: "Transit Gateway"
 draft: false
-weight: 65
+weight: 70
 pre: 
 ---
 

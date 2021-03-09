@@ -29,6 +29,18 @@ A VPC peering connection is a networking connection between two VPCs that allows
     </item>
     
     <item>
+      <title>VPC Peering LAB</title>
+      <link>/day-3-aws-advanced-networking/lab.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/day-3-aws-advanced-networking/lab.html</guid>
+      <description>In this lab, you will create a VPC Peering connection between 2 VPCs and allow their resources to communicate across.
+For that, you will need to launch 2 VPCs and a VPC peering connection, and to launch EC2 instances in each VPC with private connectivity between 2 instances.
+Create a VPC 1:
+ Login to your AWS account Go to VPC Services and on the left panel, click on Your VPCs Click on Create VPC and give it a name (i.</description>
+    </item>
+    
+    <item>
       <title>Transit Gateway</title>
       <link>/day-3-aws-advanced-networking/transit-gateway.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

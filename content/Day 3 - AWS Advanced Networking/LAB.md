@@ -1,5 +1,13 @@
-Create 2 VPCs and Setup VPC peering between VPCs.
-Launch EC2 instances in each VPC and setup private connectivity between 2 instances.
+---
+title: "VPC Peering LAB"
+draft: false
+weight: 65
+pre: 
+---
+
+In this lab, you will create a VPC Peering connection between 2 VPCs and allow their resources to communicate across.
+
+For that, you will need to launch 2 VPCs and a VPC peering connection, and to launch EC2 instances in each VPC with private connectivity between 2 instances.
 
 <img src='../images/peering.png' width='600px'>
 
@@ -26,7 +34,7 @@ Now, your subnet is setup but can only communicate within the VPC by default.
 - Go to VPC Services and on the left panel, click on *Subnets*
 - Click on *Create Subnet*
     + choose your VPC from the list
-    + give it a name (PrivateSub1-1)
+    + give it a name (PrivateSub-1)
     + choose one of the Availability Zones
     + Use the first /24 of your VPC CIDR (i.e. 10.100.1.0/24)
     + Click *Create Subnet*
@@ -47,7 +55,7 @@ Now, your subnet is setup but can only communicate within the VPC by default.
 
 Now, you have a public route table that will be used to route all external (such as Internet) traffic to and from your public subnet. However, we still don't know how to go to the Internet as we have no exit door yet.
 
-**Create a IG 1:**
+**Create an Internet Gateway:**
 
 - In the VPC Services tab, click on *Internet Gateways*
 - Click on *Create Internet Gateway*
@@ -64,7 +72,7 @@ Now, your Internet Gateway belongs to your VPC environment, so we can set it up 
     + on the panel at the bottom, click on *Routes* then *Edit routes*
     + Click *Add route*, set the following:
         * Destination: 0.0.0.0/0   (0/0 means everywhere, it is not restricted to a specific network)
-        * Target: Select Internet Gateway 1 from the drop-down and click on your IGW-XXXX
+        * Target: Select Internet Gateway 1 from the drop-down
     + Save the changes
 
 **Create a private route table:**
@@ -91,8 +99,9 @@ Now, your Internet Gateway belongs to your VPC environment, so we can set it up 
         * Leave the rest as default and go to the next page
     + Leave Storage as default and go to the next page
     + In Tags, create a tag with *Key* : Name and *Value* : PrivateEC2-1"
-    + In the security group name the sg as *SG-Private-1* and change the source to 10.100.0.0/24. As we only want to ssh to it from our public instances in our public subnet.
+    + In the security group name the sg as *SG-Private-1* and for SSH rule, change the source to 10.100.0.0/24. As we only want to ssh to it from our public instances in our public subnet.
     + In the Review and Launch page, click *Launch* and select your KP that you created and stored locally during the Linux course
+       ***If you deleted your key pair, just create a new one and download it.***
 
 **Create a public instance 1:**
 
@@ -106,11 +115,11 @@ Now, your Internet Gateway belongs to your VPC environment, so we can set it up 
         * Leave the rest as default and go to the next page
     + Leave Storage as default and go to the next page
     + In Tags, create a tag with *Key* : Name and *Value* : PublicEC2-1"
-    + In the security groups change the source to MyIP
-    + In the Review and Launch page, click *Launch* and select your KP that you created and stored locally during the Linux course
+    + In the security group name the sg as *SG-Public-1* and for SSH rule, change the source to MyIP
+    + In the Review and Launch page, click *Launch* and select the same KP as for the private instance
 
 
-Now, you have to copy those steps to create the same environment in the second VPC.
+Now, you have to copy those steps to create the same environment in the second VPC, with the exception of the public instance because we will use the public instance in VPC-1 to login to the private instances of both VPC-1 and VPC-2.
 
 
 
@@ -120,7 +129,7 @@ Now, you have to copy those steps to create the same environment in the second V
 - Click on *Create VPC* and give it a name (i.e. VPC-"2") and a /16 CIDR block (i.e. 10.200.0.0/16), then leave the rest as default and click *Create VPC*
 - Go back to the *Your VPCs* tab and check that your VPC has been created
 
-**Create a second private subnet:**
+**Create a private subnet:**
 
 - Go to VPC Services and on the left panel, click on *Subnets*
 - Click on *Create Subnet*
@@ -154,25 +163,26 @@ Now, you have to copy those steps to create the same environment in the second V
         * Leave the rest as default and go to the next page
     + Leave Storage as default and go to the next page
     + In Tags, create a tag with *Key* : Name and *Value* : PrivateEC2-2"
-    + In the security group part add one port for ssh and another for ping. The security group from our second VPC should allow instances in th private subnet of VPC 1 to ssh and ping from it.
-    + Change source in the SSH type of the connection to *10.100.1.0/24* and add another route for *ALL ICMP IPv4*, set the source to *10.100.1.0/24*.
-    + In the Review and Launch page, click *Launch* and select your KP that you created and stored locally during the Linux course
+    + In the security group part add one port for ssh and another for ping, as below:
+     **The security group of our second VPC should allow instances in the private subnet of VPC 1 to ssh and ping from it.**
+    - Change source in the SSH rule to *10.100.1.0/24* and add another route for *ALL ICMP IPv4*, set the source to *10.100.1.0/24*.
+    + In the Review and Launch page, click *Launch* and select the same KP as for previous instances
 
 **Create a peering connection:**
 
-- Open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
+- In the VPC Services tab:
  + In the navigation pane, choose Peering Connections, Create Peering Connection.
  + Configure the following information, and choose Create Peering Connection when you are done:
  + Peering connection name tag: You can optionally name your VPC peering connection.
- + VPC (Requester): Select the VPC in your account with which you want to create the VPC peering connection -> *10.100.0.0/16*
- + Under Select another VPC to peer with: Ensure My account is selected, and select another of your VPCs -> *10.200.0.0/16*
+ + VPC (Requester): Select the VPC in your account with which you want to create the VPC peering connection -> *10.100.0.0/16* (VPC-1)
+ + Under Select another VPC to peer with: Ensure My account is selected, and select another of your VPCs -> *10.200.0.0/16* (VPC-2)
  + In the confirmation dialog box, choose OK.
  + Select the VPC peering connection that you've created, and choose Actions, Accept Request.
- + In the confirmation dialog, choose Yes, Accept. A second confirmation dialog displays; choose Modify my route tables now to go directly to the route tables page, or choose Close to do this later.
+ + In the confirmation dialog, choose Yes, Accept. A second confirmation dialog displays; choose Modify my route tables now to go directly to the route tables page, or choose Close and go to Route Tables.
 
 Note
 If you cannot see the pending VPC peering connection, check the region. An inter-region peering request must be accepted in the region of the accepter VPC.
-In the confirmation dialog box, choose Yes, Accept. A second confirmation dialog displays; choose Modify my route tables now to go directly to the route tables page, or choose Close to do this later.
+In the confirmation dialog box, choose Yes, Accept. A second confirmation dialog displays; choose Modify my route tables now to go directly to the route tables page, or choose Close and go to Route Tables.
 
 Now we have to update the route tables to express the peering connection.
 
