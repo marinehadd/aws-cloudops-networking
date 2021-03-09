@@ -1,6 +1,8 @@
 Create 2 VPCs and Setup VPC peering between VPCs.
 Launch EC2 instances in each VPC and setup private connectivity between 2 instances.
 
+<img src='../images/peering.png' width='600px'>
+
 **Create a VPC 1:**
 - Login to your AWS account
 - Go to VPC Services and on the left panel, click on *Your VPCs*
@@ -195,7 +197,7 @@ Select the Route Table that is associated with the private subnet of the VPC 2.
 Now the architecture is set up. You can try ssh to the instances and try to ping them.
 
 **Test public connectivity to your public instance:**
-- Open a terminal window, log in to the Ec2 instance in the Private subnet of the VPC 1.
+- Open a terminal window, ssh in to the Ec2 instance in the Private subnet of the VPC 1.
 - *ping* the private IP address of your instance  in the VPC 2 ( *ping X.X.X.X* )
 
 
