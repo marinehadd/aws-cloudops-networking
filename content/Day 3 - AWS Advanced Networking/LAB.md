@@ -7,7 +7,7 @@ pre:
 
 In this lab, you will create a VPC Peering connection between 2 VPCs and allow their resources to communicate across.
 
-For that, you will need to launch 2 VPCs and a VPC peering connection, and to launch EC2 instances in each VPC with private connectivity between 2 instances.
+For that, you will need to launch 2 VPCs and a VPC peering connection, and to launch EC2 instances in each VPC with private connectivity between instances.
 
 <img src='../images/peering.png' width='600px'>
 
@@ -99,7 +99,7 @@ Now, your Internet Gateway belongs to your VPC environment, so we can set it up 
         * Leave the rest as default and go to the next page
     + Leave Storage as default and go to the next page
     + In Tags, create a tag with *Key* : Name and *Value* : PrivateEC2-1"
-    + In the security group name the sg as *SG-Private-1* and for SSH rule, change the source to 10.100.0.0/24. As we only want to ssh to it from our public instances in our public subnet.
+    + In the security group name the sg as *SG-Private-1* and for SSH rule, change the source to 10.100.0.0/24 (As we would only want to ssh to it from our public instances in our public subnet) and add a new rule for *ALL ICMP IPv4* and set the source to 10.100.0.0/16.
     + In the Review and Launch page, click *Launch* and select your KP that you created and stored locally during the Linux course
        ***If you deleted your key pair, just create a new one and download it.***
 
@@ -115,11 +115,11 @@ Now, your Internet Gateway belongs to your VPC environment, so we can set it up 
         * Leave the rest as default and go to the next page
     + Leave Storage as default and go to the next page
     + In Tags, create a tag with *Key* : Name and *Value* : PublicEC2-1"
-    + In the security group name the sg as *SG-Public-1* and for SSH rule, change the source to MyIP
+    + In the security group name the sg as *SG-Public-1* and for SSH rule, change the source to MyIP.
     + In the Review and Launch page, click *Launch* and select the same KP as for the private instance
 
 
-Now, you have to copy those steps to create the same environment in the second VPC, with the exception of the public instance because we will use the public instance in VPC-1 to login to the private instances of both VPC-1 and VPC-2.
+Now, you have to copy those steps to create the same environment in the second VPC, with the exception of the public instance because we will use the public instance in VPC-1 to login to the private instances of both VPC-1 and VPC-2, so a single public instance across 2 VPCs is enough in this context.
 
 
 
@@ -164,8 +164,8 @@ Now, you have to copy those steps to create the same environment in the second V
     + Leave Storage as default and go to the next page
     + In Tags, create a tag with *Key* : Name and *Value* : PrivateEC2-2"
     + In the security group part add one port for ssh and another for ping, as below:
-     **The security group of our second VPC should allow instances in the private subnet of VPC 1 to ssh and ping from it.**
-    - Change source in the SSH rule to *10.100.1.0/24* and add another route for *ALL ICMP IPv4*, set the source to *10.100.1.0/24*.
+     **The security group of our second VPC should allow instances in VPC-1 to ping instances in VPC-2.**
+    - Change source in the SSH rule to *10.100.0.0/16* and add another route for *ALL ICMP IPv4*, set the source to *10.100.0.0/16*.
     + In the Review and Launch page, click *Launch* and select the same KP as for previous instances
 
 **Create a peering connection:**
@@ -186,6 +186,15 @@ In the confirmation dialog box, choose Yes, Accept. A second confirmation dialog
 
 Now we have to update the route tables to express the peering connection.
 
+Add a Route in Public subnet of VPC 1 to connect to Private subnet in the VPC 2.
+
+- In the VPC Services tab, click on *Route Tables*. Select the Route Table that is associated with the public subnet of the VPC 1.
++ on the panel at the bottom, click on *Routes* then *Edit routes*
+    + Click *Add route*, set the following:
+        * Destination: 10.200.1.0/24
+        * Target: pcx-xxxxxxxx (select the peering coonnection you have just established)
+    + Save the changes
+
 Add a Route in Private subnet of VPC 1 to connect to Private subnet in the VPC 2.
 
 - In the VPC Services tab, click on *Route Tables*. Select the Route Table that is associated with the private subnet of the VPC 1.
@@ -200,23 +209,43 @@ Now you'll have to do the same for the second VPC.
 Select the Route Table that is associated with the private subnet of the VPC 2.
 + on the panel at the bottom, click on *Routes* then *Edit routes*
     + Click *Add route*, set the following:
-        * Destination: 10.100.1.0/24
+        * Destination: 10.100.0.0/16  **(We are using the whole /16 because we want to include both private and public /24 subnets)**
         * Target: pcx-xxxxxxxx (select the peering coonnection you have just established)
     + Save the changes
 
 Now the architecture is set up. You can try ssh to the instances and try to ping them.
 
 **Test public connectivity to your public instance:**
-- open the .pem key you have downloaded earlier in the text editor and copy everything that is inside of the file.
-- Open a terminal window, ssh in to the Ec2 instance in the Private subnet of the VPC 1.
-- then ssh into the private instance in the same VPC 1. We need to add an ssh key to connect. We will need a security key to connect to the instance. Let's create it. In the console type:
-- vim *nameofthepublickeyfortheinstance.pem*
-- paste there the content of the .pem file you have downloaded
-- quit vim with ESC, :, wq
-- chmod 400 *nameofthepublickeyfortheinstance.pem*
-- Connect to the instance in the private subnet of the VPC 1.
-- ssh -i  *nameofthepublickeyfortheinstance.pem* ec2-user@privateIPof the instance
-- *ping* the private IP address of your instance  in the VPC 2 ( *ping X.X.X.X* )
 
 
-Well done! Good job!
+
+Look for the private IP address of the private instance in VPC-1 (In EC2 Services, check the bottom panel details of your instance), and write it down somewhere.
+Look for the private IP address of the private instance in VPC-2 (In EC2 Services, check the bottom panel details of your instance), and write it down somewhere.
+
+Now, copy the public IP of your public instance, login to it with SSH and run the below connectivity tests.
+
+**Connectivity to the local (VPC-1) private instance by replace X.X.X.X with its IP:**
+
+```commandline
+ping X.X.X.X
+```
+
+**Connectivity to the VPC-2 private instance by replace X.X.X.X with its IP:**
+
+```commandline
+ping X.X.X.X
+```
+
+They should both ping! If not, it probably means that the problem is either in the SecurityGroups not allowing ICMP traffic, or that your route tables are not properly configured.
+
+Otherwise, well done! Good job!
+
+**Bonus Step**
+
+You can use the public instance to jump into both private instances of VPC-1 and VPC-2 using SSH, given we can't access it publicly. In this case, we call this public instance a Bastion instance, it acts like a jump box.
+
+If you manage to SSH to both instances, it proves your SSH communication across VPCs.
+
+In order to jump into the private instances from the public instance, all the steps are detailed in this AWS page (both for MAC and Windows): https://aws.amazon.com/blogs/security/securely-connect-to-linux-instances-running-in-a-private-amazon-vpc/
+
+
