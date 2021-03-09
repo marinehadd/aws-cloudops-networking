@@ -57,17 +57,6 @@ Elastic Load Balancing automatically adjusts to incoming traffic and network cha
     </item>
     
     <item>
-      <title>Route53</title>
-      <link>/day-2-aws-networking-basics/route53.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/day-2-aws-networking-basics/route53.html</guid>
-      <description>Amazon Route 53 is a Domain Name System (DNS) web service. Route 53 provides three main functions:
-  Domain registration: Route 53 allows you to register a domain name for your website, such as example.com. This domain name can be used by the users to access your website.
-  DNS service: an EC2 instance has an IP address assigned to it (i.e. 10.0.0.42). In order to connect to it, you would need to remember the whole IP address.</description>
-    </item>
-    
-    <item>
       <title>ELB LAB</title>
       <link>/day-2-aws-networking-basics/lab.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -76,6 +65,17 @@ Elastic Load Balancing automatically adjusts to incoming traffic and network cha
       <description>In this lab, you will setup a VPC infrastructure with 4 subnets (2 private for the private servers, 2 public for the load balancer), 2 web servers and an Elastic Load Balancer to balance the web traffic between both servers.
 Infrastructure setup: Create a VPC:
  Login to your AWS account Go to VPC Services and on the left panel, click on Your VPCs Click on Create VPC and give it a name (i.</description>
+    </item>
+    
+    <item>
+      <title>Route53</title>
+      <link>/day-2-aws-networking-basics/route53.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/day-2-aws-networking-basics/route53.html</guid>
+      <description>Amazon Route 53 is a Domain Name System (DNS) web service. Route 53 provides three main functions:
+  Domain registration: Route 53 allows you to register a domain name for your website, such as example.com. This domain name can be used by the users to access your website.
+  DNS service: an EC2 instance has an IP address assigned to it (i.e. 10.0.0.42). In order to connect to it, you would need to remember the whole IP address.</description>
     </item>
     
   </channel>

@@ -217,23 +217,21 @@ Now the architecture is set up. You can try ssh to the instances and try to ping
 
 **Test public connectivity to your public instance:**
 
-
-
 Look for the private IP address of the private instance in VPC-1 (In EC2 Services, check the bottom panel details of your instance), and write it down somewhere.
 Look for the private IP address of the private instance in VPC-2 (In EC2 Services, check the bottom panel details of your instance), and write it down somewhere.
 
 Now, copy the public IP of your public instance, login to it with SSH and run the below connectivity tests.
 
-**Connectivity to the local (VPC-1) private instance by replace X.X.X.X with its IP:**
+**Connectivity to the local (VPC-1) private instance by replacing X.X.X.X with its IP:**
 
 ```commandline
 ping X.X.X.X
 ```
 
-**Connectivity to the VPC-2 private instance by replace X.X.X.X with its IP:**
+**Connectivity to the VPC-2 private instance by replacing Y.Y.Y.Y with its IP:**
 
 ```commandline
-ping X.X.X.X
+ping Y.Y.Y.Y
 ```
 
 They should both ping! If not, it probably means that the problem is either in the SecurityGroups not allowing ICMP traffic, or that your route tables are not properly configured.

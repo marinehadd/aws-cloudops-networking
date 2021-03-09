@@ -51,15 +51,11 @@
   </url>
   
   <url>
-    <loc>/day-1-networking-foundations.html</loc>
-  </url>
-  
-  <url>
-    <loc>/day-2-aws-networking-basics/route53.html</loc>
-  </url>
-  
-  <url>
     <loc>/day-2-aws-networking-basics/lab.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-1-networking-foundations.html</loc>
   </url>
   
   <url>
@@ -68,6 +64,10 @@
   
   <url>
     <loc>/day-3-aws-advanced-networking/hybrid-cloud.html</loc>
+  </url>
+  
+  <url>
+    <loc>/day-2-aws-networking-basics/route53.html</loc>
   </url>
   
   <url>

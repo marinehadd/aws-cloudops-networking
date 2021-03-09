@@ -17,21 +17,21 @@
     <title>VPC Peering LAB :: Amazon CloudOps Networking Workshop</title>
 
     
-    <link href="../css/nucleus.css?1615284344" rel="stylesheet">
-    <link href="../css/all.css?1615284344" rel="stylesheet">
-    <link href="../css/hybrid.css?1615284344" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1615284344" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1615284344" rel="stylesheet">
-    <link href="../css/auto-complete.css?1615284344" rel="stylesheet">
-    <link href="../css/theme.css?1615284344" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1615284344" rel="stylesheet">
-    <link href="../css/jquery-ui.min.css?1615284344" rel="stylesheet">
+    <link href="../css/nucleus.css?1615291091" rel="stylesheet">
+    <link href="../css/all.css?1615291091" rel="stylesheet">
+    <link href="../css/hybrid.css?1615291091" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1615291091" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1615291091" rel="stylesheet">
+    <link href="../css/auto-complete.css?1615291091" rel="stylesheet">
+    <link href="../css/theme.css?1615291091" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1615291091" rel="stylesheet">
+    <link href="../css/jquery-ui.min.css?1615291091" rel="stylesheet">
     
-      <link href="../css/theme-mine.css?1615284344" rel="stylesheet">
+      <link href="../css/theme-mine.css?1615291091" rel="stylesheet">
     
 
-    <script src="../js/jquery-3.3.1.min.js?1615284344"></script>
-    <script src="../js/jquery-ui-1.12.1.min.js?1615284344"></script>
+    <script src="../js/jquery-3.3.1.min.js?1615291091"></script>
+    <script src="../js/jquery-ui-1.12.1.min.js?1615291091"></script>
 
 
     <style type="text/css">
@@ -63,14 +63,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1615284344"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1615284344"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1615291091"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1615291091"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1615284344"></script>
+<script type="text/javascript" src="../js/search.js?1615291091"></script>
 
     
   </div>
@@ -374,9 +374,9 @@
  
   
     
-      <li data-nav-id="/day-2-aws-networking-basics/route53.html" title="Route53" class="dd-item ">
-        <a href="../day-2-aws-networking-basics/route53.html">
-        Route53
+      <li data-nav-id="/day-2-aws-networking-basics/lab.html" title="ELB LAB" class="dd-item ">
+        <a href="../day-2-aws-networking-basics/lab.html">
+        ELB LAB
         
         </a>
     </li>
@@ -393,9 +393,9 @@
  
   
     
-      <li data-nav-id="/day-2-aws-networking-basics/lab.html" title="ELB LAB" class="dd-item ">
-        <a href="../day-2-aws-networking-basics/lab.html">
-        ELB LAB
+      <li data-nav-id="/day-2-aws-networking-basics/route53.html" title="Route53" class="dd-item ">
+        <a href="../day-2-aws-networking-basics/route53.html">
+        Route53
         
         </a>
     </li>
@@ -718,7 +718,7 @@
 
 
 <p>In this lab, you will create a VPC Peering connection between 2 VPCs and allow their resources to communicate across.</p>
-<p>For that, you will need to launch 2 VPCs and a VPC peering connection, and to launch EC2 instances in each VPC with private connectivity between 2 instances.</p>
+<p>For that, you will need to launch 2 VPCs and a VPC peering connection, and to launch EC2 instances in each VPC with private connectivity between instances.</p>
 <img src='../images/peering.png' width='600px'>
 <p><strong>Create a VPC 1:</strong></p>
 <ul>
@@ -747,7 +747,7 @@
 <li>Click on <em>Create Subnet</em>
 <ul>
 <li>choose your VPC from the list</li>
-<li>give it a name (PrivateSub1-1)</li>
+<li>give it a name (PrivateSub-1)</li>
 <li>choose one of the Availability Zones</li>
 <li>Use the first /24 of your VPC CIDR (i.e. 10.100.1.0/24)</li>
 <li>Click <em>Create Subnet</em></li>
@@ -774,7 +774,7 @@
 </li>
 </ul>
 <p>Now, you have a public route table that will be used to route all external (such as Internet) traffic to and from your public subnet. However, we still don&rsquo;t know how to go to the Internet as we have no exit door yet.</p>
-<p><strong>Create a IG 1:</strong></p>
+<p><strong>Create an Internet Gateway:</strong></p>
 <ul>
 <li>In the VPC Services tab, click on <em>Internet Gateways</em></li>
 <li>Click on <em>Create Internet Gateway</em>
@@ -799,7 +799,7 @@
 <li>Click <em>Add route</em>, set the following:
 <ul>
 <li>Destination: 0.0.0.0/0   (0/0 means everywhere, it is not restricted to a specific network)</li>
-<li>Target: Select Internet Gateway 1 from the drop-down and click on your IGW-XXXX</li>
+<li>Target: Select Internet Gateway 1 from the drop-down</li>
 </ul>
 </li>
 <li>Save the changes</li>
@@ -840,8 +840,9 @@
 </li>
 <li>Leave Storage as default and go to the next page</li>
 <li>In Tags, create a tag with <em>Key</em> : Name and <em>Value</em> : PrivateEC2-1&quot;</li>
-<li>In the security group name the sg as <em>SG-Private-1</em> and change the source to 10.100.0.0/24. As we only want to ssh to it from our public instances in our public subnet.</li>
-<li>In the Review and Launch page, click <em>Launch</em> and select your KP that you created and stored locally during the Linux course</li>
+<li>In the security group name the sg as <em>SG-Private-1</em> and for SSH rule, change the source to 10.100.0.0/24 (As we would only want to ssh to it from our public instances in our public subnet) and add a new rule for <em>ALL ICMP IPv4</em> and set the source to 10.100.0.0/16.</li>
+<li>In the Review and Launch page, click <em>Launch</em> and select your KP that you created and stored locally during the Linux course
+<em><strong>If you deleted your key pair, just create a new one and download it.</strong></em></li>
 </ul>
 </li>
 </ul>
@@ -861,12 +862,12 @@
 </li>
 <li>Leave Storage as default and go to the next page</li>
 <li>In Tags, create a tag with <em>Key</em> : Name and <em>Value</em> : PublicEC2-1&quot;</li>
-<li>In the security groups change the source to MyIP</li>
-<li>In the Review and Launch page, click <em>Launch</em> and select your KP that you created and stored locally during the Linux course</li>
+<li>In the security group name the sg as <em>SG-Public-1</em> and for SSH rule, change the source to MyIP.</li>
+<li>In the Review and Launch page, click <em>Launch</em> and select the same KP as for the private instance</li>
 </ul>
 </li>
 </ul>
-<p>Now, you have to copy those steps to create the same environment in the second VPC.</p>
+<p>Now, you have to copy those steps to create the same environment in the second VPC, with the exception of the public instance because we will use the public instance in VPC-1 to login to the private instances of both VPC-1 and VPC-2, so a single public instance across 2 VPCs is enough in this context.</p>
 <p><strong>Create a second VPC:</strong></p>
 <ul>
 <li>Login to your AWS account</li>
@@ -874,7 +875,7 @@
 <li>Click on <em>Create VPC</em> and give it a name (i.e. VPC-&ldquo;2&rdquo;) and a /16 CIDR block (i.e. 10.200.0.0/16), then leave the rest as default and click <em>Create VPC</em></li>
 <li>Go back to the <em>Your VPCs</em> tab and check that your VPC has been created</li>
 </ul>
-<p><strong>Create a second private subnet:</strong></p>
+<p><strong>Create a private subnet:</strong></p>
 <ul>
 <li>Go to VPC Services and on the left panel, click on <em>Subnets</em></li>
 <li>Click on <em>Create Subnet</em>
@@ -921,30 +922,52 @@
 </li>
 <li>Leave Storage as default and go to the next page</li>
 <li>In Tags, create a tag with <em>Key</em> : Name and <em>Value</em> : PrivateEC2-2&quot;</li>
-<li>In the security group part add one port for ssh and another for ping. The security group from our second VPC should allow instances in th private subnet of VPC 1 to ssh and ping from it.</li>
-<li>Change source in the SSH type of the connection to <em>10.100.1.0/24</em> and add another route for <em>ALL ICMP IPv4</em>, set the source to <em>10.100.1.0/24</em>.</li>
-<li>In the Review and Launch page, click <em>Launch</em> and select your KP that you created and stored locally during the Linux course</li>
+<li>In the security group part add one port for ssh and another for ping, as below:
+<strong>The security group of our second VPC should allow instances in VPC-1 to ping instances in VPC-2.</strong></li>
+</ul>
+<ul>
+<li>Change source in the SSH rule to <em>10.100.0.0/16</em> and add another route for <em>ALL ICMP IPv4</em>, set the source to <em>10.100.0.0/16</em>.</li>
+</ul>
+<ul>
+<li>In the Review and Launch page, click <em>Launch</em> and select the same KP as for previous instances</li>
 </ul>
 </li>
 </ul>
 <p><strong>Create a peering connection:</strong></p>
 <ul>
-<li>Open the Amazon VPC console at <a href="https://console.aws.amazon.com/vpc/">https://console.aws.amazon.com/vpc/</a>.</li>
+<li>In the VPC Services tab:</li>
 </ul>
 <ul>
 <li>In the navigation pane, choose Peering Connections, Create Peering Connection.</li>
 <li>Configure the following information, and choose Create Peering Connection when you are done:</li>
 <li>Peering connection name tag: You can optionally name your VPC peering connection.</li>
-<li>VPC (Requester): Select the VPC in your account with which you want to create the VPC peering connection -&gt; <em>10.100.0.0/16</em></li>
-<li>Under Select another VPC to peer with: Ensure My account is selected, and select another of your VPCs -&gt; <em>10.200.0.0/16</em></li>
+<li>VPC (Requester): Select the VPC in your account with which you want to create the VPC peering connection -&gt; <em>10.100.0.0/16</em> (VPC-1)</li>
+<li>Under Select another VPC to peer with: Ensure My account is selected, and select another of your VPCs -&gt; <em>10.200.0.0/16</em> (VPC-2)</li>
 <li>In the confirmation dialog box, choose OK.</li>
 <li>Select the VPC peering connection that you&rsquo;ve created, and choose Actions, Accept Request.</li>
-<li>In the confirmation dialog, choose Yes, Accept. A second confirmation dialog displays; choose Modify my route tables now to go directly to the route tables page, or choose Close to do this later.</li>
+<li>In the confirmation dialog, choose Yes, Accept. A second confirmation dialog displays; choose Modify my route tables now to go directly to the route tables page, or choose Close and go to Route Tables.</li>
 </ul>
 <p>Note
 If you cannot see the pending VPC peering connection, check the region. An inter-region peering request must be accepted in the region of the accepter VPC.
-In the confirmation dialog box, choose Yes, Accept. A second confirmation dialog displays; choose Modify my route tables now to go directly to the route tables page, or choose Close to do this later.</p>
+In the confirmation dialog box, choose Yes, Accept. A second confirmation dialog displays; choose Modify my route tables now to go directly to the route tables page, or choose Close and go to Route Tables.</p>
 <p>Now we have to update the route tables to express the peering connection.</p>
+<p>Add a Route in Public subnet of VPC 1 to connect to Private subnet in the VPC 2.</p>
+<ul>
+<li>In the VPC Services tab, click on <em>Route Tables</em>. Select the Route Table that is associated with the public subnet of the VPC 1.</li>
+</ul>
+<ul>
+<li>on the panel at the bottom, click on <em>Routes</em> then <em>Edit routes</em>
+<ul>
+<li>Click <em>Add route</em>, set the following:
+<ul>
+<li>Destination: 10.200.1.0/24</li>
+<li>Target: pcx-xxxxxxxx (select the peering coonnection you have just established)</li>
+</ul>
+</li>
+<li>Save the changes</li>
+</ul>
+</li>
+</ul>
 <p>Add a Route in Private subnet of VPC 1 to connect to Private subnet in the VPC 2.</p>
 <ul>
 <li>In the VPC Services tab, click on <em>Route Tables</em>. Select the Route Table that is associated with the private subnet of the VPC 1.</li>
@@ -969,7 +992,7 @@ In the confirmation dialog box, choose Yes, Accept. A second confirmation dialog
 <ul>
 <li>Click <em>Add route</em>, set the following:
 <ul>
-<li>Destination: 10.100.1.0/24</li>
+<li>Destination: 10.100.0.0/16  <strong>(We are using the whole /16 because we want to include both private and public /24 subnets)</strong></li>
 <li>Target: pcx-xxxxxxxx (select the peering coonnection you have just established)</li>
 </ul>
 </li>
@@ -979,19 +1002,19 @@ In the confirmation dialog box, choose Yes, Accept. A second confirmation dialog
 </ul>
 <p>Now the architecture is set up. You can try ssh to the instances and try to ping them.</p>
 <p><strong>Test public connectivity to your public instance:</strong></p>
-<ul>
-<li>open the .pem key you have downloaded earlier in the text editor and copy everything that is inside of the file.</li>
-<li>Open a terminal window, ssh in to the Ec2 instance in the Private subnet of the VPC 1.</li>
-<li>then ssh into the private instance in the same VPC 1. We need to add an ssh key to connect. We will need a security key to connect to the instance. Let&rsquo;s create it. In the console type:</li>
-<li>vim <em>nameofthepublickeyfortheinstance.pem</em></li>
-<li>paste there the content of the .pem file you have downloaded</li>
-<li>quit vim with ESC, :, wq</li>
-<li>chmod 400 <em>nameofthepublickeyfortheinstance.pem</em></li>
-<li>Connect to the instance in the private subnet of the VPC 1.</li>
-<li>ssh -i  <em>nameofthepublickeyfortheinstance.pem</em> ec2-user@privateIPof the instance</li>
-<li><em>ping</em> the private IP address of your instance  in the VPC 2 ( <em>ping X.X.X.X</em> )</li>
-</ul>
-<p>Well done! Good job!</p>
+<p>Look for the private IP address of the private instance in VPC-1 (In EC2 Services, check the bottom panel details of your instance), and write it down somewhere.
+Look for the private IP address of the private instance in VPC-2 (In EC2 Services, check the bottom panel details of your instance), and write it down somewhere.</p>
+<p>Now, copy the public IP of your public instance, login to it with SSH and run the below connectivity tests.</p>
+<p><strong>Connectivity to the local (VPC-1) private instance by replacing X.X.X.X with its IP:</strong></p>
+<pre><code class="language-commandline" data-lang="commandline">ping X.X.X.X
+</code></pre><p><strong>Connectivity to the VPC-2 private instance by replacing Y.Y.Y.Y with its IP:</strong></p>
+<pre><code class="language-commandline" data-lang="commandline">ping Y.Y.Y.Y
+</code></pre><p>They should both ping! If not, it probably means that the problem is either in the SecurityGroups not allowing ICMP traffic, or that your route tables are not properly configured.</p>
+<p>Otherwise, well done! Good job!</p>
+<p><strong>Bonus Step</strong></p>
+<p>You can use the public instance to jump into both private instances of VPC-1 and VPC-2 using SSH, given we can&rsquo;t access it publicly. In this case, we call this public instance a Bastion instance, it acts like a jump box.</p>
+<p>If you manage to SSH to both instances, it proves your SSH communication across VPCs.</p>
+<p>In order to jump into the private instances from the public instance, all the steps are detailed in this AWS page (both for MAC and Windows): <a href="https://aws.amazon.com/blogs/security/securely-connect-to-linux-instances-running-in-a-private-amazon-vpc/">https://aws.amazon.com/blogs/security/securely-connect-to-linux-instances-running-in-a-private-amazon-vpc/</a></p>
 
 
 <footer class=" footline" >
@@ -1454,19 +1477,19 @@ In the confirmation dialog box, choose Yes, Accept. A second confirmation dialog
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1615284344"></script>
-    <script src="../js/perfect-scrollbar.min.js?1615284344"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1615284344"></script>
-    <script src="../js/jquery.sticky.js?1615284344"></script>
-    <script src="../js/featherlight.min.js?1615284344"></script>
-    <script src="../js/highlight.pack.js?1615284344"></script>
+    <script src="../js/clipboard.min.js?1615291091"></script>
+    <script src="../js/perfect-scrollbar.min.js?1615291091"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1615291091"></script>
+    <script src="../js/jquery.sticky.js?1615291091"></script>
+    <script src="../js/featherlight.min.js?1615291091"></script>
+    <script src="../js/highlight.pack.js?1615291091"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1615284344"></script>
-    <script src="../js/learn.js?1615284344"></script>
-    <script src="../js/hugo-learn.js?1615284344"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1615291091"></script>
+    <script src="../js/learn.js?1615291091"></script>
+    <script src="../js/hugo-learn.js?1615291091"></script>
 
-    <link href="../mermaid/mermaid.css?1615284344" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1615284344"></script>
+    <link href="../mermaid/mermaid.css?1615291091" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1615291091"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
