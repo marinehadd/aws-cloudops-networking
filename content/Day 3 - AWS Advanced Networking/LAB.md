@@ -199,4 +199,4 @@ Now the architecture is set up. You can try ssh to the instances and try to ping
 - *ping* the private IP address of your instance  in the VPC 2 ( *ping X.X.X.X* )
 
 
-Well done!
+Well done! Good job!
