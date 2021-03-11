@@ -192,7 +192,7 @@ Add a Route in Public subnet of VPC 1 to connect to Private subnet in the VPC 2.
 + on the panel at the bottom, click on *Routes* then *Edit routes*
     + Click *Add route*, set the following:
         * Destination: 10.200.1.0/24
-        * Target: pcx-xxxxxxxx (select the peering coonnection you have just established)
+        * Target: pcx-xxxxxxxx (select the peering connection you have just established)
     + Save the changes
 
 Add a Route in Private subnet of VPC 1 to connect to Private subnet in the VPC 2.
@@ -201,7 +201,7 @@ Add a Route in Private subnet of VPC 1 to connect to Private subnet in the VPC 2
 + on the panel at the bottom, click on *Routes* then *Edit routes*
     + Click *Add route*, set the following:
         * Destination: 10.200.1.0/24
-        * Target: pcx-xxxxxxxx (select the peering coonnection you have just established)
+        * Target: pcx-xxxxxxxx (select the peering connection you have just established)
     + Save the changes
 
 Now you'll have to do the same for the second VPC.
@@ -210,7 +210,7 @@ Select the Route Table that is associated with the private subnet of the VPC 2.
 + on the panel at the bottom, click on *Routes* then *Edit routes*
     + Click *Add route*, set the following:
         * Destination: 10.100.0.0/16  **(We are using the whole /16 because we want to include both private and public /24 subnets)**
-        * Target: pcx-xxxxxxxx (select the peering coonnection you have just established)
+        * Target: pcx-xxxxxxxx (select the peering connection you have just established)
     + Save the changes
 
 Now the architecture is set up. You can try ssh to the instances and try to ping them.
