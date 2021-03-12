@@ -104,5 +104,8 @@ Summary: https://medium.com/awesome-cloud/aws-vpc-endpoints-overview-intro-getti
 Overview: https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-overview.html
 Demo: https://www.youtube.com/watch?v=Qaccism-WRk&ab_channel=KnowledgeIndiaAWSAzureTutorials
 
+ACG LAB: https://acloudguru.com/hands-on-labs/create-a-vpc-endpoint-and-s3-bucket-in-aws
+
+
 
 

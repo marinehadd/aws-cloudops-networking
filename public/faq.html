@@ -17,21 +17,21 @@
     <title>FAQs :: Amazon CloudOps Networking Workshop</title>
 
     
-    <link href="./css/nucleus.css?1615310360" rel="stylesheet">
-    <link href="./css/all.css?1615310360" rel="stylesheet">
-    <link href="./css/hybrid.css?1615310360" rel="stylesheet">
-    <link href="./css/featherlight.min.css?1615310360" rel="stylesheet">
-    <link href="./css/perfect-scrollbar.min.css?1615310360" rel="stylesheet">
-    <link href="./css/auto-complete.css?1615310360" rel="stylesheet">
-    <link href="./css/theme.css?1615310360" rel="stylesheet">
-    <link href="./css/hugo-theme.css?1615310360" rel="stylesheet">
-    <link href="./css/jquery-ui.min.css?1615310360" rel="stylesheet">
+    <link href="./css/nucleus.css?1615544681" rel="stylesheet">
+    <link href="./css/all.css?1615544681" rel="stylesheet">
+    <link href="./css/hybrid.css?1615544681" rel="stylesheet">
+    <link href="./css/featherlight.min.css?1615544681" rel="stylesheet">
+    <link href="./css/perfect-scrollbar.min.css?1615544681" rel="stylesheet">
+    <link href="./css/auto-complete.css?1615544681" rel="stylesheet">
+    <link href="./css/theme.css?1615544681" rel="stylesheet">
+    <link href="./css/hugo-theme.css?1615544681" rel="stylesheet">
+    <link href="./css/jquery-ui.min.css?1615544681" rel="stylesheet">
     
-      <link href="./css/theme-mine.css?1615310360" rel="stylesheet">
+      <link href="./css/theme-mine.css?1615544681" rel="stylesheet">
     
 
-    <script src="./js/jquery-3.3.1.min.js?1615310360"></script>
-    <script src="./js/jquery-ui-1.12.1.min.js?1615310360"></script>
+    <script src="./js/jquery-3.3.1.min.js?1615544681"></script>
+    <script src="./js/jquery-ui-1.12.1.min.js?1615544681"></script>
 
 
     <style type="text/css">
@@ -63,14 +63,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="./js/lunr.min.js?1615310360"></script>
-<script type="text/javascript" src="./js/auto-complete.js?1615310360"></script>
+<script type="text/javascript" src="./js/lunr.min.js?1615544681"></script>
+<script type="text/javascript" src="./js/auto-complete.js?1615544681"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="./js/search.js?1615310360"></script>
+<script type="text/javascript" src="./js/search.js?1615544681"></script>
 
     
   </div>
@@ -796,6 +796,8 @@ Example: <em>ping 10.1.1.1</em>    OR      <em>ping networking.aws-cloudops.com<
 <p>To check your network details, you can use IFCONFIG (for Linux/Mac) or IPCONFIG (for Windows) commands.</p>
 <p>The above commands will give you your private IP address (from the network you are connected to). If you want to know your public IP address (the IP that the outside world sees), you can open a tab in your browser and type <em><strong>whatsmyip</strong></em>.</p>
 <p>To have a look at what routes your laptop has in its route table, you can use NETSTAT -RN (for Linux/Mac) or ROUTES (for Windows).</p>
+<p>To check the route taken when sending traffic from an instance to another instance, you can use TRACEROUTE (for Linux/Mac) or TRACERT (for Windows):
+Example: <em>traceroute 10.1.1.1</em> OR <em>tracert 10.1.1.1</em></p>
 <p>To resolve a name to an IP, or an IP to a name (that&rsquo;s when we talk about DNS), you can use the DIG (for Linux/Mac) or NSLOOKUP (for Windows) commands.
 Example: <em>dig networking.aws-cloudops.com</em>      OR      <em>nslookup networking.aws-cloudops.com</em></p>
 <p><strong>What makes an instance public?</strong></p>
@@ -804,8 +806,16 @@ Example: <em>dig networking.aws-cloudops.com</em>      OR      <em>nslookup netw
 <li>a public IP address</li>
 <li>a route table with a default route to an Internet Gateway</li>
 </ul>
+<p><strong>How can a private instance use to download resources (software, patches, updates..) from the Internet?</strong></p>
+<p>A private instance can use a NAT Gateway to access resources to the Internet while remaining private (not accessible from the Internet).</p>
 <p><strong>Can a subnet span across 2 availability zones?</strong></p>
 <p>No, a subnet can only exist within a single availability zone.</p>
+<p><strong>How can I access AWS services if I have no Internet access?</strong></p>
+<p>To access AWS services (i.e. S3) privately, you can use a VPC endpoint in your VPC. The VPC endpoint configuration will depend on the type of endpoint : Interface or Gateway.</p>
+<p><strong>What is Route53?</strong></p>
+<p>Route53 is the DNS service of AWS. One way to remember it is to remember that DNS runs on port 53, which is inlcuded in the name.</p>
+<p><strong>What AWS services can I use to create a hybrid environment between my datacentre and AWS?</strong></p>
+<p>You can use AWS VPN and AWS DirectConnect to create a connection between the 2 sites, depending on your requirements.</p>
 
 
 
@@ -1267,19 +1277,19 @@ Example: <em>dig networking.aws-cloudops.com</em>      OR      <em>nslookup netw
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="./js/clipboard.min.js?1615310360"></script>
-    <script src="./js/perfect-scrollbar.min.js?1615310360"></script>
-    <script src="./js/perfect-scrollbar.jquery.min.js?1615310360"></script>
-    <script src="./js/jquery.sticky.js?1615310360"></script>
-    <script src="./js/featherlight.min.js?1615310360"></script>
-    <script src="./js/highlight.pack.js?1615310360"></script>
+    <script src="./js/clipboard.min.js?1615544681"></script>
+    <script src="./js/perfect-scrollbar.min.js?1615544681"></script>
+    <script src="./js/perfect-scrollbar.jquery.min.js?1615544681"></script>
+    <script src="./js/jquery.sticky.js?1615544681"></script>
+    <script src="./js/featherlight.min.js?1615544681"></script>
+    <script src="./js/highlight.pack.js?1615544681"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="./js/modernizr.custom-3.6.0.js?1615310360"></script>
-    <script src="./js/learn.js?1615310360"></script>
-    <script src="./js/hugo-learn.js?1615310360"></script>
+    <script src="./js/modernizr.custom-3.6.0.js?1615544681"></script>
+    <script src="./js/learn.js?1615544681"></script>
+    <script src="./js/hugo-learn.js?1615544681"></script>
 
-    <link href="./mermaid/mermaid.css?1615310360" rel="stylesheet" />
-    <script src="./mermaid/mermaid.js?1615310360"></script>
+    <link href="./mermaid/mermaid.css?1615544681" rel="stylesheet" />
+    <script src="./mermaid/mermaid.js?1615544681"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -124,6 +124,9 @@ The above commands will give you your private IP address (from the network you a
 
 To have a look at what routes your laptop has in its route table, you can use NETSTAT -RN (for Linux/Mac) or ROUTES (for Windows).
 
+To check the route taken when sending traffic from an instance to another instance, you can use TRACEROUTE (for Linux/Mac) or TRACERT (for Windows):
+Example: *traceroute 10.1.1.1* OR *tracert 10.1.1.1*
+
 To resolve a name to an IP, or an IP to a name (that's when we talk about DNS), you can use the DIG (for Linux/Mac) or NSLOOKUP (for Windows) commands.
 Example: *dig networking.aws-cloudops.com*      OR      *nslookup networking.aws-cloudops.com*
 
@@ -134,9 +137,23 @@ For an instance to be public, it must have:
 * a public IP address
 * a route table with a default route to an Internet Gateway
 
+**How can a private instance use to download resources (software, patches, updates..) from the Internet?**
+
+A private instance can use a NAT Gateway to access resources to the Internet while remaining private (not accessible from the Internet).
+
 **Can a subnet span across 2 availability zones?**
 
 No, a subnet can only exist within a single availability zone.
 
 
+**How can I access AWS services if I have no Internet access?**
 
+To access AWS services (i.e. S3) privately, you can use a VPC endpoint in your VPC. The VPC endpoint configuration will depend on the type of endpoint : Interface or Gateway.
+
+**What is Route53?**
+
+Route53 is the DNS service of AWS. One way to remember it is to remember that DNS runs on port 53, which is inlcuded in the name.
+
+**What AWS services can I use to create a hybrid environment between my datacentre and AWS?**
+
+You can use AWS VPN and AWS DirectConnect to create a connection between the 2 sites, depending on your requirements.
