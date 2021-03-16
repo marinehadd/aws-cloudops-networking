@@ -9,13 +9,13 @@ pre:
 A network (or LAN) is defined by a a block of IP addresses called a CIDR block, from which every host in the network receives an IP address.
 
 A CIDR indicates the size of a network, and networks are calculated with subnetting. 
-Subnetting allows the segmentation of a bigger network in smaller networks. For example, a company could have different departments (HR, Finances, etc) and therefore wish to seggregate their corporate network based on these departments. So, each department will be allocated a portion of the big network (CIDR).
+Subnetting allows the segmentation of a bigger network in smaller networks. For example, a company could have different departments (HR, Finances, etc) and therefore wish to segregate their corporate network based on these departments. So, each department will be allocated a portion of the big network (CIDR).
 
 <img src='/images/segmentation.png' width='400px'>
 
 <h3> Anatomy of a an IP address: </h3>
 
-An IP address is made of 4 octets, 1 octet equals to 8 bits. So the maximum lenght of an IP address is 32 bits.
+An IP address is made of 4 octets, 1 octet equals to 8 bits. So the maximum length of an IP address is 32 bits.
 
 IP addresses are translated from binaries, so each number represents an octet and an octet ranges from 0 to 255.
 
@@ -48,7 +48,7 @@ An IP address is segmented in 2 parts :
 - The Host section (always on the right).
 
 The Host portion defines the number of IPs available in a network.
-The Network portion remains the same for all the hosts in a same network, ad is called the Network ID.
+The Network portion remains the same for all the hosts in a same network and is called the Network ID.
 A subnet mask represents the number of bits (out of 32) used in the network portion.
 
 ***Example:***
