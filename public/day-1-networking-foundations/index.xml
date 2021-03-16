@@ -37,7 +37,7 @@ Let&amp;rsquo;s pick some real life examples:
       
       <guid>/day-1-networking-foundations/subnetting.html</guid>
       <description>A network (or LAN) is defined by a a block of IP addresses called a CIDR block, from which every host in the network receives an IP address.
-A CIDR indicates the size of a network, and networks are calculated with subnetting. Subnetting allows the segmentation of a bigger network in smaller networks. For example, a company could have different departments (HR, Finances, etc) and therefore wish to seggregate their corporate network based on these departments.</description>
+A CIDR indicates the size of a network, and networks are calculated with subnetting. Subnetting allows the segmentation of a bigger network in smaller networks. For example, a company could have different departments (HR, Finances, etc) and therefore wish to segregate their corporate network based on these departments.</description>
     </item>
     
     <item>
