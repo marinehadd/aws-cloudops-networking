@@ -11,7 +11,7 @@ Networking is based on the OSI model:
 
 Each layer has a meaning in networking. We will not cover the layers in depth, but you can read more about in the [Further Reading](/further_reading.html) section.
 
-Networking is based on the OSI model, it is a bit like the layers of a cake, often referred as L1, L2, L3, etc..
+Networking is based on the OSI model, it is a bit like the layers of a cake, often referred as L1, L2, L3, etc.
 
 Let's pick some real life examples:
 
